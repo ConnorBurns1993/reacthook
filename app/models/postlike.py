@@ -1,17 +1,15 @@
 from .db import db
 
-class Post(db.Model):
-    __tablename__ = 'posts'
+class PostLike(db.Model):
+    __tablename__ = 'post_likes'
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    body = db.Column(db.String(300), nullable=False)
-    image_url = db.Column(db.String(250), nullable= True)
+    post_id = db.Column(db.Integer, db.ForeignKey('posts.id'), nullable=False)
 
     #relationships
-    user = db.relationship('User', back_populates='posts')
-    comments = db.relationship('Comment', back_populates='post')
-    post_likes = db.relationship('PostLike', back_populates='post')
+    user = db.relationship('User', back_populates='post_likes')
+    post = db.relationship('Post', back_populates='post_likes')
 
     def to_dict(self):
         return {
