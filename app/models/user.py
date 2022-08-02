@@ -18,6 +18,12 @@ class User(db.Model, UserMixin):
     hometown = db.Column(db.String(100), nullable=True)
     relationship_status = db.Column(db.String(100), nullable=True)
 
+    #relationships
+    posts = db.relationship('Post', back_populates='user')
+    comments = db.relationship('Comment', back_populates='user')
+    first_friend = db.relationship('Friend', back_populates='user_a', foreign_keys='[Friend.user_a_id]')
+    second_friend = db.relationship('Friend', back_populates='user_b', foreign_keys='[Friend.user_b_id]')
+
     @property
     def password(self):
         return self.hashed_password
