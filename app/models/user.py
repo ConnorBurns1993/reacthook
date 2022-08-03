@@ -14,6 +14,8 @@ class User(db.Model, UserMixin):
     gender = db.Column(db.String(10), nullable=False)
     hashed_password = db.Column(db.String(255), nullable=False)
     bio = db.Column(db.String(300), nullable=True)
+    profile_pic = db.Column(db.String(300), nullable=True)
+    cover_pic = db.Column(db.String(300), nullable=True)
     location = db.Column(db.String(100), nullable=True)
     hometown = db.Column(db.String(100), nullable=True)
     relationship_status = db.Column(db.String(100), nullable=True)
@@ -44,5 +46,11 @@ class User(db.Model, UserMixin):
             'first_name': self.first_name,
             'last_name': self.last_name,
             'birthday': self.birthday,
-            'gender' : self.gender
+            'bio': self.bio,
+            'gender': self.gender,
+            'profile_pic': self.profile_pic,
+            'cover_pic': self.cover_pic,
+            'location': self.location,
+            'hometown': self.hometown,
+            'relationship_status': self.relationship_status
         }
