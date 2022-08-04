@@ -5,5 +5,5 @@ from app.models import Comment
 
 class CommentForm(FlaskForm):
 
-    body = StringField('body', validators=[DataRequired(), Length(max=300)])
+    body = StringField('body', validators=[DataRequired(), Length(max=250)])
     image_url = StringField('image url')
