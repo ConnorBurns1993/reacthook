@@ -28,7 +28,6 @@ function EditPostForm({ setShowModal, post }) {
     dispatch(updatePost(updatedPost))
       .then(() => setShowModal(false))
       .catch(async (res) => {
-        console.log("lalala", res);
         // const data = await res.json();
         // if (data && data.errors) setErrors(data.errors);
       });

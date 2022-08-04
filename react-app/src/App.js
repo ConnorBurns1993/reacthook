@@ -8,11 +8,21 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import Posts from "./components/Posts";
+import { getAllPosts } from "./store/posts";
+import { getPostComments } from "./store/comments";
 import { authenticate } from "./store/session";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPostComments());
+  });
+
+  useEffect(() => {
+    dispatch(getAllPosts());
+  }, [dispatch]);
 
   useEffect(() => {
     (async () => {

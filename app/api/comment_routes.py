@@ -2,35 +2,37 @@ from flask import Blueprint, jsonify, request, session
 from flask_login import login_required, current_user
 from app.models import User, Post, Comment, db
 from app.api.auth_routes import validation_errors_to_error_messages
+from app.forms import CommentForm
 
 comment_routes = Blueprint('comments', __name__)
 
-@comment_routes.route('/')
+@comment_routes.route('/<int:post_id>')
 @login_required
-def get_comments():
-    post = Post.query.get()
-    comments= Comment.query.filter()
-    return { 'comments': [comment.to_dict() for comment in all_comment] }
+def get_comments(post_id):
+    all_comments = Comment.query.filter(Comment.post_id == post_id).all()
+    return { 'comments': [comment.to_dict() for comment in all_comments] }
 
-# @post_routes.route('/', methods=['POST'])
-# @login_required
-# def create_posts():
-#     form = PostForm()
-#     form['csrf_token'].data = request.cookies['csrf_token']
-#     if form.validate_on_submit():
+@comment_routes.route('/', methods=['GET','POST'])
+@login_required
+def create_comments():
+    form = CommentForm()
+    print('\n \n \n', form.data, '\n \n \n')
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
 
-#         new_post = Post(
-#             user_id=current_user.id,
-#             body=form.data['body'],
-#             image_url=form.data['image_url']
-#         )
+        new_comment = Comment(
+            user_id=current_user.id,
+            post_id=form.data['post_id'],
+            body=form.data['body'],
+            image_url=form.data['image_url']
+        )
 
-#         db.session.add(new_post)
-#         db.session.commit()
+        db.session.add(new_comment)
+        db.session.commit()
 
-#         return new_post.to_dict()
+        return new_comment.to_dict()
 
-#     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 # @post_routes.route('/<int:id>', methods=['PUT'])
 # @login_required
