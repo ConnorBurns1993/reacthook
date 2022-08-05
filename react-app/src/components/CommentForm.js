@@ -15,7 +15,6 @@ function CommentForm({ post }) {
     e.preventDefault();
     const file = URL.createObjectURL(e.target.files[0]);
     setImage(file);
-    console.log(image);
   };
 
   const handleSubmit = async (e) => {
