@@ -23,14 +23,16 @@ const Posts = () => {
             .reverse()
             .map((post) => (
               <li className="post-container" key={post.id}>
-                <p>{post.body}</p>
-                <img src={post.image_url}></img>
-                {sessionUser && (
-                  <div>
-                    <EditPostFormModal post={post} />
-                    <DeletePostModal post={post} />
-                  </div>
-                )}
+                <div className="post-content">
+                  <p>{post.body}</p>
+                  <img src={post.image_url}></img>
+                  {sessionUser.id === post.user_id && (
+                    <div>
+                      <EditPostFormModal post={post} />
+                      <DeletePostModal post={post} />
+                    </div>
+                  )}
+                </div>
                 <CommentForm post={post} />
                 <Comments post={post} />
               </li>

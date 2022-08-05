@@ -25,22 +25,6 @@ const deleteComment = (commentId) => ({
   payload: commentId,
 });
 
-export const getPostComments = (post_id) => async (dispatch) => {
-  const response = await fetch(`/api/comments/${post_id}`);
-  if (response.ok) {
-    const data = await response.json();
-    dispatch(getComments(data.comments));
-    return data.comments;
-  } else if (response.status < 500) {
-    const data = await response.json();
-    if (data.errors) {
-      return data.errors;
-    }
-  } else {
-    return ["An error occured. Please try again."];
-  }
-};
-
 export const addComment = (comment) => async (dispatch) => {
   const response = await fetch("/api/comments/", {
     method: "POST",
@@ -94,6 +78,22 @@ export const destroyComment = (commentId) => async (dispatch) => {
     if (data.errors) {
       return data.errors;
     }
+  }
+};
+
+export const getPostComments = (post_id) => async (dispatch) => {
+  const response = await fetch(`/api/comments/${post_id}`);
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(getComments(data.comments));
+    return data.comments;
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ["An error occured. Please try again."];
   }
 };
 

@@ -23,10 +23,12 @@ function CommentForm({ post }) {
       imageUrl,
     };
 
-    dispatch(addComment(newComment)).catch(async (res) => {
-      const data = await res.json();
-      if (data && data.errors) setErrors(data.errors);
-    });
+    dispatch(addComment(newComment))
+      .then(() => setBody(""))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      });
   };
 
   return (
@@ -38,8 +40,6 @@ function CommentForm({ post }) {
             value={body}
             onChange={(e) => setBody(e.target.value)}
           ></input>
-          <button type="button">Adding Image AWS will go here</button>
-          <button onClick={(e) => handleSubmit(e)}>Submit</button>
         </form>
       )}
     </div>

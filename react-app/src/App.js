@@ -17,10 +17,6 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getPostComments());
-  });
-
-  useEffect(() => {
     dispatch(getAllPosts());
   }, [dispatch]);
 

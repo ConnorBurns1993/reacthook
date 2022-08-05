@@ -9,10 +9,10 @@ comment_routes = Blueprint('comments', __name__)
 @comment_routes.route('/<int:post_id>')
 @login_required
 def get_comments(post_id):
-    all_comments = Comment.query.filter(Comment.post_id == post_id).all()
+    all_comments = Comment.query.all()
     return { 'comments': [comment.to_dict() for comment in all_comments] }
 
-@comment_routes.route('/', methods=['GET','POST'])
+@comment_routes.route('/', methods=['POST'])
 @login_required
 def create_comments():
     form = CommentForm()
@@ -34,28 +34,28 @@ def create_comments():
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-# @post_routes.route('/<int:id>', methods=['PUT'])
-# @login_required
-# def edit_post(id):
-#     form = PostForm()
-#     form['csrf_token'].data = request.cookies['csrf_token']
-#     if form.validate_on_submit():
-#         to_edit = Post.query.get(id)
-#         to_edit.body = form.data['body']
-#         to_edit.image_url = form.data['image_url']
+@comment_routes.route('/<int:id>', methods=['PUT'])
+@login_required
+def edit_post(id):
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        to_edit = Comment.query.get(id)
+        to_edit.body = form.data['body']
+        to_edit.image_url = form.data['image_url']
 
-#         db.session.commit()
+        db.session.commit()
 
-#         return to_edit.to_dict()
+        return to_edit.to_dict()
 
-#     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-# @post_routes.route('/<int:id>', methods=['DELETE'])
-# @login_required
-# def delete_post(id):
-#     post = Post.query.get(id)
+@comment_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def comment_post(id):
+    comment = Comment.query.get(id)
 
-#     db.session.delete(post)
-#     db.session.commit()
+    db.session.delete(comment)
+    db.session.commit()
 
-#     return { "message": "Success!"}
+    return { "message": "Success!"}

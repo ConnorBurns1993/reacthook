@@ -5,3 +5,8 @@
     margin: 3%;
     padding: 3%;
 }
+
+.post-content {
+    border: 1px solid black;
+    margin-bottom: 3%;
+}
