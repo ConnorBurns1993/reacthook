@@ -10,24 +10,39 @@ function PostForm({ setShowModal }) {
   const sessionUser = useSelector((state) => state.session.user);
 
   const [body, setBody] = useState("");
+  const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState("");
   const [errors, setErrors] = useState([]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const newPost = {
-      userId: sessionUser.id,
-      body,
-      imageUrl,
-    };
+    const form = new FormData();
+    form.append("image", image);
 
-    dispatch(addPost(newPost))
-      .then(() => setShowModal(false))
-      .catch(async (res) => {
-        const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
-      });
+    const res = await fetch("/api/posts/post-image", {
+      method: "POST",
+      body: form,
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+
+      const newPost = {
+        user_id: sessionUser.id,
+        body,
+        image_url: data.image,
+      };
+
+      const response = await dispatch(addPost(newPost));
+
+      if (response === "Success") {
+        setShowModal(false);
+      }
+      // .catch(async (res) => {
+      //   const data = await res.json();
+      //   if (data && data.errors) setErrors(data.errors);
+    }
   };
 
   const handleCancel = (e) => {
@@ -45,7 +60,12 @@ function PostForm({ setShowModal }) {
             value={body}
             onChange={(e) => setBody(e.target.value)}
           ></input>
-          <button type="button">Adding Image AWS will go here</button>
+
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => setImage(e.target.files[0])}
+          />
           <button onClick={(e) => handleSubmit(e)}>Submit</button>
         </form>
       )}

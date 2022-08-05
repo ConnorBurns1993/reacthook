@@ -24,6 +24,9 @@ const Posts = () => {
             .map((post) => (
               <li className="post-container" key={post.id}>
                 <div className="post-content">
+                  <h3>
+                    {post.user.first_name} {post.user.last_name}
+                  </h3>
                   <p>{post.body}</p>
                   <img src={post.image_url}></img>
                   {sessionUser.id === post.user_id && (

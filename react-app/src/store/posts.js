@@ -50,7 +50,7 @@ export const addPost = (post) => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     dispatch(createPost(data));
-    return data.body;
+    return "Success";
   } else {
     const data = response.json();
     if (data.errors) {

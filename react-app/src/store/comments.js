@@ -34,7 +34,7 @@ export const addComment = (comment) => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     dispatch(createComment(data));
-    return data.body;
+    return "Success";
   } else {
     const data = response.json();
     if (data.errors) {
