@@ -6,15 +6,12 @@ import PostFormModal from "./PostFormModal/PostFormModal";
 import EditPostFormModal from "./EditPostFormModal/EditPostFormModal";
 import "./Posts.css";
 import DeletePostModal from "./DeletePostModal/DeletePostModal";
+import Comments from "./Comments";
+import CommentForm from "./CommentForm";
 
 const Posts = () => {
-  const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
   const sessionUser = useSelector((state) => state.session.user);
-
-  useEffect(() => {
-    dispatch(getAllPosts());
-  }, [dispatch]);
 
   return (
     <>
@@ -26,14 +23,18 @@ const Posts = () => {
             .reverse()
             .map((post) => (
               <li className="post-container" key={post.id}>
-                <p>{post.body}</p>
-                <img src={post.image_url}></img>
-                {sessionUser && (
-                  <div>
-                    <EditPostFormModal post={post} />
-                    <DeletePostModal post={post} />
-                  </div>
-                )}
+                <div className="post-content">
+                  <p>{post.body}</p>
+                  <img src={post.image_url}></img>
+                  {sessionUser.id === post.user_id && (
+                    <div>
+                      <EditPostFormModal post={post} />
+                      <DeletePostModal post={post} />
+                    </div>
+                  )}
+                </div>
+                <CommentForm post={post} />
+                <Comments post={post} />
               </li>
             ))}
         </div>
