@@ -9,12 +9,13 @@ function CommentForm({ post }) {
 
   const [body, setBody] = useState("");
   const [image, setImage] = useState("");
+  const [view, setView] = useState("");
   const [errors, setErrors] = useState([]);
 
   const onSelectFile = (e) => {
-    e.preventDefault();
     const file = URL.createObjectURL(e.target.files[0]);
-    setImage(file);
+    setView(file);
+    setImage(e.target.files[0]);
   };
 
   const handleSubmit = async (e) => {
@@ -41,6 +42,7 @@ function CommentForm({ post }) {
       await dispatch(addComment(newComment)).then(() => {
         setBody("");
         setImage("");
+        setView("");
       });
     }
   };
@@ -56,11 +58,19 @@ function CommentForm({ post }) {
           ></input>
           <input type="file" accept="image/*" onChange={onSelectFile} />
           <div>
-            {image && (
-              <div>
-                <img src={image} height="250" width="250" alt="upload" />
-                <button onClick={(e) => setImage(e !== image)}>Delete</button>
-              </div>
+            {view && (
+              <>
+                <img src={view} height="250" width="250" />
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    setView("");
+                    setImage("");
+                  }}
+                >
+                  Delete
+                </button>
+              </>
             )}
           </div>
         </form>

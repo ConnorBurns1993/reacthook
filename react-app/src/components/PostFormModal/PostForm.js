@@ -5,14 +5,19 @@ import { useHistory } from "react-router-dom";
 
 function PostForm({ setShowModal }) {
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const sessionUser = useSelector((state) => state.session.user);
 
   const [body, setBody] = useState("");
-  const [image, setImage] = useState(null);
-  const [imageUrl, setImageUrl] = useState("");
+  const [image, setImage] = useState("");
+  const [view, setView] = useState("");
   const [errors, setErrors] = useState([]);
+
+  const onSelectFile = (e) => {
+    const file = URL.createObjectURL(e.target.files[0]);
+    setView(file);
+    setImage(e.target.files[0]);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,11 +39,9 @@ function PostForm({ setShowModal }) {
         image_url: data.image,
       };
 
-      const response = await dispatch(addPost(newPost));
-
-      if (response === "Success") {
-        setShowModal(false);
-      }
+      await dispatch(addPost(newPost)).then(() => {
+        setView("");
+      });
       // .catch(async (res) => {
       //   const data = await res.json();
       //   if (data && data.errors) setErrors(data.errors);
@@ -61,11 +64,23 @@ function PostForm({ setShowModal }) {
             onChange={(e) => setBody(e.target.value)}
           ></input>
 
-          <input
-            type="file"
-            accept="image/*"
-            onChange={(e) => setImage(e.target.files[0])}
-          />
+          <input type="file" accept="image/*" onChange={onSelectFile} />
+          <div>
+            {view && (
+              <>
+                <img src={view} height="250" width="250" />
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    setView("");
+                    setImage("");
+                  }}
+                >
+                  Delete
+                </button>
+              </>
+            )}
+          </div>
           <button onClick={(e) => handleSubmit(e)}>Submit</button>
         </form>
       )}
