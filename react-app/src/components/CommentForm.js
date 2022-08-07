@@ -9,6 +9,7 @@ function CommentForm({ post }) {
 
   const [body, setBody] = useState("");
   const [image, setImage] = useState("");
+  const [imageLoading, setImageLoading] = useState(false);
   const [view, setView] = useState("");
   const [errors, setErrors] = useState([]);
 
@@ -23,6 +24,7 @@ function CommentForm({ post }) {
 
     const form = new FormData();
     form.append("image", image);
+    setImageLoading(true);
 
     const res = await fetch("/api/posts/post-image", {
       method: "POST",
@@ -31,6 +33,7 @@ function CommentForm({ post }) {
 
     if (res.ok) {
       const data = await res.json();
+      setImageLoading(false);
 
       const newComment = {
         user_id: sessionUser.id,
@@ -70,6 +73,15 @@ function CommentForm({ post }) {
                 >
                   Delete
                 </button>
+                {imageLoading && (
+                  <div>
+                    <img
+                      className="image-loading"
+                      src="https://flevix.com/wp-content/uploads/2019/07/Untitled-2.gif"
+                    ></img>
+                    <p>Posting</p>
+                  </div>
+                )}
               </>
             )}
           </div>

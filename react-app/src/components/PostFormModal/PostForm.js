@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost } from "../../store/posts";
-import { useHistory } from "react-router-dom";
+import "../Posts.css";
 
 function PostForm({ setShowModal }) {
   const dispatch = useDispatch();
@@ -10,6 +10,7 @@ function PostForm({ setShowModal }) {
 
   const [body, setBody] = useState("");
   const [image, setImage] = useState("");
+  const [imageLoading, setImageLoading] = useState(false);
   const [view, setView] = useState("");
   const [errors, setErrors] = useState([]);
 
@@ -25,6 +26,8 @@ function PostForm({ setShowModal }) {
     const form = new FormData();
     form.append("image", image);
 
+    setImageLoading(true);
+
     const res = await fetch("/api/posts/post-image", {
       method: "POST",
       body: form,
@@ -32,6 +35,8 @@ function PostForm({ setShowModal }) {
 
     if (res.ok) {
       const data = await res.json();
+      setImageLoading(false);
+      setShowModal(false);
 
       const newPost = {
         user_id: sessionUser.id,
@@ -82,6 +87,15 @@ function PostForm({ setShowModal }) {
             )}
           </div>
           <button onClick={(e) => handleSubmit(e)}>Submit</button>
+          {imageLoading && (
+            <div>
+              <img
+                className="image-loading"
+                src="https://flevix.com/wp-content/uploads/2019/07/Untitled-2.gif"
+              ></img>
+              <p>Posting</p>
+            </div>
+          )}
         </form>
       )}
     </div>
