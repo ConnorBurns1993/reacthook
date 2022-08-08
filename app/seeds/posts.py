@@ -6,7 +6,7 @@ def seed_posts():
     josh_post = Post(
         user_id=2, body='Hey friends, I just got a job as a software developer. Stoked!')
     ashley_post = Post(
-        user_id=3, body="When you've been coding for 8 hours straight...", image_url='https://giphy.com/gifs/mondays-eBCnpuRGBhQGY')
+        user_id=3, body="When you've been coding for 8 hours straight...", image_url='https://mir-s3-cdn-cf.behance.net/project_modules/disp/3e32de27214431.563617528d968.gif')
 
     db.session.add(demo_post)
     db.session.add(josh_post)

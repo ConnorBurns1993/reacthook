@@ -1,0 +1,95 @@
+.logo-navbar {
+    width: 40px;
+}
+
+.navigation{
+display: inline-flex;
+margin-top: .4%;
+}
+
+nav {
+    border-bottom: solid 1px rgb(226, 226, 226);
+    height: 55px;
+    width: 100%;
+    background-color: white;
+    position: fixed;
+    box-shadow: .5px .5px 7px rgb(214, 214, 214);
+    z-index: 2;
+}
+
+.home-logo {
+    width: 26px;
+    position: relative;
+    padding: 40%;
+    padding-left: 200%;
+    padding-right: 200%;
+}
+
+.nav-buttons-container {
+    display: inline-flex;
+    position: relative;
+    left: 280%;
+    margin-top: -1%;
+}
+
+.home-logo-container{
+    position: relative;
+    right: 20%;
+}
+
+.fa-brands{
+    color: rgb(150, 150, 150);
+    font-size: 29px;
+    padding: 35%;
+    padding-left: 200%;
+    padding-right: 200%;
+}
+
+.fa-brands.fa-github
+{
+    color:rgb(150, 150, 150);
+    font-size: 29px;
+    padding: 30%;
+    padding-left: 200%;
+    padding-right: 200%;
+}
+
+.fa-house {
+    font-size: 23px;
+    margin-top: 10%;
+}
+
+.fa-brands.fa-people-arrows{
+    color: rgb(150, 150, 150);
+    font-size: 27px;
+    padding: 30%;
+    padding-left: 170%;
+    padding-right: 170%;
+}
+
+.fa-brands:hover,
+.home-logo:hover {
+    background-color: rgb(240,240,240);
+    border-radius: 10px;
+}
+
+.nav-li {
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+.profile-picture-nav{
+    width: 43px;
+    height: 43px;
+    object-fit: cover;
+    border-radius: 50px;
+}
+
+.profile-picture-nav:hover{
+    background-color: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5))
+}
+
+.nav-img {
+    position: relative;
+    left: 450%;
+}

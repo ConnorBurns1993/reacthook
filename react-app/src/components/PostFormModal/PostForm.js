@@ -1,33 +1,56 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost } from "../../store/posts";
-import { useHistory } from "react-router-dom";
+import "../Posts.css";
 
 function PostForm({ setShowModal }) {
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const sessionUser = useSelector((state) => state.session.user);
 
   const [body, setBody] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [image, setImage] = useState("");
+  const [imageLoading, setImageLoading] = useState(false);
+  const [view, setView] = useState("");
   const [errors, setErrors] = useState([]);
 
-  const handleSubmit = (e) => {
+  const onSelectFile = (e) => {
+    const file = URL.createObjectURL(e.target.files[0]);
+    setView(file);
+    setImage(e.target.files[0]);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const newPost = {
-      userId: sessionUser.id,
-      body,
-      imageUrl,
-    };
+    const form = new FormData();
+    form.append("image", image);
 
-    dispatch(addPost(newPost))
-      .then(() => setShowModal(false))
-      .catch(async (res) => {
-        const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
+    setImageLoading(true);
+
+    const res = await fetch("/api/posts/post-image", {
+      method: "POST",
+      body: form,
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      setImageLoading(false);
+      setShowModal(false);
+
+      const newPost = {
+        user_id: sessionUser.id,
+        body,
+        image_url: data.image,
+      };
+
+      await dispatch(addPost(newPost)).then(() => {
+        setView("");
       });
+      // .catch(async (res) => {
+      //   const data = await res.json();
+      //   if (data && data.errors) setErrors(data.errors);
+    }
   };
 
   const handleCancel = (e) => {
@@ -45,8 +68,34 @@ function PostForm({ setShowModal }) {
             value={body}
             onChange={(e) => setBody(e.target.value)}
           ></input>
-          <button type="button">Adding Image AWS will go here</button>
+
+          <input type="file" accept="image/*" onChange={onSelectFile} />
+          <div>
+            {view && (
+              <>
+                <img src={view} height="250" width="250" />
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    setView("");
+                    setImage("");
+                  }}
+                >
+                  Delete
+                </button>
+              </>
+            )}
+          </div>
           <button onClick={(e) => handleSubmit(e)}>Submit</button>
+          {imageLoading && (
+            <div>
+              <img
+                className="image-loading"
+                src="https://flevix.com/wp-content/uploads/2019/07/Untitled-2.gif"
+              ></img>
+              <p>Posting</p>
+            </div>
+          )}
         </form>
       )}
     </div>

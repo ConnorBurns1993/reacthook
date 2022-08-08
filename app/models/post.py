@@ -20,4 +20,5 @@ class Post(db.Model):
             'user_id': self.user_id,
             'body': self.body,
             'image_url': self.image_url,
+            'user': self.user.to_dict()
         }

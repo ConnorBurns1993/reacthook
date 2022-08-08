@@ -26,11 +26,14 @@ const SingleComment = ({ comment, post, sessionUser }) => {
     <>
       {comment.post_id === post.id && (
         <li className="all-comments" key={comment.id}>
+          <img src={user.profile_pic} className="profile-picture-nav" />
           <h3>
             {user.first_name} {user.last_name}
           </h3>
           <p>{comment.body}</p>
-          <img src={comment.image_url}></img>
+          {comment.image_url && (
+            <img className="comment-image" src={comment.image_url}></img>
+          )}
           {sessionUser.id === comment.user_id && (
             <div>
               <button onClick={(e) => setEditForm(true)}>Edit</button>
