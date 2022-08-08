@@ -86,10 +86,90 @@ nav {
 }
 
 .profile-picture-nav:hover{
-    background-color: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5))
+    filter:brightness(90%)
 }
 
 .nav-img {
     position: relative;
     left: 450%;
+}
+
+.user-options-container{
+    position: absolute;
+    background-color: white;
+    width: 350px;
+    height: 200px;
+    right: 10%;
+    top: 98%;
+    border: 1px solid rgb(214, 214, 214);
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 10px;
+}
+
+.user-options-inner{
+
+    background-color: white;
+    width: 290px;
+    height: 60px;
+    position: relative;
+    left: 3%;
+    top: 10px;
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 10px;
+    box-shadow: 0px 1px 15px rgb(214, 214, 214);
+    display: inline-flex;
+    padding: 5%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.profile-name-options {
+    margin-left: 5%;
+    margin-top: 3%;
+}
+
+.p{
+    position: absolute;
+    top: 65%;
+    left: 8%;
+    color: rgb(199, 199, 199);
+}
+
+.logout {
+    position: relative;
+    top: 40px;
+    display: inline-flex;
+    left: 5%;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100px;
+    font-weight: bold;
+}
+
+.logout-icon{
+    width: 22px;
+}
+
+.logout-icon-wrapper{
+    width: 20px;
+    height: 20px;
+    background-color: #f0f2f5;
+    border-radius: 50px;
+    padding: 3%;
+    position: relative;
+    top: 35px;
+    left: 4%;
+    cursor:pointer;
+}
+
+.logout-text{
+    margin-top: 5%;
+    margin-left: 5%;
+    color: #4b4b4b;
+    position: relative;
+    display: inline-flex;
+    left: 14%;
+    bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100px;
+    font-weight: bold;
+    cursor:pointer;
 }

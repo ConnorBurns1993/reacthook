@@ -15,22 +15,24 @@ const Posts = () => {
 
   return (
     <>
-      <PostFormModal />
+      <div className="post-form-container">
+        <PostFormModal sessionUser={sessionUser} />
+      </div>
       {posts && (
-        <div>
+        <div className="all-posts-container">
           {Object.values(posts)
             .sort()
             .reverse()
             .map((post) => (
               <li className="post-container" key={post.id}>
                 <img
-                  src={post.user.profile_pic}
-                  className="profile-picture-nav"
+                  src={post.user?.profile_pic}
+                  className="profile-picture-nav post-profile"
                 />
-                <h3>
-                  {post.user.first_name} {post.user.last_name}
-                </h3>
-                <p>{post.body}</p>
+                <p className="posts-names">
+                  {post.user?.first_name} {post.user?.last_name}
+                </p>
+                <p className="post-body">{post.body}</p>
                 <img className="post-image" src={post.image_url}></img>
                 {sessionUser.id === post.user_id && (
                   <div>
