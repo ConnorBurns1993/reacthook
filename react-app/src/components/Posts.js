@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getAllPosts } from "../store/posts";
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import PostFormModal from "./PostFormModal/PostFormModal";
-import EditPostFormModal from "./EditPostFormModal/EditPostFormModal";
 import "./Posts.css";
-import DeletePostModal from "./DeletePostModal/DeletePostModal";
-import Comments from "./Comments";
-import CommentForm from "./CommentForm";
+import SinglePost from "./SinglePost";
 
 const Posts = () => {
   const posts = useSelector((state) => state.posts);
   const sessionUser = useSelector((state) => state.session.user);
+
+  const [options, setOptions] = useState(false);
+
+  const handleOptions = (e) => {
+    setOptions((current) => !current);
+  };
 
   return (
     <>
@@ -24,26 +25,13 @@ const Posts = () => {
             .sort()
             .reverse()
             .map((post) => (
-              <li className="post-container" key={post.id}>
-                <img
-                  src={post.user?.profile_pic}
-                  className="profile-picture-nav post-profile"
-                />
-                <p className="posts-names">
-                  {post.user?.first_name} {post.user?.last_name}
-                </p>
-                <p className="post-body">{post.body}</p>
-                <img className="post-image" src={post.image_url}></img>
-                {sessionUser.id === post.user_id && (
-                  <div>
-                    <EditPostFormModal post={post} />
-                    <DeletePostModal post={post} />
-                  </div>
-                )}
-
-                <CommentForm post={post} />
-                <Comments post={post} />
-              </li>
+              <SinglePost
+                post={post}
+                options={options}
+                sessionUser={sessionUser}
+                handleOptions={handleOptions}
+                posts={posts}
+              />
             ))}
         </div>
       )}

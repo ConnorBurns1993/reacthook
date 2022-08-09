@@ -20,5 +20,6 @@ class Post(db.Model):
             'user_id': self.user_id,
             'body': self.body,
             'image_url': self.image_url,
-            'user': self.user.to_dict()
+            'user': self.user.to_dict(),
+            'comments': [comment.to_dict() for comment in self.comments]
         }

@@ -53,39 +53,56 @@ function CommentForm({ post }) {
   return (
     <div>
       {sessionUser && (
-        <form onSubmit={(e) => handleSubmit(e)}>
-          <input
-            placeholder="Write a comment..."
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
-          ></input>
-          <input type="file" accept="image/*" onChange={onSelectFile} />
-          <div>
-            {view && (
-              <>
-                <img src={view} height="250" width="250" />
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    setView("");
-                    setImage("");
-                  }}
-                >
-                  Delete
-                </button>
-                {imageLoading && (
-                  <div>
-                    <img
-                      className="image-loading"
-                      src="https://flevix.com/wp-content/uploads/2019/07/Untitled-2.gif"
-                    ></img>
-                    <p>Posting</p>
-                  </div>
+        <>
+          <div className="write-comment-container">
+            <img
+              className="profile-picture-comments"
+              src={sessionUser.profile_pic}
+            />
+            <form onSubmit={(e) => handleSubmit(e)}>
+              <input
+                className="comment-form"
+                placeholder="Write a comment..."
+                value={body}
+                onChange={(e) => setBody(e.target.value)}
+              ></input>
+              <label for="comment-upload-photo">
+                <i className="fa-solid fa-camera"></i>
+              </label>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={onSelectFile}
+                id="comment-upload-photo"
+              />
+              <div>
+                {view && (
+                  <>
+                    <img src={view} height="250" width="250" />
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        setView("");
+                        setImage("");
+                      }}
+                    >
+                      Delete
+                    </button>
+                    {imageLoading && (
+                      <div>
+                        <img
+                          className="image-loading"
+                          src="https://flevix.com/wp-content/uploads/2019/07/Untitled-2.gif"
+                        ></img>
+                        <p>Posting</p>
+                      </div>
+                    )}
+                  </>
                 )}
-              </>
-            )}
+              </div>
+            </form>
           </div>
-        </form>
+        </>
       )}
     </div>
   );

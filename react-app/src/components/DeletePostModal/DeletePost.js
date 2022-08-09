@@ -2,12 +2,14 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { destroyPost } from "../../store/posts";
 
-const DeletePost = ({ post, setShowModal }) => {
+const DeletePost = ({ post, setShowModal, handleOptions }) => {
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(destroyPost(post?.id)).then(() => setShowModal(false));
+    dispatch(destroyPost(post?.id))
+      .then(() => setShowModal(false))
+      .then(() => handleOptions());
   };
 
   return (

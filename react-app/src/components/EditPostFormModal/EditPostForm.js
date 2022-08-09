@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updatePost } from "../../store/posts";
 
-function EditPostForm({ setShowModal, post }) {
+function EditPostForm({ setShowModal, post, handleOptions }) {
   const dispatch = useDispatch();
   const [body, setBody] = useState(post?.body);
   const [imageUrl, setImageUrl] = useState(post?.image_url);
@@ -27,6 +27,7 @@ function EditPostForm({ setShowModal, post }) {
 
     dispatch(updatePost(updatedPost))
       .then(() => setShowModal(false))
+      .then(() => handleOptions())
       .catch(async (res) => {
         // const data = await res.json();
         // if (data && data.errors) setErrors(data.errors);

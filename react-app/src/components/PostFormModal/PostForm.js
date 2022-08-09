@@ -15,7 +15,7 @@ function PostForm({ setShowModal }) {
   const [errors, setErrors] = useState([]);
 
   const onSelectFile = (e) => {
-    const file = URL.createObjectURL(e.target.files[0]);
+    const file = URL?.createObjectURL(e.target.files[0]);
     setView(file);
     setImage(e.target.files[0]);
   };
