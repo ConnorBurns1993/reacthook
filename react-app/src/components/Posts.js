@@ -27,6 +27,7 @@ const Posts = () => {
             .map((post) => (
               <SinglePost
                 post={post}
+                key={post.id}
                 options={options}
                 sessionUser={sessionUser}
                 handleOptions={handleOptions}

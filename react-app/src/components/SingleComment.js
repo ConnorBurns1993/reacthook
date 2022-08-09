@@ -6,7 +6,13 @@ import "./Comments.css";
 
 const SingleComment = ({ comment, post, sessionUser }) => {
   const [editForm, setEditForm] = useState(false);
+  const [commentOptions, setCommentOptions] = useState("");
   const [user, setUser] = useState({});
+
+  const handleCommentOptions = (e) => {
+    e.preventDefault();
+    setCommentOptions((current) => !current);
+  };
 
   useEffect(() => {
     if (!comment.user_id) {
@@ -25,28 +31,41 @@ const SingleComment = ({ comment, post, sessionUser }) => {
   return (
     <>
       {comment.post_id === post.id && (
-        <li className="all-comments" key={comment.id}>
-          <img src={user.profile_pic} className="profile-picture-nav" />
-          <h3>
-            {user.first_name} {user.last_name}
-          </h3>
-          <p>{comment.body}</p>
-          {comment.image_url && (
-            <img className="comment-image" src={comment.image_url}></img>
-          )}
-          {sessionUser.id === comment.user_id && (
+        <li key={comment.id}>
+          <img
+            src={user.profile_pic}
+            className="profile-picture-comments comment-profile"
+          />
+          <div className="all-comments">
+            <div className="name-and-comment-container">
+              <p className="comment-names">
+                {user.first_name} {user.last_name}
+              </p>
+              <p className="comment-body">{comment.body}</p>
+              {comment.image_url && (
+                <img className="comment-image" src={comment.image_url}></img>
+              )}
+            </div>
+            {sessionUser.id === comment.user_id && (
+              <i
+                className="fa-solid fa-ellipsis comments-ellipsis"
+                onClick={handleCommentOptions}
+              ></i>
+            )}
+          </div>
+          {sessionUser.id === comment.user_id && commentOptions && (
             <div>
               <button onClick={(e) => setEditForm(true)}>Edit</button>
             </div>
           )}
-          {sessionUser && editForm && (
+          {sessionUser && editForm && commentOptions && (
             <EditCommentForm
               post={post}
               comment={comment}
               setEditForm={setEditForm}
             />
           )}
-          {sessionUser.id === comment.user_id && (
+          {sessionUser.id === comment.user_id && commentOptions && (
             <DeleteCommentModal comment={comment} />
           )}
         </li>

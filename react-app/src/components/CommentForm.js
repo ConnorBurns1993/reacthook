@@ -60,21 +60,24 @@ function CommentForm({ post }) {
               src={sessionUser.profile_pic}
             />
             <form onSubmit={(e) => handleSubmit(e)}>
-              <input
-                className="comment-form"
-                placeholder="Write a comment..."
-                value={body}
-                onChange={(e) => setBody(e.target.value)}
-              ></input>
-              <label for="comment-upload-photo">
-                <i className="fa-solid fa-camera"></i>
-              </label>
-              <input
-                type="file"
-                accept="image/*"
-                onChange={onSelectFile}
-                id="comment-upload-photo"
-              />
+              <div className="comment-input-container">
+                <input
+                  className="comment-form"
+                  placeholder="Write a comment..."
+                  value={body}
+                  onChange={(e) => setBody(e.target.value)}
+                />
+                <label for="comment-upload-photo">
+                  <i className="fa-solid fa-camera"></i>
+                </label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={onSelectFile}
+                  id="comment-upload-photo"
+                  style={{ display: "none" }}
+                />
+              </div>
               <div>
                 {view && (
                   <>

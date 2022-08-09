@@ -4,9 +4,8 @@ import Comments from "./Comments";
 import CommentForm from "./CommentForm";
 
 const SinglePost = ({ post, handleOptions, options, sessionUser }) => {
-  console.log(post);
   return (
-    <li className="post-container" key={post.id}>
+    <li className="post-container">
       <img
         src={post.user?.profile_pic}
         className="profile-picture-nav post-profile single-post"
@@ -15,7 +14,10 @@ const SinglePost = ({ post, handleOptions, options, sessionUser }) => {
         {post.user?.first_name} {post.user?.last_name}
       </p>
       {sessionUser.id === post.user_id && (
-        <i className="fa-solid fa-ellipsis" onClick={handleOptions}></i>
+        <i
+          className="fa-solid fa-ellipsis posts-ellipsis"
+          onClick={handleOptions}
+        ></i>
       )}
       {sessionUser.id === post.user_id && options && (
         <div className="edit-delete-post-container">
@@ -45,8 +47,8 @@ const SinglePost = ({ post, handleOptions, options, sessionUser }) => {
         </p>
       </div>
 
-      <CommentForm post={post} />
       <Comments post={post} />
+      <CommentForm post={post} />
     </li>
   );
 };

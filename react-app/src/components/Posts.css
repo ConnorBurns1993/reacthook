@@ -114,7 +114,7 @@
     width: fit-content
 }
 
-.fa-ellipsis {
+.posts-ellipsis {
     position: relative;
     font-size: 20px;
     color: gray;
@@ -132,7 +132,7 @@
 
 
 
-.fa-ellipsis:hover{
+.posts-ellipsis:hover{
     background-color:#f0f2f5;
     width: 20px;
     height: 20px;
@@ -142,7 +142,7 @@
 
 }
 
-.fa-ellipsis:active{
+.posts-ellipsis:active{
     background-color: rgba(190, 190, 190, 0.445);
     font-size: 18px
 }
