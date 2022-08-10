@@ -18,6 +18,15 @@ const Posts = () => {
   return sessionUser ? (
     <>
       <div className="post-form-container">
+        <div className="name-fixed">
+          <img
+            className="profile-picture-nav profile-home"
+            src={sessionUser?.profile_pic}
+          />
+          <p className="profile-home-name">
+            {sessionUser.first_name} {sessionUser.last_name}
+          </p>
+        </div>
         <PostFormModal sessionUser={sessionUser} />
       </div>
       {posts && (

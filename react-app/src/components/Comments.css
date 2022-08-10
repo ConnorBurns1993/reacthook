@@ -107,7 +107,12 @@ height: 35px;
     font-size: 12px;
     font-weight: bold;
     width: max-content;
+    cursor: pointer;
 }
+
+.comment-names:hover{
+    text-decoration: underline;
+    }
 
 .comment-profile {
     position: relative;

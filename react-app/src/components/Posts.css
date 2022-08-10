@@ -75,7 +75,7 @@
 
 .post-profile{
     position: relative;
-    left: 3%;
+    left: 2%;
     top: 8px;
 }
 
@@ -90,8 +90,14 @@
     bottom: 30px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
-    font-size: 15px
+    font-size: 15px;
+    cursor: pointer;
 }
+
+.posts-names:hover{
+text-decoration: underline;
+}
+
 .post-body{
     position: relative;
     left: 3%;
@@ -257,4 +263,30 @@
 .comment-amount:hover, .like-amount:hover{
     text-decoration: underline;
     cursor: pointer;
+}
+
+.name-fixed{
+    position: fixed;
+    display: inline-flex;
+    width: 300px;
+    right: 83.4%;
+    margin-top: 0%;
+    padding: .3%;
+    cursor: pointer;
+}
+
+.name-fixed:hover{
+    background-color: rgb(230, 230, 230);
+    border-radius: 10px;
+}
+
+.profile-home {
+    margin-left: 2px;
+}
+
+.profile-home-name {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-left: 10px;
 }

@@ -5,7 +5,7 @@ class Comment(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    post_id = db.Column(db.Integer, db.ForeignKey('posts.id'), nullable=False)
+    post_id = db.Column(db.Integer, db.ForeignKey('posts.id', ondelete='CASCADE'), nullable=False)
     parent_comment_id = db.Column(db.Integer, db.ForeignKey('comments.id'), nullable=True)
     body = db.Column(db.String(300), nullable=False)
     image_url = db.Column(db.String(250), nullable= True)

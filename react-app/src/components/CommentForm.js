@@ -16,9 +16,9 @@ function CommentForm({ post }) {
   const fileRef = useRef();
 
   const onSelectFile = (e) => {
-    const file = URL.createObjectURL(e.target.files[0]);
-    setView(file);
-    setImage(e.target.files[0]);
+    const file = e.target.files[0];
+    setView(URL.createObjectURL(file));
+    setImage(file);
   };
 
   const handleSubmit = async (e) => {
@@ -43,6 +43,8 @@ function CommentForm({ post }) {
         body,
         image_url: data.image,
       };
+
+      console.log(newComment);
 
       await dispatch(addComment(newComment)).then(() => {
         setBody("");

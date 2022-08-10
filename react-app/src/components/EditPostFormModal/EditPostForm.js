@@ -17,14 +17,15 @@ function EditPostForm({ setShowModal, post, handleOptions, sessionUser }) {
   const updateBody = (e) => setBody(e.target.value);
 
   const onSelectFile = (e) => {
-    const file = URL?.createObjectURL(e.target.files[0]);
-    setView(file);
-    setImage(e.target.files[0]);
+    const file = e.target.files[0];
+    setView(URL.createObjectURL(file));
+    setImage(file);
   };
 
   const handleCancel = (e) => {
     e.preventDefault();
     setShowModal(false);
+    handleOptions();
   };
 
   const handleSubmit = async (e) => {
@@ -49,8 +50,10 @@ function EditPostForm({ setShowModal, post, handleOptions, sessionUser }) {
         ...post,
         user_id: post.user_id,
         body,
-        imageUrl: data.image,
+        image_url: data.image,
       };
+
+      console.log(updatedPost);
 
       await dispatch(updatePost(updatedPost))
         .then(() => setShowModal(false))
