@@ -178,6 +178,11 @@
     cursor: pointer;
 }
 
+.save-edit:hover,
+.save-edit-big:hover{
+    filter:brightness(95%)
+}
+
 .edit-view{
    position: relative;
     left: 2.5%;

@@ -2,9 +2,6 @@ import EditPostFormModal from "./EditPostFormModal/EditPostFormModal";
 import DeletePostModal from "./DeletePostModal/DeletePostModal";
 import Comments from "./Comments";
 import CommentForm from "./CommentForm";
-import { useEffect } from "react";
-import { getAllPosts } from "../store/posts";
-import { useDispatch } from "react-redux";
 
 const SinglePost = ({ post, handleOptions, options, sessionUser }) => {
   return (

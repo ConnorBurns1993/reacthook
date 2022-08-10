@@ -1,0 +1,110 @@
+.delete-form{
+    background-color: white;
+    padding: 3%;
+    margin-top: 1%;
+    border: none;
+    border-radius: 10px;
+    resize: none;
+    width: 551px;
+    height: 160px;
+    position: relative;
+    left: 2.5%;
+    font-size: 16px;
+    bottom: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 2px 2px 10px 3px #ccc
+}
+
+.delete-h3 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    left: 40%;
+    width: fit-content;
+}
+
+.p4 {
+    color: #e1e1e2;
+    position: relative;
+    right: 3%;
+}
+
+.delete-p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    left: 5%;
+    width: fit-content;
+    margin-top: 3%;
+}
+
+.delete-post {
+    width: 125px;
+    border-radius: 6px;
+    position: relative;
+    padding: 1.5%;
+    border: 1px solid #1b74e4;
+    background-color: #1b74e4;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    left: 63%;
+    top: 35px;
+}
+
+.delete-post:hover{
+    filter:brightness(95%)
+}
+
+.cancel-delete{
+    color: #1b74e4;
+    border: none;
+    background-color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 1.5%;
+    border-radius: 6px;
+    margin-right: 1.2%;
+    width: 70px;
+    transition: .1s background-color;
+    position: relative;
+    left: 63%;
+    top: 35px;
+}
+
+.cancel-delete:hover{
+    background-color: #f0f0f0
+}
+
+.delete-post-x{
+    position: relative;
+    bottom: 90px;
+    left: 56%;
+    border-radius: 50px;
+    width: 35px;
+    height: 35px;
+    border: transparent;
+    }
+
+.delete-post-x:hover{
+        filter:brightness(90%);
+        cursor: pointer;
+    }
+
+.delete-x {
+        font-size: 13.5px;
+        position: relative;
+        right: 3%;
+        top: 1px;
+    }
+
+.delete-p-comment {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        position: relative;
+        left: 3%;
+        width: fit-content;
+        margin-top: 3%;
+    }

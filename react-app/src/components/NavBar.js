@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import LogoutButton from "./auth/LogoutButton";
 import "./NavBar.css";
 
 const NavBar = () => {
@@ -95,15 +96,7 @@ const NavBar = () => {
                     </h3>
                     <p className="p">_______________________________</p>
                   </div>
-
-                  <div className="logout-icon-wrapper">
-                    <img
-                      className="logout-icon"
-                      src="https://cdn-icons-png.flaticon.com/128/1828/1828479.png"
-                    />
-                  </div>
-                  <i className="fa-solid fa-door"></i>
-                  <p className="logout-text">Log Out</p>
+                  <LogoutButton />
                 </div>
               </div>
             )}

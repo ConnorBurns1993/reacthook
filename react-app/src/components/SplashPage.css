@@ -1,0 +1,125 @@
+.login-container {
+    background-color: white;
+    position: relative;
+    width: 390px;
+    height: 370px;
+    left: 55%;
+    bottom: 140px;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 29px 2px;
+}
+
+.login-email {
+    border: 1px solid rgb(214, 214, 214);
+    padding: 4.0%;
+    font-size: 16px;
+    border-radius: 7px;
+    position: relative;
+    left: 6%;
+    width: 310px;
+    top: 15px;
+}
+
+.login-email:focus,
+.login-password:focus{
+    outline: none !important;
+    border:1px solid #1877f2;
+    box-shadow: 0 0 10px #719ECE;
+}
+
+.login-password {
+    border: 1px solid rgb(214, 214, 214);
+    padding: 4.0%;
+    font-size: 16px;
+    border-radius: 7px;
+    position: relative;
+    left: 6%;
+    width: 310px;
+    top: 15px;
+    margin-top: 3%;
+}
+
+.login-splash{
+    border: 1px solid rgb(214, 214, 214);
+    padding: 2.5%;
+    font-size: 16px;
+    border-radius: 7px;
+    position: relative;
+    left: 5.5%;
+    width: 345px;
+    font-size: 22px;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    top: 15px;
+    color: white;
+    margin-top: 4%;
+    background-color: #1877f2
+}
+
+.login-splash:hover{
+    filter: brightness(95%);
+    cursor: pointer;
+}
+
+#demoBtn{
+    border: none;
+    background-color: white;
+    position: relative;
+    top: 33px;
+    left: 35%;
+    color: #1877f2;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#demoBtn:hover{
+    cursor: pointer;
+    text-decoration: underline;
+
+}
+
+.p5 {
+    color: rgb(219, 219, 219);
+    position: relative;
+    top: 40px;
+    left: 4%;
+}
+
+.signup-splash{
+    border: 1px solid rgb(214, 214, 214);
+    padding: 3.5%;
+    font-size: 16px;
+    border-radius: 7px;
+    position: relative;
+    left: 23.5%;
+    width: 200px;
+    font-size: 17px;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    top: 65px;
+    color: white;
+    background-color:
+    #42b72a
+}
+
+.signup-splash:hover{
+    filter: brightness(95%);
+    cursor: pointer;
+}
+
+.reacthook {
+    height: 250px;
+    position: relative;
+    left: 23%;
+    top: 150px;
+}
+
+.reacthook-h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 26px;
+    position: relative;
+    left: 23.2%;
+    top: 55px;
+    width: 480px;
+}

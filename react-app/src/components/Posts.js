@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import PostFormModal from "./PostFormModal/PostFormModal";
 import "./Posts.css";
 import SinglePost from "./SinglePost";
+import SplashPage from "./SplashPage";
 
 const Posts = () => {
   const posts = useSelector((state) => state.posts);
@@ -14,7 +15,7 @@ const Posts = () => {
     setOptions((current) => !current);
   };
 
-  return (
+  return sessionUser ? (
     <>
       <div className="post-form-container">
         <PostFormModal sessionUser={sessionUser} />
@@ -37,6 +38,8 @@ const Posts = () => {
         </div>
       )}
     </>
+  ) : (
+    <SplashPage />
   );
 };
 
