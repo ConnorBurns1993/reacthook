@@ -2,6 +2,9 @@ import EditPostFormModal from "./EditPostFormModal/EditPostFormModal";
 import DeletePostModal from "./DeletePostModal/DeletePostModal";
 import Comments from "./Comments";
 import CommentForm from "./CommentForm";
+import { useEffect } from "react";
+import { getAllPosts } from "../store/posts";
+import { useDispatch } from "react-redux";
 
 const SinglePost = ({ post, handleOptions, options, sessionUser }) => {
   return (
@@ -21,9 +24,17 @@ const SinglePost = ({ post, handleOptions, options, sessionUser }) => {
       )}
       {sessionUser.id === post.user_id && options && (
         <div className="edit-delete-post-container">
-          <EditPostFormModal post={post} handleOptions={handleOptions} />
+          <EditPostFormModal
+            post={post}
+            handleOptions={handleOptions}
+            sessionUser={sessionUser}
+          />
           <p className="p2">__________________________________</p>
-          <DeletePostModal post={post} handleOptions={handleOptions} />
+          <DeletePostModal
+            post={post}
+            handleOptions={handleOptions}
+            sessionUser={sessionUser}
+          />
         </div>
       )}
       <p className={post.body.length < 35 ? "post-body-short" : "post-body"}>

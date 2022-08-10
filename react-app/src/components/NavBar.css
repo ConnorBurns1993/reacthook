@@ -14,7 +14,7 @@ nav {
     background-color: white;
     position: fixed;
     box-shadow: .5px .5px 7px rgb(214, 214, 214);
-    z-index: 2;
+    z-index: 2
 }
 
 .home-logo {
@@ -85,8 +85,10 @@ nav {
     border-radius: 50px;
 }
 
-.profile-picture-nav:hover{
-    filter:brightness(90%)
+.profile-picture-nav:hover,
+.profile-picture-comments:hover{
+    filter:brightness(90%);
+    cursor: pointer;
 }
 
 .nav-img {
@@ -119,7 +121,7 @@ nav {
     box-shadow: 0px 1px 15px rgb(214, 214, 214);
     display: inline-flex;
     padding: 5%;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .profile-name-options {
@@ -168,7 +170,7 @@ nav {
     display: inline-flex;
     left: 14%;
     bottom: 10px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 100px;
     font-weight: bold;
     cursor:pointer;

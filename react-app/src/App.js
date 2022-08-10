@@ -9,7 +9,6 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import Posts from "./components/Posts";
 import { getAllPosts } from "./store/posts";
-import { getAllUsers } from "./store/session";
 import { authenticate } from "./store/session";
 
 function App() {

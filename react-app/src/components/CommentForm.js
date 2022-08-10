@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addComment } from "../store/comments";
 
@@ -12,6 +12,8 @@ function CommentForm({ post }) {
   const [imageLoading, setImageLoading] = useState(false);
   const [view, setView] = useState("");
   const [errors, setErrors] = useState([]);
+
+  const fileRef = useRef();
 
   const onSelectFile = (e) => {
     const file = URL.createObjectURL(e.target.files[0]);
@@ -67,29 +69,35 @@ function CommentForm({ post }) {
                   value={body}
                   onChange={(e) => setBody(e.target.value)}
                 />
-                <label for="comment-upload-photo">
+                <button
+                  type="button"
+                  className="comment-upload-button"
+                  onClick={(e) => fileRef.current.click(e)}
+                >
                   <i className="fa-solid fa-camera"></i>
-                </label>
+                </button>
                 <input
+                  ref={fileRef}
                   type="file"
                   accept="image/*"
                   onChange={onSelectFile}
                   id="comment-upload-photo"
-                  style={{ display: "none" }}
+                  hidden
                 />
               </div>
               <div>
                 {view && (
                   <>
-                    <img src={view} height="250" width="250" />
+                    <img className="comment-image-preview" src={view} />
                     <button
+                      className="comment-upload-x"
                       type="button"
                       onClick={(e) => {
                         setView("");
                         setImage("");
                       }}
                     >
-                      Delete
+                      <i className="fa-solid fa-x comment-x"></i>
                     </button>
                     {imageLoading && (
                       <div>

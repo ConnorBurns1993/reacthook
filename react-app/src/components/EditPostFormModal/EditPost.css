@@ -1,0 +1,215 @@
+.edit-body{
+    margin-top: 1%;
+    border: none;
+    resize: none;
+    width: 450px;
+    height: 200px;
+    position: relative;
+    left: 2.5%;
+    font-size: 16px;
+    bottom: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.edit-body-short{
+    margin-top: 1%;
+    border: none;
+    resize: none;
+    width: 450px;
+    height: 200px;
+    position: relative;
+    left: 2.5%;
+    bottom: 50px;
+    font-size: 24px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.edit-body:focus, .edit-body-short:focus{
+    outline: none;
+}
+
+.edit-post-container {
+    border: 1px solid rgb(214, 214, 214);
+    border-radius: 10px;
+    width: 480px;
+    height: 425px;
+    z-index: 2;
+    position: relative;
+    margin-bottom: 1%;
+    background-color: white;
+    box-shadow: 1px 1px 5px rgb(214, 214, 214);
+}
+
+.edit-post-container-big {
+    border: 1px solid rgb(214, 214, 214);
+    border-radius: 10px;
+    width: 480px;
+    height: 625px;
+    z-index: 2;
+    position: relative;
+    margin-bottom: 1%;
+    background-color: white;
+    box-shadow: 1px 1px 5px rgb(214, 214, 214);
+}
+
+.edit-post{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 4%;
+    padding-bottom: 1%;
+}
+
+.edit-post-profile {
+    margin-top: 2%;
+    position: relative;
+    left: 3%;
+}
+
+.edit-names {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    position: relative;
+    left: 14.5%;
+    bottom: 45px;
+}
+
+.p3 {
+    color: #e1e1e2
+}
+
+.edit-x {
+    position: relative;
+    left: 90%;
+    bottom: 120px;
+    font-size: 17.5px;
+    height: 35px;
+    width: 35px;
+    border: transparent;
+    border-radius: 50px;
+    transition: .1s background-color;
+    cursor: pointer;
+}
+
+.edit-x:hover{
+    background-color:#60677031
+}
+
+.fa-x {
+    color:#606770;
+    height: 15px;
+    width: 15px;
+    border-radius: 20px;
+}
+
+.edit-post-form {
+    height: 280px
+}
+
+#edit-upload {
+    position: absolute;
+    left: 85%;
+    top: 73%;
+    z-index: 2;
+}
+
+#edit-upload-big {
+    position: absolute;
+    left: 85%;
+    top: 83%;
+    z-index: 2;
+}
+
+.post-upload-div {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    border: 1px solid #cccccc;
+    padding: 4%;
+    width: 410px;
+    position: relative;
+    bottom: 95px;
+    left: 3%;
+    border-radius: 10px;
+}
+
+.post-upload-div-big {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    border: 1px solid #cccccc;
+    padding: 4%;
+    width: 410px;
+    position: relative;
+    top: 115px;
+    left: 3%;
+    border-radius: 10px;
+}
+
+.save-edit{
+    width: 450px;
+    border-radius: 6px;
+    position: relative;
+    bottom: 80px;
+    left: 3%;
+    padding: 1.5%;
+    border: 1px solid #1b74e4;
+    background-color: #1b74e4;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.save-edit-big{
+    width: 450px;
+    border-radius: 6px;
+    position: relative;
+    top: 125px;
+    left: 3%;
+    padding: 1.5%;
+    border: 1px solid #1b74e4;
+    background-color: #1b74e4;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.edit-view{
+   position: relative;
+    left: 2.5%;
+   width: 430px;
+   height: 250px;
+   top: 10px;
+   border-radius: 8px;
+   object-fit:scale-down;
+}
+
+.edit-picture-border {
+    border: 1px solid #cccccc;
+    width: 450px;
+    height: 260px;
+    position: relative;
+    bottom: 260px;
+    left: 3%;
+    border-radius: 8px;
+
+}
+
+.edit-upload-x{
+    position: relative;
+    bottom: 505px;
+    left: 88%;
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
+    border: transparent;
+}
+
+.edit-upload-x:hover{
+    filter:brightness(90%);
+    cursor: pointer;
+}

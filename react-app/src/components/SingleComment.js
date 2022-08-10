@@ -8,6 +8,7 @@ const SingleComment = ({ comment, post, sessionUser }) => {
   const [editForm, setEditForm] = useState(false);
   const [commentOptions, setCommentOptions] = useState("");
   const [user, setUser] = useState({});
+  const [commentHover, setCommentHover] = useState(false);
 
   const handleCommentOptions = (e) => {
     e.preventDefault();
@@ -36,7 +37,11 @@ const SingleComment = ({ comment, post, sessionUser }) => {
             src={user.profile_pic}
             className="profile-picture-comments comment-profile"
           />
-          <div className="all-comments">
+          <div
+            className="all-comments"
+            onMouseEnter={() => setCommentHover(true)}
+            onMouseLeave={() => setCommentHover(false)}
+          >
             <div className="name-and-comment-container">
               <p className="comment-names">
                 {user.first_name} {user.last_name}
@@ -46,7 +51,7 @@ const SingleComment = ({ comment, post, sessionUser }) => {
                 <img className="comment-image" src={comment.image_url}></img>
               )}
             </div>
-            {sessionUser.id === comment.user_id && (
+            {sessionUser.id === comment.user_id && commentHover && (
               <i
                 className="fa-solid fa-ellipsis comments-ellipsis"
                 onClick={handleCommentOptions}

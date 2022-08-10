@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Modal } from "../../context/Modal";
 import EditPostForm from "./EditPostForm";
 
-function EditPostFormModal({ post, handleOptions }) {
+function EditPostFormModal({ post, handleOptions, sessionUser }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -11,8 +11,9 @@ function EditPostFormModal({ post, handleOptions }) {
         <i className="fa-solid fa-pencil"></i>Edit Post
       </button>
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+        <Modal>
           <EditPostForm
+            sessionUser={sessionUser}
             setShowModal={setShowModal}
             post={post}
             handleOptions={handleOptions}
