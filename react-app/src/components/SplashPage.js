@@ -7,7 +7,7 @@ const SplashPage = () => {
     <>
       <img className="reacthook" src="https://i.imgur.com/hAKwnsI.png"></img>
       <h2 className="reacthook-h2">
-        Connect with friends and the world around you on Facebook.
+        Connect with friends and the world around you on Reacthook.
       </h2>
       {/* <SignUpForm /> */}
       <LoginForm />
