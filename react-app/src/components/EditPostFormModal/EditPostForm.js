@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { updatePost } from "../../store/posts";
 import "./EditPost.css";
 
-function EditPostForm({ setShowModal, post, handleOptions, sessionUser }) {
+function EditPostForm({ setShowModal, post, sessionUser }) {
   const dispatch = useDispatch();
   const [body, setBody] = useState(post?.body);
   const [image, setImage] = useState("");
@@ -25,7 +25,6 @@ function EditPostForm({ setShowModal, post, handleOptions, sessionUser }) {
   const handleCancel = (e) => {
     e.preventDefault();
     setShowModal(false);
-    handleOptions();
   };
 
   const handleSubmit = async (e) => {
@@ -46,23 +45,27 @@ function EditPostForm({ setShowModal, post, handleOptions, sessionUser }) {
       setImageLoading(false);
       setShowModal(false);
 
-      const updatedPost = {
-        ...post,
-        user_id: post.user_id,
-        body,
-        image_url: data.image,
-      };
-
-      console.log(updatedPost);
-
-      await dispatch(updatePost(updatedPost))
-        .then(() => setShowModal(false))
-        .then(() => handleOptions())
-        .then(() => setView(""))
-        .catch(async (res) => {
-          // const data = await res.json();
-          // if (data && data.errors) setErrors(data.errors);
-        });
+      if (data.image) {
+        const updatedPost = {
+          ...post,
+          user_id: post.user_id,
+          body,
+          image_url: data.image,
+        };
+        await dispatch(updatePost(updatedPost))
+          .then(() => setShowModal(false))
+          .then(() => setView(""));
+      } else {
+        const updatedPost = {
+          ...post,
+          user_id: post.user_id,
+          body,
+          image_url: imageUrl,
+        };
+        await dispatch(updatePost(updatedPost))
+          .then(() => setShowModal(false))
+          .then(() => setView(""));
+      }
     }
   };
 
@@ -111,7 +114,10 @@ function EditPostForm({ setShowModal, post, handleOptions, sessionUser }) {
         {view && (
           <>
             <div className="edit-picture-border">
-              <img className="edit-view" src={view} />
+              <img
+                className={imageLoading ? "edit-view-opacity" : "edit-view"}
+                src={view}
+              />
             </div>
             <button
               className="edit-upload-x"
@@ -124,12 +130,12 @@ function EditPostForm({ setShowModal, post, handleOptions, sessionUser }) {
               <i className="fa-solid fa-x"></i>
             </button>
             {imageLoading && (
-              <div>
+              <div className="posting-photo">
                 <img
                   className="image-loading"
                   src="https://flevix.com/wp-content/uploads/2019/07/Untitled-2.gif"
                 ></img>
-                <p>Posting</p>
+                <p className="posting">Posting</p>
               </div>
             )}
           </>

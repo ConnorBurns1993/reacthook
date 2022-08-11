@@ -20,7 +20,7 @@ const EditCommentForm = ({ comment, post, setEditForm }) => {
       user_id: sessionUser.id,
       post_id: post.id,
       body,
-      imageUrl,
+      image_url: imageUrl,
     };
 
     dispatch(updateComment(editComment))

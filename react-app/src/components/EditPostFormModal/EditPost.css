@@ -218,3 +218,26 @@
     filter:brightness(90%);
     cursor: pointer;
 }
+
+.posting-photo{
+    position: relative;
+    bottom: 475px;
+    left: 40%;
+    width: fit-content;
+}
+
+.posting{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.edit-view-opacity{
+    opacity: 30%;
+       position: relative;
+    left: 2.5%;
+   width: 430px;
+   height: 240px;
+   top: 10px;
+   border-radius: 8px;
+   object-fit:scale-down;
+}

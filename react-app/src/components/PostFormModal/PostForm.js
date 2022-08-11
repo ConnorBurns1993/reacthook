@@ -47,15 +47,12 @@ function PostForm({ setShowModal }) {
         image_url: imageData.image,
       };
 
-      await dispatch(addPost(newPost))
-        .then(() => {
-          setView("");
-        })
-        .catch(async (res) => {
-          const data = await res.json();
-          console.log(data);
-          if (data && data.errors) setErrors(data.errors);
-        });
+      const data = await dispatch(addPost(newPost)).then(() => {
+        setView("");
+      });
+      if (data) {
+        setErrors(data.errors);
+      }
     }
   };
 
@@ -105,11 +102,19 @@ function PostForm({ setShowModal }) {
         <div className={view ? "post-upload-div-big" : "post-upload-div"}>
           Add to your post
         </div>
-        <button className={view ? "save-edit-big" : "save-edit"}>Save</button>
+        <button
+          disabled={!body || body.length > 250}
+          className={view ? "save-edit-big" : "save-edit"}
+        >
+          Post
+        </button>
         {view && (
           <>
             <div className="edit-picture-border">
-              <img className="edit-view" src={view} />
+              <img
+                className={imageLoading ? "edit-view-opacity" : "edit-view"}
+                src={view}
+              />
             </div>
             <button
               className="edit-upload-x"
@@ -122,12 +127,12 @@ function PostForm({ setShowModal }) {
               <i className="fa-solid fa-x"></i>
             </button>
             {imageLoading && (
-              <div>
+              <div className="posting-photo">
                 <img
                   className="image-loading"
                   src="https://flevix.com/wp-content/uploads/2019/07/Untitled-2.gif"
                 ></img>
-                <p>Posting</p>
+                <p className="posting">Posting</p>
               </div>
             )}
           </>

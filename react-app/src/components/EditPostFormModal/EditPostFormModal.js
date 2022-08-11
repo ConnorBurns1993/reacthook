@@ -2,12 +2,17 @@ import React, { useState } from "react";
 import { Modal } from "../../context/Modal";
 import EditPostForm from "./EditPostForm";
 
-function EditPostFormModal({ post, handleOptions, sessionUser }) {
+function EditPostFormModal({ post, sessionUser }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <button className="edit-modal" onClick={() => setShowModal(true)}>
+      <button
+        className="edit-modal"
+        onClick={() => {
+          setShowModal(true);
+        }}
+      >
         <i className="fa-solid fa-pencil"></i>Edit Post
       </button>
       {showModal && (
@@ -16,7 +21,6 @@ function EditPostFormModal({ post, handleOptions, sessionUser }) {
             sessionUser={sessionUser}
             setShowModal={setShowModal}
             post={post}
-            handleOptions={handleOptions}
           />
         </Modal>
       )}

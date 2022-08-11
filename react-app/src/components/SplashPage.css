@@ -289,3 +289,9 @@ border: none;
 .signup-submit:hover{
     filter: brightness(95%)
 }
+
+.login-errors{
+    position: relative;
+    left: 60%;
+    bottom: 180px;
+}

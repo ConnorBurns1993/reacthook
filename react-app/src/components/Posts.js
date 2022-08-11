@@ -1,15 +1,16 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import PostFormModal from "./PostFormModal/PostFormModal";
 import "./Posts.css";
 import SinglePost from "./SinglePost";
 import SplashPage from "./SplashPage";
 
 const Posts = () => {
+  const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
   const sessionUser = useSelector((state) => state.session.user);
 
-  return sessionUser ? (
+  return sessionUser && posts ? (
     <>
       <div className="post-form-container">
         <div className="name-fixed">

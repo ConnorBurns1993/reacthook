@@ -30,14 +30,14 @@ const SinglePost = ({ post, sessionUser }) => {
         <div className="edit-delete-post-container">
           <EditPostFormModal
             post={post}
-            handleOptions={handleOptions}
             sessionUser={sessionUser}
+            handleOptions={handleOptions}
           />
           <p className="p2">__________________________________</p>
           <DeletePostModal
             post={post}
-            handleOptions={handleOptions}
             sessionUser={sessionUser}
+            handleOptions={handleOptions}
           />
         </div>
       )}

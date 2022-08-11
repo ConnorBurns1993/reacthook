@@ -10,10 +10,7 @@ function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
-
-  useEffect(() => {
-    dispatch(getAllPosts());
-  }, [dispatch]);
+  const comments = useSelector((state) => state.comments);
 
   useEffect(() => {
     (async () => {
@@ -21,6 +18,10 @@ function App() {
       setLoaded(true);
     })();
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getAllPosts());
+  }, [dispatch, sessionUser, comments]);
 
   if (!loaded) {
     return null;
