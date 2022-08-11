@@ -1,10 +1,16 @@
+import React, { useState } from "react";
 import EditPostFormModal from "./EditPostFormModal/EditPostFormModal";
 import DeletePostModal from "./DeletePostModal/DeletePostModal";
 import Comments from "./Comments";
 import CommentForm from "./CommentForm";
 
-const SinglePost = ({ post, handleOptions, options, sessionUser }) => {
-  console.log(post);
+const SinglePost = ({ post, sessionUser }) => {
+  const [options, setOptions] = useState(false);
+
+  const handleOptions = (e) => {
+    setOptions((current) => !current);
+  };
+
   return (
     <li className="post-container">
       <img

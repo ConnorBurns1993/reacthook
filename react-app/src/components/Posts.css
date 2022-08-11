@@ -195,7 +195,7 @@ text-decoration: underline;
     position: absolute;
     background-color: white;
     box-shadow: .5px .5px 3px rgb(214, 214, 214);
-    z-index: 0;
+    z-index: 1;
     left: 51%;
     top: 60px;
     border-radius: 10px;

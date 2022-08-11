@@ -75,9 +75,6 @@ const LoginForm = () => {
             </button>
             <p className="p5">___________________________________________</p>
           </div>
-          <button type="button" className="signup-splash">
-            Create new account
-          </button>
         </div>
       </form>
       <Footer />

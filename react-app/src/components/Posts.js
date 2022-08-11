@@ -5,15 +5,9 @@ import "./Posts.css";
 import SinglePost from "./SinglePost";
 import SplashPage from "./SplashPage";
 
-const Posts = ({ loaded }) => {
+const Posts = () => {
   const posts = useSelector((state) => state.posts);
   const sessionUser = useSelector((state) => state.session.user);
-
-  const [options, setOptions] = useState(false);
-
-  const handleOptions = (e) => {
-    setOptions((current) => !current);
-  };
 
   return sessionUser ? (
     <>
@@ -38,9 +32,7 @@ const Posts = ({ loaded }) => {
             <SinglePost
               post={post}
               key={post.id}
-              options={options}
               sessionUser={sessionUser}
-              handleOptions={handleOptions}
               posts={posts}
             />
           ))}

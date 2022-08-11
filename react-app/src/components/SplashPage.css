@@ -9,6 +9,7 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 29px 2px;
 }
 
+
 .login-email {
     border: 1px solid rgb(214, 214, 214);
     padding: 4.0%;
@@ -86,17 +87,17 @@
 }
 
 .signup-splash{
+    position: relative;
+    left: 59.7%;
+    width: 200px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    bottom: 240px;
     border: 1px solid rgb(214, 214, 214);
-    padding: 3.5%;
+    font-size: 17px;
+    padding: .7%;
+    font-weight: 700;
     font-size: 16px;
     border-radius: 7px;
-    position: relative;
-    left: 23.5%;
-    width: 200px;
-    font-size: 17px;
-    font-weight: 700;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    top: 65px;
     color: white;
     background-color:
     #42b72a
@@ -133,6 +134,28 @@
     height: 220px;
 }
 
+.signup-container {
+    background-color: white;
+    position: relative;
+    width: 416px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 29px 2px;
+    padding: 5%;
+}
+
+.signup-h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 33px;
+    font-weight: 700;
+}
+
+.signup-subheader{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: rgb(51, 51, 51);
+}
+
 .copyright {
     color: rgb(65, 65, 65);
     font-size: 11px;
@@ -140,4 +163,129 @@
     position: relative;
     top: 150px;
     left: 24%;
+}
+
+.signup-inner {
+    display: inline-flex;
+    margin-top: 4%;
+}
+
+.signup-inputs{
+    display: flex;
+    flex-direction: column;
+    width: 375px;
+}
+
+.sign-up-first-name{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 175px;
+    padding: 6%;
+    background-color:
+    #f5f6f7;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 5px;
+}
+
+.sign-up-last-name {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 175px;
+    padding: 6%;
+    background-color:
+    #f5f6f7;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 5px;
+}
+
+.first-name-div {
+    margin-right: 10%;
+}
+
+.signup-p{
+    position: relative;
+    right: 5%;
+    color:rgb(219, 219, 219);
+}
+
+.email-signup,
+.password-signup,
+.repeat-password,
+.birthday-signup{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 387px;
+    padding: 3%;
+    background-color:
+    #f5f6f7;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 5px;
+    margin-top: 3%;
+}
+
+.birthday-signup{
+    background-color: white;
+}
+
+
+.birthday-label{
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(51, 51, 51);
+    position: relative;
+    top: 5px;
+}
+
+.gender-signup{
+border: none;
+}
+
+.gender-inputs {
+    border: 1px solid rgb(219, 219, 219);
+    padding: 3%;
+    border-radius: 5px;
+    position: relative;
+    left: 4%;
+    top: 4px;
+    width: max-content;;
+    margin: 2%;
+
+}
+
+.gender-labels{
+    border: 1px solid rgb(219, 219, 219);
+    padding: 3%;
+    border-radius: 5px;
+    position: relative;
+    top: 10px;
+    left: 10%;
+    margin: 2%;
+}
+
+
+.gender-title-signup{
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(51, 51, 51);
+    position: relative;
+    top: 5px;
+    right: 4.5%;
+}
+
+.signup-submit {
+    position: relative;
+    top: 35px;
+    left: 30%;
+    width: 200px;
+    border: 1px solid rgb(214, 214, 214);
+    font-size: 17px;
+    padding: 3%;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 7px;
+    color: white;
+    background-color:
+    #42b72a;
+    cursor: pointer
+}
+
+.signup-submit:hover{
+    filter: brightness(95%)
 }

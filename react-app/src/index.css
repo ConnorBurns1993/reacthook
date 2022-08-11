@@ -14,3 +14,7 @@ li {
 body {
     background-color: #f0f2f5
 }
+
+input {
+    outline: none;
+}

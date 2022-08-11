@@ -24,6 +24,7 @@ function PostForm({ setShowModal }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrors([]);
 
     const form = new FormData();
     form.append("image", image);
@@ -36,22 +37,25 @@ function PostForm({ setShowModal }) {
     });
 
     if (res.ok) {
-      const data = await res.json();
+      const imageData = await res.json();
       setImageLoading(false);
       setShowModal(false);
 
       const newPost = {
         user_id: sessionUser.id,
         body,
-        image_url: data.image,
+        image_url: imageData.image,
       };
 
-      await dispatch(addPost(newPost)).then(() => {
-        setView("");
-      });
-      // .catch(async (res) => {
-      //   const data = await res.json();
-      //   if (data && data.errors) setErrors(data.errors);
+      await dispatch(addPost(newPost))
+        .then(() => {
+          setView("");
+        })
+        .catch(async (res) => {
+          const data = await res.json();
+          console.log(data);
+          if (data && data.errors) setErrors(data.errors);
+        });
     }
   };
 
