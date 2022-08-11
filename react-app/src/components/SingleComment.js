@@ -6,13 +6,17 @@ import "./Comments.css";
 
 const SingleComment = ({ comment, post, sessionUser }) => {
   const [editForm, setEditForm] = useState(false);
-  const [commentOptions, setCommentOptions] = useState("");
+  const [commentOptions, setCommentOptions] = useState(false);
   const [user, setUser] = useState({});
   const [commentHover, setCommentHover] = useState(false);
 
   const handleCommentOptions = (e) => {
-    e.preventDefault();
     setCommentOptions((current) => !current);
+  };
+
+  const handleEdit = (e) => {
+    e.preventDefault();
+    setEditForm(true);
   };
 
   useEffect(() => {
@@ -32,7 +36,7 @@ const SingleComment = ({ comment, post, sessionUser }) => {
   return (
     <>
       {comment.post_id === post.id && (
-        <li key={comment.id}>
+        <div>
           <img
             src={user.profile_pic}
             className="profile-picture-comments comment-profile"
@@ -58,22 +62,29 @@ const SingleComment = ({ comment, post, sessionUser }) => {
               ></i>
             )}
           </div>
-          {sessionUser.id === comment.user_id && commentOptions && (
-            <div>
-              <button onClick={(e) => setEditForm(true)}>Edit</button>
+          {commentOptions && (
+            <div className="edit-and-delete-comment">
+              <div>
+                <button className="edit-comment-button" onClick={handleEdit}>
+                  Edit
+                </button>
+              </div>
+
+              {editForm && (
+                <EditCommentForm
+                  post={post}
+                  comment={comment}
+                  setEditForm={setEditForm}
+                />
+              )}
+
+              <DeleteCommentModal
+                comment={comment}
+                handleCommentOptions={handleCommentOptions}
+              />
             </div>
           )}
-          {sessionUser && editForm && commentOptions && (
-            <EditCommentForm
-              post={post}
-              comment={comment}
-              setEditForm={setEditForm}
-            />
-          )}
-          {sessionUser.id === comment.user_id && commentOptions && (
-            <DeleteCommentModal comment={comment} />
-          )}
-        </li>
+        </div>
       )}
     </>
   );

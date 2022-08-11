@@ -22,9 +22,13 @@
 
 .post-image{
     width: 675px;
-    height: auto;
+    height: 380px;
+    object-fit: contain;
+    background-position: center;
     border-top: 1px solid rgb(214, 214, 214);
     border-bottom: 1px solid rgb(214, 214, 214);
+    object-position:50% 50%
+
 }
 
 .image-wrapper{

@@ -2,14 +2,25 @@ import React, { useState } from "react";
 import { Modal } from "../../context/Modal";
 import DeleteComment from "./DeleteComment";
 
-function DeleteCommentModal({ post, comment }) {
+function DeleteCommentModal({ post, comment, handleCommentOptions }) {
   const [showModal, setShowModal] = useState(false);
+
+  const handleDelete = () => {
+    setShowModal(true);
+  };
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Delete</button>
+      <button className="delete-comment-button" onClick={handleDelete}>
+        Delete
+      </button>
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+        <Modal
+          onClose={() => {
+            setShowModal(false);
+            handleCommentOptions();
+          }}
+        >
           <DeleteComment
             setShowModal={setShowModal}
             comment={comment}

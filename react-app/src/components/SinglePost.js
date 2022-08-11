@@ -4,6 +4,7 @@ import Comments from "./Comments";
 import CommentForm from "./CommentForm";
 
 const SinglePost = ({ post, handleOptions, options, sessionUser }) => {
+  console.log(post);
   return (
     <li className="post-container">
       <img

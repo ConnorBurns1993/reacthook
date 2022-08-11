@@ -19,6 +19,7 @@ const Comments = ({ post }) => {
         <div>
           {Object.values(comments).map((comment) => (
             <SingleComment
+              key={comment.id}
               comment={comment}
               sessionUser={sessionUser}
               post={post}
