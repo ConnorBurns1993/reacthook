@@ -60,6 +60,13 @@ const EditCommentForm = ({ comment, post, setEditForm }) => {
         </ul>
 
         <input value={body} onChange={updateBody}></input>
+        <p className="comment-cancel">
+          Press Esc to{" "}
+          <p onClick={handleCancelClick} className="comment-cancel-inner">
+            cancel
+          </p>
+          .
+        </p>
         <button
           className="hidden"
           onClick={handleSubmit}

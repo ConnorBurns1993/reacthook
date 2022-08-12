@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import { signUp } from "../../store/session";
 import "../SplashPage.css";
 
-const SignUpForm = () => {
+const SignUpForm = ({ setShowModal }) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -62,6 +62,10 @@ const SignUpForm = () => {
 
   return (
     <form className="signup-container" onSubmit={onSignUp}>
+      <i
+        onClick={() => setShowModal(false)}
+        className="fa-solid fa-x signup-x"
+      ></i>
       <h2 className="signup-h2">Sign Up</h2>
       <p className="signup-subheader">It's quick and easy.</p>
       <p className="signup-p">

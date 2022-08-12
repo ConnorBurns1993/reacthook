@@ -72,6 +72,7 @@ const SingleComment = ({ comment, post, sessionUser }) => {
 
               {editForm && (
                 <EditCommentForm
+                  handleCommentOptions={handleCommentOptions}
                   post={post}
                   comment={comment}
                   setEditForm={setEditForm}

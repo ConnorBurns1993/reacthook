@@ -21,6 +21,12 @@
     top: 15px;
 }
 
+.signup-x{
+    position: absolute;
+    left: 90%;
+    cursor: pointer;
+}
+
 .login-email:focus,
 .login-password:focus{
     outline: none !important;
