@@ -5,11 +5,13 @@
     border-radius: 10px;
     width: 675px;
     position: relative;
-    left: 32%;
     margin-bottom: 1%;
     background-color: white;
     box-shadow: 1px 1px 5px rgb(214, 214, 214);
     overflow-wrap:break-word;
+    display: flex;
+    flex-direction: column;
+    left: 33.5%;
 }
 
 .image-wrapper{
@@ -42,6 +44,7 @@
 }
 
 .post-form{
+
     position: relative;
     left: 5%;
     text-indent: 8px;
@@ -66,16 +69,19 @@
 .post-form-container{
     background-color: white;
     position: relative;
-    top: 75px;
-    left: 32%;
+    top: 80px;
+    left: 33.5%;
     width: 675px;
     height: 60px;
     border-radius: 10px;
     box-shadow: .5px .5px 7px rgb(214, 214, 214);
+
 }
 
 .all-posts-container{
-    margin-top: 5%;
+    margin-top: 100px;
+    position: relative;
+    width: 100%;
 }
 
 .post-profile{
@@ -234,6 +240,7 @@ text-decoration: underline;
 .like, .comment{
     padding: 1%;
     width: 312.5px;
+    position: relative;
     text-align: center;
     cursor: pointer;
     margin-top: .75%;
