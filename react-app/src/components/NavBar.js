@@ -60,10 +60,12 @@ const NavBar = () => {
               </a>
             </li>
             <li className="nav-li">
-              <i
-                title="Connect"
-                className="fa-brands fa-solid fa-people-arrows"
-              ></i>
+              <NavLink to="/connect" exact={true}>
+                <i
+                  title="Connect"
+                  className="fa-brands fa-solid fa-people-arrows"
+                ></i>
+              </NavLink>
             </li>
           </ul>
         </div>

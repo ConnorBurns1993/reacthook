@@ -28,6 +28,11 @@ const EditCommentForm = ({
   const [image, setImage] = useState("");
   const [view, setView] = useState("");
   const [imageLoading, setImageLoading] = useState(false);
+  const [hover, setHover] = useState(false);
+
+  const handleHover = () => {
+    setHover((current) => !current);
+  };
 
   const updateBody = (e) => setBody(e.target.value);
 
@@ -77,6 +82,7 @@ const EditCommentForm = ({
 
   const handleCancelClick = (e) => {
     e.preventDefault();
+    setShowModal(false);
     setEditForm(false);
   };
 
@@ -106,6 +112,8 @@ const EditCommentForm = ({
         </ul>
         <div className="comment-input-container">
           <input
+            onMouseEnter={(e) => setHover(true)}
+            onMouseLeave={(e) => setHover(false)}
             className="comment-form"
             value={body}
             onChange={updateBody}
@@ -138,6 +146,11 @@ const EditCommentForm = ({
         {body.length > 150 && (
           <p className="comment-error-description-edit">
             Comments can't be longer than 150 characters.
+          </p>
+        )}
+        {!body && hover && (
+          <p className="comment-span-edit">
+            Comments can't be less than 1 character.
           </p>
         )}
         <p className="comment-cancel">

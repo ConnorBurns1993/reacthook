@@ -322,7 +322,7 @@ text-decoration: underline;
 .body-length-short{
     position: absolute;
     left: 150px;
-    bottom: 3px;
+    bottom: 365px;
     font-size: 11px;
     color: red;
     width: max-content;

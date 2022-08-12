@@ -5,6 +5,8 @@ import NavBar from "./components/NavBar";
 import Posts from "./components/Posts";
 import { getAllPosts } from "./store/posts";
 import { authenticate } from "./store/session";
+import Connect from "./components/Connect";
+import NotFound from "./components/NotFound";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -33,6 +35,14 @@ function App() {
         <Route path="/" exact={true}>
           {sessionUser ? <NavBar /> : ""}
           <Posts />
+        </Route>
+        <Route path="/connect" exact={true}>
+          <NavBar />
+          <Connect />
+        </Route>
+        <Route>
+          <NavBar />
+          <NotFound />
         </Route>
       </Switch>
     </BrowserRouter>

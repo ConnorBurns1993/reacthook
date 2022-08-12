@@ -12,9 +12,14 @@ function PostForm({ setShowModal }) {
   const [image, setImage] = useState("");
   const [imageLoading, setImageLoading] = useState(false);
   const [view, setView] = useState("");
+  const [hover, setHover] = useState(false);
   const [errors, setErrors] = useState([]);
 
   const fileRef = useRef();
+
+  const handleHover = () => {
+    setHover((current) => !current);
+  };
 
   const onSelectFile = (e) => {
     const file = e.target.files[0];
@@ -53,7 +58,6 @@ function PostForm({ setShowModal }) {
         setView("");
       });
       if (data) {
-        console.log(data.errors);
         setErrors(data.errors);
       }
     }
@@ -80,7 +84,7 @@ function PostForm({ setShowModal }) {
         <button className="edit-x" onClick={(e) => handleCancel(e)}>
           <i className="fa-solid fa-x"></i>
         </button>
-        {body.length < 1 && (
+        {body.length < 1 && hover && (
           <p className="body-length-short">
             Your post must be atleast 1 character long.
           </p>
@@ -92,6 +96,8 @@ function PostForm({ setShowModal }) {
           </p>
         )}
         <textarea
+          onMouseEnter={handleHover}
+          onMouseLeave={handleHover}
           placeholder="What's on your mind?"
           className={body.length < 35 ? "edit-body-short" : "edit-body"}
           value={body}

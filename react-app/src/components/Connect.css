@@ -1,0 +1,25 @@
+.connect-image{
+    width: 300px;
+    border-radius: 10px;
+    position: relative;
+    left: 30%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.connect-h2{
+    width: 800px;
+    font-size: 20px;;
+    text-align: center;
+}
+
+.connect-wrapper{
+    position: absolute;
+    top: 15%;
+    left: 30%;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 800px;
+    padding: 1%;
+}

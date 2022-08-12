@@ -287,7 +287,27 @@ border: transparent;
 .comment-error-description-edit{
     color: red;
     font-size: 12px;
-    position: relative;
+    position: absolute;
     bottom: 18px;
-    left: 5%;
+    top: 62px;
+    right: 55%;
 }
+ .comment-span{
+    position: absolute;
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: red;
+    width: 250px;
+    top: 40px;
+    right: 50%;
+ }
+
+ .comment-span-edit{
+    position: absolute;
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: red;
+    width: 250px;
+    top: 62px;
+    right: 55%;
+ }

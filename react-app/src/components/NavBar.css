@@ -68,6 +68,7 @@ nav {
 .fa-brands.fa-people-arrows{
     color: rgb(150, 150, 150);
     font-size: 27px;
+    cursor: pointer;
 }
 
 .nav-li:hover {

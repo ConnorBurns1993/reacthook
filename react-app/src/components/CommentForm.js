@@ -11,9 +11,14 @@ function CommentForm({ post }) {
   const [image, setImage] = useState("");
   const [imageLoading, setImageLoading] = useState(false);
   const [view, setView] = useState("");
+  const [hover, setHover] = useState(false);
   const [errors, setErrors] = useState([]);
 
   const fileRef = useRef();
+
+  const handleHover = () => {
+    setHover((current) => !current);
+  };
 
   const onSelectFile = (e) => {
     const file = e.target.files[0];
@@ -72,6 +77,8 @@ function CommentForm({ post }) {
             >
               <div className="comment-input-container">
                 <input
+                  onMouseEnter={(e) => setHover(true)}
+                  onMouseLeave={(e) => setHover(false)}
                   className="comment-form"
                   placeholder="Write a comment..."
                   value={body}
@@ -93,6 +100,11 @@ function CommentForm({ post }) {
                   hidden
                 />
               </div>
+              {!body && hover && (
+                <span className="comment-span">
+                  Comments must have atleast 1 character.
+                </span>
+              )}
               <p
                 className={
                   body.length <= 150
