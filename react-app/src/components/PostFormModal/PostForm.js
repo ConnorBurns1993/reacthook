@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost } from "../../store/posts";
 import "../Posts.css";
@@ -51,6 +51,7 @@ function PostForm({ setShowModal }) {
         setView("");
       });
       if (data) {
+        console.log(data.errors);
         setErrors(data.errors);
       }
     }
@@ -77,6 +78,17 @@ function PostForm({ setShowModal }) {
         <button className="edit-x" onClick={(e) => handleCancel(e)}>
           <i className="fa-solid fa-x"></i>
         </button>
+        {body.length < 1 && (
+          <p className="body-length-short">
+            Your post must be atleast 1 character long.
+          </p>
+        )}
+
+        {body.length > 250 && (
+          <p className="body-length-short">
+            Your post cannot exceed 250 characters.
+          </p>
+        )}
         <textarea
           placeholder="What's on your mind?"
           className={body.length < 35 ? "edit-body-short" : "edit-body"}
@@ -94,7 +106,7 @@ function PostForm({ setShowModal }) {
         <input
           ref={fileRef}
           type="file"
-          accept="image/*"
+          accept="image/png, image/jpg, image/gif, image/jpeg"
           onChange={onSelectFile}
           id="comment-upload-photo"
           hidden
@@ -102,6 +114,9 @@ function PostForm({ setShowModal }) {
         <div className={view ? "post-upload-div-big" : "post-upload-div"}>
           Add to your post
         </div>
+        {errors.map((error, ind) => (
+          <div key={ind}>{error}</div>
+        ))}
         <button
           disabled={!body || body.length > 250}
           className={view ? "save-edit-big" : "save-edit"}

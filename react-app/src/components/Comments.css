@@ -5,6 +5,7 @@
     position: relative;
     height: auto;
     padding: 9px;
+    overflow-wrap:break-word;
 
 }
 

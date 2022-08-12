@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import EditPostFormModal from "./EditPostFormModal/EditPostFormModal";
 import DeletePostModal from "./DeletePostModal/DeletePostModal";
 import Comments from "./Comments";
@@ -6,6 +6,8 @@ import CommentForm from "./CommentForm";
 
 const SinglePost = ({ post, sessionUser }) => {
   const [options, setOptions] = useState(false);
+
+  const ref = useRef();
 
   const handleOptions = (e) => {
     setOptions((current) => !current);

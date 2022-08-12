@@ -9,6 +9,7 @@
     margin-bottom: 1%;
     background-color: white;
     box-shadow: 1px 1px 5px rgb(214, 214, 214);
+    overflow-wrap:break-word;
 }
 
 .image-wrapper{
@@ -267,8 +268,7 @@ text-decoration: underline;
 }
 
 .comment-amount:hover, .like-amount:hover{
-    text-decoration: underline;
-    cursor: pointer;
+    cursor: default;
 }
 
 .name-fixed{
@@ -310,4 +310,13 @@ text-decoration: underline;
 .save-edit:disabled:hover,
 .save-edit[disabled]:hover {
     background-color: #e4e6eb;
+}
+
+.body-length-short{
+    position: absolute;
+    left: 150px;
+    bottom: 3px;
+    font-size: 11px;
+    color: red;
+    width: max-content;
 }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Modal } from "../../context/Modal";
 import EditPostForm from "./EditPostForm";
 
-function EditPostFormModal({ post, sessionUser }) {
+function EditPostFormModal({ post, sessionUser, handleOptions }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -18,6 +18,7 @@ function EditPostFormModal({ post, sessionUser }) {
       {showModal && (
         <Modal>
           <EditPostForm
+            handleOptions={handleOptions}
             sessionUser={sessionUser}
             setShowModal={setShowModal}
             post={post}

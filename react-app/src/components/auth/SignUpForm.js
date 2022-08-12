@@ -68,17 +68,13 @@ const SignUpForm = () => {
         _________________________________________________________
       </p>
       <div className="signup-inner">
-        <div>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
+        <div></div>
         <div className="first-name-div">
           <input
             className="sign-up-first-name"
             type="text"
             name="first_name"
-            placeholder="First Name"
+            placeholder="First Name (required)"
             onChange={updateFirstName}
             value={firstName}
           ></input>
@@ -88,7 +84,7 @@ const SignUpForm = () => {
             className="sign-up-last-name"
             type="text"
             name="last_name"
-            placeholder="Last Name"
+            placeholder="Last Name (required)"
             onChange={updateLastName}
             value={lastName}
           ></input>
@@ -98,7 +94,7 @@ const SignUpForm = () => {
         <div>
           <input
             className="email-signup"
-            placeholder="Email"
+            placeholder="Email (required)"
             type="text"
             name="email"
             onChange={updateEmail}
@@ -106,7 +102,7 @@ const SignUpForm = () => {
           ></input>
           <input
             className="password-signup"
-            placeholder="Password"
+            placeholder="Password (required)"
             type="password"
             name="password"
             onChange={updatePassword}
@@ -116,7 +112,7 @@ const SignUpForm = () => {
         <div>
           <input
             className="repeat-password"
-            placeholder="Repeat Password"
+            placeholder="Repeat Password (required)"
             type="password"
             name="repeat_password"
             onChange={updateRepeatPassword}
@@ -125,7 +121,7 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div>
-          <label className="birthday-label">Birthday</label>
+          <label className="birthday-label">Birthday (required)</label>
           <input
             className="birthday-signup"
             type="date"
@@ -136,7 +132,7 @@ const SignUpForm = () => {
         </div>
         <div>
           <fieldset className="gender-signup">
-            <legend className="gender-title-signup">Gender</legend>
+            <legend className="gender-title-signup">Gender (required)</legend>
             <label className="gender-labels" for="Female">
               Female
               <input
@@ -173,6 +169,11 @@ const SignUpForm = () => {
           Sign Up
         </button>
       </div>
+      {errors.map((error, ind) => (
+        <div className="signup-errors" key={ind}>
+          {error}
+        </div>
+      ))}
     </form>
   );
 };

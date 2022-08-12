@@ -81,7 +81,7 @@ function CommentForm({ post }) {
                 <input
                   ref={fileRef}
                   type="file"
-                  accept="image/*"
+                  accept="image/png, image/jpg, image/gif, image/jpeg"
                   onChange={onSelectFile}
                   id="comment-upload-photo"
                   hidden

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { updatePost } from "../../store/posts";
 import "./EditPost.css";
 
-function EditPostForm({ setShowModal, post, sessionUser }) {
+function EditPostForm({ setShowModal, post, sessionUser, handleOptions }) {
   const dispatch = useDispatch();
   const [body, setBody] = useState(post?.body);
   const [image, setImage] = useState("");
@@ -25,6 +25,7 @@ function EditPostForm({ setShowModal, post, sessionUser }) {
   const handleCancel = (e) => {
     e.preventDefault();
     setShowModal(false);
+    handleOptions();
   };
 
   const handleSubmit = async (e) => {
@@ -54,6 +55,7 @@ function EditPostForm({ setShowModal, post, sessionUser }) {
         };
         await dispatch(updatePost(updatedPost))
           .then(() => setShowModal(false))
+          .then(() => handleOptions())
           .then(() => setView(""));
       } else {
         const updatedPost = {
@@ -64,6 +66,7 @@ function EditPostForm({ setShowModal, post, sessionUser }) {
         };
         await dispatch(updatePost(updatedPost))
           .then(() => setShowModal(false))
+          .then(() => handleOptions())
           .then(() => setView(""));
       }
     }
@@ -86,6 +89,17 @@ function EditPostForm({ setShowModal, post, sessionUser }) {
         <button className="edit-x" onClick={(e) => handleCancel(e)}>
           <i className="fa-solid fa-x"></i>
         </button>
+        {body.length < 1 && (
+          <p className="body-length-short">
+            Your post must be atleast 1 character long.
+          </p>
+        )}
+
+        {body.length > 250 && (
+          <p className="body-length-short">
+            Your post cannot exceed 250 characters.
+          </p>
+        )}
         <textarea
           className={body.length < 35 ? "edit-body-short" : "edit-body"}
           value={body}
@@ -102,7 +116,7 @@ function EditPostForm({ setShowModal, post, sessionUser }) {
         <input
           ref={fileRef}
           type="file"
-          accept="image/*"
+          accept="image/png, image/jpg, image/gif, image/jpeg"
           onChange={onSelectFile}
           id="comment-upload-photo"
           hidden
@@ -110,7 +124,12 @@ function EditPostForm({ setShowModal, post, sessionUser }) {
         <div className={view ? "post-upload-div-big" : "post-upload-div"}>
           Add to your post
         </div>
-        <button className={view ? "save-edit-big" : "save-edit"}>Save</button>
+        <button
+          disabled={!body || body.length > 250}
+          className={view ? "save-edit-big" : "save-edit"}
+        >
+          Save
+        </button>
         {view && (
           <>
             <div className="edit-picture-border">

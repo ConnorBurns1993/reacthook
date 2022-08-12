@@ -292,6 +292,23 @@ border: none;
 
 .login-errors{
     position: relative;
-    left: 60%;
+    left: 61%;
     bottom: 180px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    padding: .2%;
+    width: max-content;
+    color: rgb(216, 18, 18);
+}
+
+.signup-errors {
+    position: relative;
+    left: 35%;
+    bottom: 470px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    padding: .6%;
+    display: flex;
+    flex-direction: column;
+    color: rgb(216, 18, 18);
 }
