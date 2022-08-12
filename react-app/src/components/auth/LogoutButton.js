@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../../store/session";
+import "../NavBar.css";
 
 const LogoutButton = () => {
   const dispatch = useDispatch();
@@ -16,10 +17,12 @@ const LogoutButton = () => {
           src="https://cdn-icons-png.flaticon.com/128/1828/1828479.png"
         />
       </div>
-      <i onClick={onLogout} className="fa-solid fa-door"></i>
-      <p onClick={onLogout} className="logout-text">
-        Log Out
-      </p>
+      <div className="logout-div-nav">
+        <i onClick={onLogout} className="fa-solid fa-door"></i>
+        <p onClick={onLogout} className="logout-text">
+          Log Out
+        </p>
+      </div>
     </>
   );
 };

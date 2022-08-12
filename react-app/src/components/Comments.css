@@ -264,6 +264,7 @@ border: transparent;
     position: relative;
     left: 90%;
     font-size: 12px;
+    width: fit-content;
 }
 
 .comment-length-validator-error{
@@ -272,6 +273,7 @@ border: transparent;
     left: 90%;
     font-size: 12px;
     color: red;
+    width: fit-content;
 }
 
 .comment-error-description {

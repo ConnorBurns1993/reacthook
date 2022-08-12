@@ -2,14 +2,10 @@
     width: 40px;
 }
 
-.navigation{
-display: inline-flex;
-margin-top: .4%;
-}
 
 nav {
     border-bottom: solid 1px rgb(226, 226, 226);
-    height: 55px;
+    height: 60px;
     width: 100%;
     background-color: white;
     position: fixed;
@@ -20,62 +16,86 @@ nav {
 .home-logo {
     width: 26px;
     position: relative;
-    padding: 40%;
-    padding-left: 200%;
-    padding-right: 200%;
 }
 
 .nav-buttons-container {
     display: inline-flex;
     position: relative;
-    left: 280%;
-    margin-top: -1%;
 }
 
 .home-logo-container{
     position: relative;
-    right: 20%;
+
+}
+
+.logout-div-nav{
+    width: 330px;
+    height: 55px;
+    margin-left: 3%;
+    position: relative;
+    bottom: 10px;
+    border-radius: 10px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.logout-div-nav:hover {
+    background-color:rgb(240,240,240);
+    width: 330px;
+    height: 50px;
+    margin-left: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 
 .fa-brands{
     color: rgb(150, 150, 150);
     font-size: 29px;
-    padding: 35%;
-    padding-left: 200%;
-    padding-right: 200%;
+
 }
 
 .fa-brands.fa-github
 {
     color:rgb(150, 150, 150);
     font-size: 29px;
-    padding: 30%;
-    padding-left: 200%;
-    padding-right: 200%;
+
 }
 
 .fa-house {
-    font-size: 23px;
-    margin-top: 10%;
+    font-size: 25px;
 }
 
 .fa-brands.fa-people-arrows{
     color: rgb(150, 150, 150);
     font-size: 27px;
-    padding: 30%;
-    padding-left: 170%;
-    padding-right: 170%;
 }
 
-.fa-brands:hover,
-.home-logo:hover {
+.nav-li:hover {
     background-color: rgb(240,240,240);
     border-radius: 10px;
+    cursor: pointer
 }
 
 .nav-li {
-    margin-left: 35%;
-    margin-right: 35%;
+display: inline-flex;
+width: 100px;
+justify-content: center;
+padding: 2%;
+margin-left: .5%;
+margin-right: .5%;
+}
+
+.nav-ul {
+    width: 500px;
+}
+
+.all-nav-container{
+    display: inline-flex;
+    position: relative;
+    left: 1%;
+    justify-content: space-between;
+    width: 98%;
+    margin-top: .3%;
 }
 
 .profile-picture-nav{
@@ -93,7 +113,6 @@ nav {
 
 .nav-img {
     position: relative;
-    left: 450%;
 }
 
 .user-options-container{
@@ -148,28 +167,28 @@ nav {
 
 .logout-icon{
     width: 22px;
+    z-index: 3;
 }
 
 .logout-icon-wrapper{
     width: 20px;
     height: 20px;
-    background-color: #f0f2f5;
+    background-color: #d1d1d1;
     border-radius: 50px;
     padding: 3%;
     position: relative;
-    top: 35px;
+    top: 39px;
     left: 4%;
     cursor:pointer;
+    z-index: 3;
 }
 
 .logout-text{
-    margin-top: 5%;
-    margin-left: 5%;
     color: #4b4b4b;
     position: relative;
     display: inline-flex;
-    left: 14%;
-    bottom: 10px;
+    left: 17%;
+    top: 15px;
     font-family: Arial, Helvetica, sans-serif;
     width: 100px;
     font-weight: bold;
