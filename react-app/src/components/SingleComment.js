@@ -1,8 +1,9 @@
 import { useState } from "react";
 import DeleteCommentModal from "./DeleteCommentModal/DeleteCommentModal";
-import EditCommentForm from "./EditCommentForm";
+import EditCommentForm from "./EditCommentModal/EditCommentForm";
 import { useEffect } from "react";
 import "./Comments.css";
+import EditCommentFormModal from "./EditCommentModal/EditCommentFormModal";
 
 const SingleComment = ({ comment, post, sessionUser }) => {
   const [editForm, setEditForm] = useState(false);
@@ -12,11 +13,6 @@ const SingleComment = ({ comment, post, sessionUser }) => {
 
   const handleCommentOptions = (e) => {
     setCommentOptions((current) => !current);
-  };
-
-  const handleEdit = (e) => {
-    e.preventDefault();
-    setEditForm(true);
   };
 
   useEffect(() => {
@@ -64,20 +60,12 @@ const SingleComment = ({ comment, post, sessionUser }) => {
           </div>
           {commentOptions && (
             <div className="edit-and-delete-comment">
-              <div>
-                <button className="edit-comment-button" onClick={handleEdit}>
-                  Edit
-                </button>
-              </div>
-
-              {editForm && (
-                <EditCommentForm
-                  handleCommentOptions={handleCommentOptions}
-                  post={post}
-                  comment={comment}
-                  setEditForm={setEditForm}
-                />
-              )}
+              <EditCommentFormModal
+                handleCommentOptions={handleCommentOptions}
+                post={post}
+                comment={comment}
+                setEditForm={setEditForm}
+              />
 
               <DeleteCommentModal
                 comment={comment}

@@ -21,14 +21,14 @@ const NavBar = () => {
       <ul className="navigation">
         <div className="home-logo-container">
           <li className="nav-li">
-            <NavLink to="/" exact={true} activeClassName="active-logo">
+            <NavLink to="/" exact={true} className="active-logo">
               <img className="logo-navbar" src="../../favicon.ico" />
             </NavLink>
           </li>
         </div>
         <div className="nav-buttons-container">
           <li className="nav-li">
-            <NavLink to="/" exact={true} activeClassName="active">
+            <NavLink to="/" exact={true} className="active">
               <i
                 title="Home"
                 className="home-logo fa-solid fa-house fa-brands"

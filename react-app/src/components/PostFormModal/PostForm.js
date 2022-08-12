@@ -18,8 +18,10 @@ function PostForm({ setShowModal }) {
 
   const onSelectFile = (e) => {
     const file = e.target.files[0];
-    setView(URL.createObjectURL(file));
     setImage(file);
+    if (file) {
+      setView(URL.createObjectURL(file));
+    }
   };
 
   const handleSubmit = async (e) => {

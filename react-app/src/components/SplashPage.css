@@ -316,5 +316,6 @@ border: none;
     padding: .6%;
     display: flex;
     flex-direction: column;
+    width: fit-content;
     color: rgb(216, 18, 18);
 }

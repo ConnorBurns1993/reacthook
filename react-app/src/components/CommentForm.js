@@ -17,40 +17,42 @@ function CommentForm({ post }) {
 
   const onSelectFile = (e) => {
     const file = e.target.files[0];
-    setView(URL.createObjectURL(file));
     setImage(file);
+    if (file) {
+      setView(URL.createObjectURL(file));
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const form = new FormData();
-    form.append("image", image);
-    setImageLoading(true);
+    if (body.length <= 150) {
+      const form = new FormData();
+      form.append("image", image);
+      setImageLoading(true);
 
-    const res = await fetch("/api/posts/post-image", {
-      method: "POST",
-      body: form,
-    });
-
-    if (res.ok) {
-      const data = await res.json();
-      setImageLoading(false);
-
-      const newComment = {
-        user_id: sessionUser.id,
-        post_id: post.id,
-        body,
-        image_url: data.image,
-      };
-
-      console.log(newComment);
-
-      await dispatch(addComment(newComment)).then(() => {
-        setBody("");
-        setImage("");
-        setView("");
+      const res = await fetch("/api/posts/post-image", {
+        method: "POST",
+        body: form,
       });
+
+      if (res.ok) {
+        const data = await res.json();
+        setImageLoading(false);
+
+        const newComment = {
+          user_id: sessionUser.id,
+          post_id: post.id,
+          body,
+          image_url: data.image,
+        };
+
+        await dispatch(addComment(newComment)).then(() => {
+          setBody("");
+          setImage("");
+          setView("");
+        });
+      }
     }
   };
 
@@ -63,7 +65,11 @@ function CommentForm({ post }) {
               className="profile-picture-comments"
               src={sessionUser.profile_pic}
             />
-            <form onSubmit={(e) => handleSubmit(e)}>
+            <form
+              onSubmit={(e) => {
+                handleSubmit(e);
+              }}
+            >
               <div className="comment-input-container">
                 <input
                   className="comment-form"
@@ -87,6 +93,20 @@ function CommentForm({ post }) {
                   hidden
                 />
               </div>
+              <p
+                className={
+                  body.length <= 150
+                    ? "comment-length-validator"
+                    : "comment-length-validator-error"
+                }
+              >
+                {body.length}/150
+              </p>
+              {body.length > 150 && (
+                <p className="comment-error-description">
+                  Comments can't be longer than 150 characters.
+                </p>
+              )}
               <div>
                 {view && (
                   <>
