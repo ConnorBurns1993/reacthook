@@ -90,9 +90,9 @@ function PostForm({ setShowModal }) {
           </p>
         )}
 
-        {body.length > 250 && (
+        {body.length > 385 && (
           <p className="body-length-short">
-            Your post cannot exceed 250 characters.
+            Your post cannot exceed 385 characters.
           </p>
         )}
         <textarea
@@ -126,7 +126,7 @@ function PostForm({ setShowModal }) {
           <div key={ind}>{error}</div>
         ))}
         <button
-          disabled={!body || body.length > 250}
+          disabled={!body || body.length > 385}
           className={view ? "save-edit-big" : "save-edit"}
         >
           Post

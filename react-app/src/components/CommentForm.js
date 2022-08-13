@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { addComment } from "../store/comments";
 
 function CommentForm({ post }) {
@@ -66,10 +67,12 @@ function CommentForm({ post }) {
       {sessionUser && (
         <>
           <div className="write-comment-container">
-            <img
-              className="profile-picture-comments"
-              src={sessionUser.profile_pic}
-            />
+            <NavLink to={`/${sessionUser.id}`}>
+              <img
+                className="profile-picture-comments"
+                src={sessionUser.profile_pic}
+              />
+            </NavLink>
             <form
               onSubmit={(e) => {
                 handleSubmit(e);

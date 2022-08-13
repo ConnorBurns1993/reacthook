@@ -15,7 +15,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     bio = db.Column(db.String(300), nullable=True)
     profile_pic = db.Column(db.String(300), nullable=True, default='https://doc.vortala.com/childsites/uploads/840/files/istockphoto-1223671392-612x612.jpg')
-    cover_pic = db.Column(db.String(300), nullable=True)
+    cover_pic = db.Column(db.String(300), nullable=True, default='https://images.unsplash.com/photo-1501630834273-4b5604d2ee31?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')
     location = db.Column(db.String(100), nullable=True)
     hometown = db.Column(db.String(100), nullable=True)
     relationship_status = db.Column(db.String(100), nullable=True)

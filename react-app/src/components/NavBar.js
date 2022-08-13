@@ -3,41 +3,54 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "./auth/LogoutButton";
 import "./NavBar.css";
+import useComponentVisible from "./useComponentVisible";
 
 const NavBar = () => {
   const sessionUser = useSelector((state) => state.session.user);
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(true);
+  const [home, setHome] = useState(true);
   const [userOptions, setUserOptions] = useState(false);
+  const [connect, setConnect] = useState(false);
+
+  const { ref, isComponentVisible, setIsComponentVisible } =
+    useComponentVisible(false);
 
   const handleUserOptions = (e) => {
     setUserOptions((current) => !current);
   };
 
-  const handleNav = () => {
-    setActive((current) => !current);
+  const handleHome = () => {
+    setHome(true);
+    setConnect(false);
   };
+
+  const handleConnect = () => {
+    setHome(false);
+    setConnect(true);
+  };
+
   return (
     <nav>
       <div className="all-nav-container">
         <div className="home-logo-container">
-          <NavLink to="/" exact={true} className="active-logo">
+          <NavLink to="/" exact={true}>
             <img className="logo-navbar" src="../../favicon.ico" />
           </NavLink>
         </div>
         <div className="nav-buttons-container">
           <ul className="nav-ul">
-            <li className="nav-li">
-              <NavLink to="/" exact={true} className="active">
+            <li
+              className={active && home ? "nav-li-active" : "nav-li"}
+              onClick={handleHome}
+            >
+              <NavLink to="/" exact={true}>
                 <i
                   title="Home"
-                  className="home-logo fa-solid fa-house fa-brands"
-                  style={{
-                    color: active ? "rgb(27,116,228)" : "rgb(150, 150, 150)",
-                    borderBottom: active ? "3px solid rgb(27,116,228)" : "",
-                    backgroundColor: active ? "white" : "",
-                    borderRadius: active ? "" : "10px",
-                  }}
-                  onClick={handleNav}
+                  className={
+                    active && home
+                      ? "home-logo-active fa-solid fa-house fa-brands"
+                      : "home-logo fa-solid fa-house fa-brands"
+                  }
                 ></i>
               </NavLink>
             </li>
@@ -59,11 +72,18 @@ const NavBar = () => {
                 <i className="fa-brands fa-github"></i>
               </a>
             </li>
-            <li className="nav-li">
+            <li
+              className={active && connect ? "nav-li-active" : "nav-li"}
+              onClick={handleConnect}
+            >
               <NavLink to="/connect" exact={true}>
                 <i
                   title="Connect"
-                  className="fa-brands fa-solid fa-people-arrows"
+                  className={
+                    active && connect
+                      ? "arrows-active fa-brands fa-solid fa-people-arrows"
+                      : "fa-brands fa-solid fa-people-arrows"
+                  }
                 ></i>
               </NavLink>
             </li>
@@ -72,12 +92,13 @@ const NavBar = () => {
         <div className="nav-img">
           <img
             title="Account"
+            ref={ref}
             className="profile-picture-nav"
             src={sessionUser?.profile_pic}
-            onClick={handleUserOptions}
+            onClick={() => setIsComponentVisible(!isComponentVisible)}
           />
-          {userOptions && (
-            <div className="user-options-container">
+          {isComponentVisible && (
+            <div ref={ref} className="user-options-container">
               <div>
                 <div className="user-options-inner">
                   <img

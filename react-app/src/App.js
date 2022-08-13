@@ -7,6 +7,7 @@ import { getAllPosts } from "./store/posts";
 import { authenticate } from "./store/session";
 import Connect from "./components/Connect";
 import NotFound from "./components/NotFound";
+import User from "./components/User";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -39,6 +40,10 @@ function App() {
         <Route path="/connect" exact={true}>
           <NavBar />
           <Connect />
+        </Route>
+        <Route path="/:userId" exact={true}>
+          {sessionUser ? <NavBar /> : ""}
+          <User />
         </Route>
         <Route>
           <NavBar />

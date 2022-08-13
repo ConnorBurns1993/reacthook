@@ -1,9 +1,9 @@
 import { useState } from "react";
 import DeleteCommentModal from "./DeleteCommentModal/DeleteCommentModal";
-import EditCommentForm from "./EditCommentModal/EditCommentForm";
 import { useEffect } from "react";
 import "./Comments.css";
 import EditCommentFormModal from "./EditCommentModal/EditCommentFormModal";
+import { NavLink } from "react-router-dom";
 
 const SingleComment = ({ comment, post, sessionUser }) => {
   const [editForm, setEditForm] = useState(false);
@@ -33,19 +33,23 @@ const SingleComment = ({ comment, post, sessionUser }) => {
     <>
       {comment.post_id === post.id && (
         <div>
-          <img
-            src={user.profile_pic}
-            className="profile-picture-comments comment-profile"
-          />
+          <NavLink to={`${comment.user_id}`}>
+            <img
+              src={user.profile_pic}
+              className="profile-picture-comments comment-profile"
+            />
+          </NavLink>
           <div
             className="all-comments"
             onMouseEnter={() => setCommentHover(true)}
             onMouseLeave={() => setCommentHover(false)}
           >
             <div className="name-and-comment-container">
-              <p className="comment-names">
-                {user.first_name} {user.last_name}
-              </p>
+              <NavLink to={`${comment.user_id}`}>
+                <p className="comment-names">
+                  {user.first_name} {user.last_name}
+                </p>
+              </NavLink>
               <p className="comment-body">{comment.body}</p>
               {comment.image_url && (
                 <img className="comment-image" src={comment.image_url}></img>

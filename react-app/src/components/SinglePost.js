@@ -3,11 +3,10 @@ import EditPostFormModal from "./EditPostFormModal/EditPostFormModal";
 import DeletePostModal from "./DeletePostModal/DeletePostModal";
 import Comments from "./Comments";
 import CommentForm from "./CommentForm";
+import { NavLink } from "react-router-dom";
 
 const SinglePost = ({ post, sessionUser }) => {
   const [options, setOptions] = useState(false);
-
-  const ref = useRef();
 
   const handleOptions = (e) => {
     setOptions((current) => !current);
@@ -15,13 +14,17 @@ const SinglePost = ({ post, sessionUser }) => {
 
   return (
     <li className="post-container">
-      <img
-        src={post.user?.profile_pic}
-        className="profile-picture-nav post-profile single-post"
-      />
-      <p className="posts-names">
-        {post.user?.first_name} {post.user?.last_name}
-      </p>
+      <NavLink to={`/${post.user_id}`}>
+        <img
+          src={post.user?.profile_pic}
+          className="profile-picture-nav post-profile single-post"
+        />
+      </NavLink>
+      <NavLink to={`/${post.user_id}`}>
+        <p className="posts-names">
+          {post.user?.first_name} {post.user?.last_name}
+        </p>
+      </NavLink>
       {sessionUser.id === post.user_id && (
         <i
           className="fa-solid fa-ellipsis posts-ellipsis"

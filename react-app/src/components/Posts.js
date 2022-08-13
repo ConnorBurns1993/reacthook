@@ -4,6 +4,7 @@ import PostFormModal from "./PostFormModal/PostFormModal";
 import "./Posts.css";
 import SinglePost from "./SinglePost";
 import SplashPage from "./SplashPage";
+import { NavLink } from "react-router-dom";
 
 const Posts = () => {
   const dispatch = useDispatch();
@@ -13,18 +14,19 @@ const Posts = () => {
   return sessionUser && posts ? (
     <>
       <div className="post-form-container">
-        <div className="name-fixed">
-          <img
-            className="profile-picture-nav profile-home"
-            src={sessionUser?.profile_pic}
-          />
-          <p className="profile-home-name">
-            {sessionUser.first_name} {sessionUser.last_name}
-          </p>
-        </div>
+        <NavLink to={`/${sessionUser.id}`} exact={true}>
+          <div className="name-fixed">
+            <img
+              className="profile-picture-nav profile-home"
+              src={sessionUser?.profile_pic}
+            />
+            <p className="profile-home-name">
+              {sessionUser.first_name} {sessionUser.last_name}
+            </p>
+          </div>
+        </NavLink>
         <PostFormModal sessionUser={sessionUser} />
       </div>
-
       <div className="all-posts-container">
         {Object.values(posts)
           .sort()

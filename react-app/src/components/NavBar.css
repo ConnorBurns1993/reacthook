@@ -14,7 +14,8 @@ nav {
 }
 
 .home-logo {
-    width: 26px;
+    width: 120px;
+    text-align: center;
     position: relative;
 }
 
@@ -51,6 +52,8 @@ nav {
 .fa-brands{
     color: rgb(150, 150, 150);
     font-size: 29px;
+    width: 120px;
+    text-align: center;
 
 }
 
@@ -61,11 +64,16 @@ nav {
 
 }
 
+.active {
+    color: #1b74e4;
+    /* border-bottom: 1px solid #1b74e4; */
+}
+
 .fa-house {
     font-size: 25px;
 }
 
-.fa-brands.fa-people-arrows{
+.fa-brands{
     color: rgb(150, 150, 150);
     font-size: 27px;
     cursor: pointer;
@@ -84,6 +92,25 @@ justify-content: center;
 padding: 2%;
 margin-left: .5%;
 margin-right: .5%;
+}
+
+.nav-li-active{
+border-bottom:#1b74e4 3px solid;
+display: inline-flex;
+width: 100px;
+justify-content: center;
+padding: 2%;
+margin-left: .5%;
+margin-right: .5%;
+}
+
+.home-logo-active {
+    color:#1b74e4;
+}
+
+.arrows-active{
+    color: #1b74e4;
+
 }
 
 .nav-ul {
