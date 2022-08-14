@@ -91,7 +91,7 @@ function User() {
         <p className="profile-page-name">
           {user?.first_name} {user?.last_name}
         </p>
-        {sessionUser.id.toString() === userId && (
+        {/* {sessionUser.id.toString() === userId && (
           <>
             <button
               type="button"
@@ -113,7 +113,7 @@ function User() {
               hidden
             />
           </>
-        )}
+        )} */}
       </div>
       <div className="post-form-container-profile">
         <PostFormModalUser
