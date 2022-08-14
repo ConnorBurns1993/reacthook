@@ -97,7 +97,7 @@ function User() {
               type="button"
               className="comment-upload-button"
               id="edit-upload-profile"
-              onClick={(e) => fileRef.current.click(e)}
+              // onClick={(e) => fileRef.current.click(e)}
             >
               <i className="fa-solid fa-camera profile-camera"></i>
             </button>
@@ -105,7 +105,7 @@ function User() {
               <i className="fa-solid fa-camera"></i> Edit cover photo
             </button>
             <input
-              ref={fileRef}
+              // ref={fileRef}
               type="file"
               accept="image/png, image/jpg, image/gif, image/jpeg"
               // onChange={handleSubmit}
@@ -128,7 +128,7 @@ function User() {
           <p className="intro-text">
             <i className="fa-solid fa-signature"></i>My name is{" "}
             <b>
-              {user.first_name} {user.last_name}
+              {user?.first_name} {user?.last_name}
             </b>
           </p>
           <p className="intro-text">
@@ -138,14 +138,14 @@ function User() {
           <p className="intro-text">
             <i
               className={
-                user.gender === "Male"
+                user?.gender === "Male"
                   ? "fa-solid fa-mars"
-                  : user.gender === "Female"
+                  : user?.gender === "Female"
                   ? "fa-solid fa-venus"
                   : "fa-solid fa-mars-stroke-up"
               }
             ></i>
-            {""} I identify as <b>{user.gender}</b>
+            {""} I identify as <b>{user?.gender}</b>
           </p>
         </div>
         {Object.values(posts)

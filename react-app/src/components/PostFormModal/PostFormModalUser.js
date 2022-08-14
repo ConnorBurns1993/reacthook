@@ -5,7 +5,6 @@ import PostForm from "./PostForm";
 
 function PostFormModalUser({ sessionUser, userId, user }) {
   const [showModal, setShowModal] = useState(false);
-  console.log(userId, sessionUser.id);
   return (
     <>
       <NavLink to={`${sessionUser.id}`}>
