@@ -18,7 +18,7 @@ function User() {
   const posts = useSelector((state) => state.posts);
   const [imageLoading, setImageLoading] = useState(false);
 
-  const fileRef = useRef();
+  // const fileRef = useRef();
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
