@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./User.css";
-import SinglePost from "./SinglePost";
 import SplashPage from "./SplashPage";
 import PostFormModalUser from "./PostFormModal/PostFormModalUser";
 import { updateUser } from "../store/session";
