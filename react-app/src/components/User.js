@@ -20,41 +20,41 @@ function User() {
 
   const fileRef = useRef();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-    const form = new FormData();
-    form.append("image", image);
+  //   const form = new FormData();
+  //   form.append("image", image);
 
-    const file = e.target.files[0];
-    setImage(file);
+  //   const file = e.target.files[0];
+  //   setImage(file);
 
-    setImageLoading(true);
+  //   setImageLoading(true);
 
-    const res = await fetch("/api/posts/post-image", {
-      method: "POST",
-      body: form,
-    });
+  //   const res = await fetch("/api/posts/post-image", {
+  //     method: "POST",
+  //     body: form,
+  //   });
 
-    if (res.ok) {
-      const data = await res.json();
-      setImageLoading(false);
+  //   if (res.ok) {
+  //     const data = await res.json();
+  //     setImageLoading(false);
 
-      if (data.image) {
-        const updatedProfilePic = {
-          ...sessionUser,
-          profile_pic: data.image,
-        };
-        await dispatch(updateUser(updatedProfilePic));
-      } else {
-        const updatedProfilePic = {
-          ...sessionUser,
-          profile_pic: profilePic,
-        };
-        await dispatch(updateUser(updatedProfilePic));
-      }
-    }
-  };
+  //     if (data.image) {
+  //       const updatedProfilePic = {
+  //         ...sessionUser,
+  //         profile_pic: data.image,
+  //       };
+  //       await dispatch(updateUser(updatedProfilePic));
+  //     } else {
+  //       const updatedProfilePic = {
+  //         ...sessionUser,
+  //         profile_pic: profilePic,
+  //       };
+  //       await dispatch(updateUser(updatedProfilePic));
+  //     }
+  //   }
+  // };
 
   useEffect(() => {
     if (!userId) {
@@ -108,7 +108,7 @@ function User() {
               ref={fileRef}
               type="file"
               accept="image/png, image/jpg, image/gif, image/jpeg"
-              onChange={handleSubmit}
+              // onChange={handleSubmit}
               id="comment-upload-photo"
               hidden
             />
