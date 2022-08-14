@@ -12,10 +12,13 @@ object-position: 50% 20%;
 
 .profile-container{
     background-color: white;
+    height: 600px;
+    border-bottom: solid 1px rgb(226, 226, 226);
+    box-shadow: .5px .5px 7px rgb(214, 214, 214);
 }
 
 .profile-page-image{
-    border-radius: 500px;
+    border-radius: 250px;
     width: 168px;
     height: 168px;
     position: relative;
@@ -33,4 +36,107 @@ object-position: 50% 20%;
     left: 30%;
     bottom: 50px;
     width: fit-content;
+}
+
+.post-form-container-profile{
+    background-color: white;
+    border: 1px solid rgb(214, 214, 214);
+    position: relative;
+    top: 25px;
+    left: 45.5%;
+    width: 675px;
+    height: 60px;
+    border-radius: 10px;
+    box-shadow: .5px .5px 7px rgb(214, 214, 214);
+}
+
+.all-posts-container-profile{
+    margin-top: 45px;
+    position: relative;
+    width: 1450px;
+    left: 20%;
+}
+
+#edit-upload-profile{
+    position: relative;
+    left: 27%;
+    top: -20px;
+}
+
+.profile-camera{
+    color: black;
+    font-size: 17px;
+}
+
+.edit-cover-photo {
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    position: relative;
+    left: 72%;
+    bottom: 165px;
+    padding: .5%;
+    width: 155px;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.edit-cover-photo:hover{
+    filter: brightness(95%)
+}
+
+.post-container-user {
+    border: 1px solid rgb(214, 214, 214);
+    border-radius: 10px;
+    width: 675px;
+    position: relative;
+    margin-top: 45px;
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 1px 1px 5px rgb(214, 214, 214);
+    overflow-wrap:break-word;
+    display: flex;
+    flex-direction: column;
+    left: 33.5%;
+}
+
+.intro-div{
+    border: 1px solid rgb(214, 214, 214);
+    border-radius: 10px;
+    width: 405px;
+    position: absolute;
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 1px 1px 5px rgb(214, 214, 214);
+    overflow-wrap:break-word;
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    top: -80px;
+}
+
+.intro{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    bottom: 15px;
+    right: 3%;
+    font-size: 20px;
+}
+
+.intro-text {
+    padding: 2%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.fa-mars,
+.fa-venus,
+.fa-mars-stroke-up,
+.fa-cake-candles,
+.fa-signature{
+    color: gray;
+    font-size: 20px;
+    text-align: left;
+    margin-right: 5%;
 }
