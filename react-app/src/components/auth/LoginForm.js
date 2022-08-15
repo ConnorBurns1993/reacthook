@@ -15,12 +15,11 @@ const LoginForm = () => {
 
   const onLogin = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login(email, password)).then(() =>
-      history.push("/")
-    );
+    const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
     }
+    history.push("/");
   };
 
   const updateEmail = (e) => {

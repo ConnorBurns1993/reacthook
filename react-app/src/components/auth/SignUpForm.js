@@ -27,17 +27,20 @@ const SignUpForm = ({ setShowModal }) => {
     if (password === repeatPassword) {
       const data = await dispatch(
         signUp(firstName, lastName, email, birthday, gender, password)
-      ).then(() => history.push("/"));
+      );
       if (data) {
         setErrors(data);
+      } else {
+        setErrors(["Passwords must match."]);
       }
       if (currentYear - inputYear < 13) {
         setErrors(["You must be atleast 13 to join Reacthook."]);
       }
-    } else {
-      setErrors(["Passwords must match."]);
     }
+    history.push("/");
   };
+
+  console.log(currentYear - inputYear);
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
