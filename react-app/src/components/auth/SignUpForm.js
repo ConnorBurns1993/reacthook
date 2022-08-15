@@ -35,9 +35,8 @@ const SignUpForm = ({ setShowModal }) => {
     } else {
       setErrors(["Passwords must match."]);
     }
-    if (currentYear - inputYear < 13) {
-      setErrors(["You must be atleast 13 to join Reacthook."]);
-    }
+    // if (currentYear - inputYear < 13) {
+    //   setErrors(["You must be atleast 13 to join Reacthook."]);
   };
   // history.push("/");
 
