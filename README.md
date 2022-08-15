@@ -1,13 +1,66 @@
-# Flask React Project
+# Reacthook #
 
-This is the starter for the Flask React project.
+**Created by:** 
+- [Connor Burns](https://github.com/ConnorBurns1993) 
 
-## Getting started
-1. Clone this repository (only this branch)
+**Created using:** 
+- ***Python***
+- ***Flask***
+- ***Javascript***
+- ***React***
+- ***Redux***
+- ***PostgreSQL***
+- ***CSS***
 
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
+Welcome to Reacthook, a clone of Facebook. Create posts for your friends to read and comment on, and interact with your friends posts too! Stay connected with everything new in your friends lives.
+
+**Explore Reacthook!:** https://reacthook-fb.herokuapp.com/
+
+## **Splash Page** ##
+Upon landing on the home page, you may sign up (or log in if you already have an account). If you wish to not create an account for convenience or confidential reasons, you may click the "Want a demo?" button underneath the Log In button, which can be previewed below.
+
+![Screenshot (149)](https://user-images.githubusercontent.com/97809578/184635104-72d6785c-4da9-443e-837a-e85283135ea2.png)
+
+
+## **Log In & Sign Up** ##
+
+![Screenshot (150)](https://user-images.githubusercontent.com/97809578/184635173-23b15f6e-7dc6-47ba-89af-c56898fe7e54.png)
+
+![Screenshot (151)](https://user-images.githubusercontent.com/97809578/184635192-e4754400-5777-4eeb-ac9d-ee53c7476c6c.png)
+
+
+
+
+## **Newsfeed** ##
+After you've logged in or signed up, you'll be redirected to the newsfeed page, where you're able to see every new post that has been made. From here you can create your own post, comment on others posts, send images - connect with all your friends!
+
+![Screenshot (153)](https://user-images.githubusercontent.com/97809578/184635545-26e56191-8a7a-44f6-a8f6-8282f553251e.png)
+
+
+
+## **Creating a Post** ##
+![Screenshot (152)](https://user-images.githubusercontent.com/97809578/184635652-3b0fff8e-a830-44ca-acc2-15e62c35dace.png)
+
+
+## **Commenting** ##
+
+![Screenshot (155)](https://user-images.githubusercontent.com/97809578/184635832-de9112ad-4908-4c3d-b92d-24e84da4382d.png)
+
+## **Editing & Deleting Your Posts** ##
+
+![Screenshot (154)](https://user-images.githubusercontent.com/97809578/184635910-d9b806cb-56c0-47c1-bcf2-988093b16904.png)
+
+## **Matches & Messaging** ##
+From the newsfeed page, you can click any user's name or profile picture and be directed to their profile page so you can learn a little more about them.
+
+![Screenshot (156)](https://user-images.githubusercontent.com/97809578/184636027-e66a67ba-f162-4094-ae6b-03a869c54761.png)
+
+## How to Clone
+1. Clone this repository
+
+      ```bash
+      git clone https://github.com/ConnorBurns1993/reacthook.git
+        ```
 
 2. Install dependencies
 
@@ -17,6 +70,7 @@ This is the starter for the Flask React project.
 
 3. Create a **.env** file based on the example with proper settings for your
    development environment
+   
 4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
 
 5. Get into your pipenv, migrate your database, seed your database, and run your flask app
@@ -47,83 +101,4 @@ This is the starter for the Flask React project.
    There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
 ***
 
-### Dev Containers (OPTIONAL for M1 Users)
-The following instructions detail an *optional* development setup for M1 Mac users having issues with the `psycopg` package.
-
-1. Make sure you have the [Microsoft Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension installed. 
-2. Make sure you have [Docker](https://www.docker.com/products/docker-desktop/) installed on your computer. 
-3. Clone the repository (only this branch)
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
-4. Open the repo in VS Code. 
-5. Click "Open in Container" when VS Code prompts to open container in the bottom right hand corner. 
-6. **Be Patient!** The initial install will take a LONG time, it's building a container that has postgres preconfigured and even installing all your project dependencies. (For both flask and react!)
-
-   **Note:** This will take much less time on future starts because everything will be cached.
-
-7. Once everything is up, be sure to make a `.env` file based on `.env.example` in both the root directory and the *react-app* directory before running your app. You do not need a `DATABASE_URL` in the `.env` file if you are using this Docker setup for development - the URL is already set in the image (see `.devcontainer/Dockerfile` for the URL).
-
-8. Get into your pipenv, migrate your database, seed your database, and run your flask app
-
-   ```bash
-   pipenv shell
-   ```
-
-   ```bash
-   flask db upgrade
-   ```
-
-   ```bash
-   flask seed all
-   ```
-
-   ```bash
-   flask run
-   ```
-
-9. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
-
-<br>
-
-## Deploy to Heroku
-This repo comes configured with Github Actions. When you push to your main branch, Github will automatically pull your code, package and push it to Heroku, and then release the new image and run db migrations. 
-
-1. Write your Dockerfile. In order for the Github action to work effectively, it must have a configured Dockerfile. Follow the comments found in this [Dockerfile](./Dockerfile) to write your own!
-
-2. Create a new project on Heroku.
-
-3. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres".
-
-4. Configure production environment variables. In your Heroku app settings -> config variables you should have two environment variables set:
-
-   |    Key          |    Value    |
-   | -------------   | ----------- |
-   | `DATABASE_URL`  | Autogenerated when adding postgres to Heroku app |
-   | `SECRET_KEY`    | Random string full of entropy |
-
-5. Generate a Heroku OAuth token for your Github Action. To do so, log in to Heroku via your command line with `heroku login`. Once you are logged in, run `heroku authorizations:create`. Copy the GUID value for the Token key.
-
-6. In your Github Actions Secrets you should have two environment variables set. You can set these variables via your Github repository settings -> secrets -> actions. Click "New respository secret" to create
-each of the following variables:
-
-   |    Key            |    Value    |
-   | -------------     | ----------- |
-   | `HEROKU_API_KEY`  | Heroku Oauth Token (from step 6)|
-   | `HEROKU_APP_NAME` | Heroku app name    |
-
-7. Push to your `main` branch! This will trigger the Github Action to build your Docker image and deploy your application to the Heroku container registry. Please note that the Github Action will automatically upgrade your production database with `flask db upgrade`. However, it will *not* automatically seed your database. You must manually seed your production database if/when you so choose (see step 8).
-
-8. *Attention!* Please run this command *only if you wish to seed your production database*: `heroku run -a HEROKU_APP_NAME flask seed all`
-
-## Helpful commands
-|    Command            |    Purpose    |
-| -------------         | ------------- |
-| `pipenv shell`        | Open your terminal in the virtual environment and be able to run flask commands without a prefix |
-| `pipenv run`          | Run a command from the context of the virtual environment without actually entering into it. You can use this as a prefix for flask commands  |
-| `flask db upgrade`    | Check in with the database and run any needed migrations  |
-| `flask db downgrade`  | Check in with the database and revert any needed migrations  |
-| `flask seed all`      | Just a helpful syntax to run queries against the db to seed data. See the **app/seeds** folder for reference and more details |
-| `heroku login -i`      | Authenticate your heroku-cli using the command line. Drop the -i to authenticate via the browser |
-| `heroku authorizations:create` | Once authenticated, use this to generate an Oauth token |
-| `heroku run -a <app name>` | Run a command from within the deployed container on Heroku |
+I hope you enjoy Reacthook!
