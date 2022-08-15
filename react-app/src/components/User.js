@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory, withRouter } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./User.css";
 import SplashPage from "./SplashPage";
 import PostFormModalUser from "./PostFormModal/PostFormModalUser";
 import SinglePostUser from "./SinglePostUser";
 import { getAllUsers, updateUser } from "../store/session";
+import NotFound from "./NotFound";
 
 function User() {
   const sessionUser = useSelector((state) => state.session.user);
+  const history = useHistory();
   const [user, setUser] = useState({});
   const [view, setView] = useState("");
   const [image, setImage] = useState("");
@@ -59,20 +61,19 @@ function User() {
     }
   };
 
-  useEffect(() => {
-    if (!userId) {
-      return;
-    }
-    (async () => {
+  const getUser = async () => {
+    try {
       const response = await fetch(`/api/users/${userId}`);
       const user = await response.json();
       setUser(user);
-    })();
-  }, [userId]);
+    } catch (err) {
+      history.replace("/not-found");
+    }
+  };
 
-  if (!user) {
-    return null;
-  }
+  useEffect(() => {
+    getUser();
+  }, [userId]);
 
   let date = user?.birthday?.substr(5, 11).split(" ").join("/");
 
@@ -84,7 +85,7 @@ function User() {
 
   const birthday = `${month} ${day}, ${year}`;
 
-  return sessionUser && posts ? (
+  return sessionUser && posts && user ? (
     <>
       <div className="profile-container">
         <img className="cover-pic" src={user?.cover_pic} />
@@ -165,8 +166,8 @@ function User() {
       </div>
     </>
   ) : (
-    <SplashPage />
+    <NotFound />
   );
 }
 
-export default User;
+export default withRouter(User);

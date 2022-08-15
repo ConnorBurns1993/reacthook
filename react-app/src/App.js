@@ -47,13 +47,13 @@ function App() {
           <NavBar />
           <Connect />
         </Route>
+        <Route path="/not-found" exact={true}>
+          <NavBar />
+          <NotFound />
+        </Route>
         <Route path="/:userId" exact={true}>
           {sessionUser ? <NavBar /> : ""}
           <User />
-        </Route>
-        <Route>
-          <NavBar />
-          <NotFound />
         </Route>
       </Switch>
     </BrowserRouter>
