@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { signUp } from "../../store/session";
 import "../SplashPage.css";
+import { Redirect } from "react-router-dom";
 
 const SignUpForm = ({ setShowModal }) => {
   const [errors, setErrors] = useState([]);
@@ -30,17 +31,15 @@ const SignUpForm = ({ setShowModal }) => {
       );
       if (data) {
         setErrors(data);
-        if (currentYear - inputYear < 13) {
-          setErrors(["You must be atleast 13 to join Reacthook."]);
-        }
-      } else {
-        setErrors(["Passwords must match."]);
       }
+    } else {
+      setErrors(["Passwords must match."]);
     }
-    history.push("/");
+    if (currentYear - inputYear < 13) {
+      setErrors(["You must be atleast 13 to join Reacthook."]);
+    }
   };
-
-  console.log(currentYear - inputYear);
+  // history.push("/");
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -70,9 +69,9 @@ const SignUpForm = ({ setShowModal }) => {
     setRepeatPassword(e.target.value);
   };
 
-  // if (user) {
-  //   return <Redirect to="/" exact={true} />;
-  // }
+  if (user) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <form className="signup-container" onSubmit={onSignUp}>
