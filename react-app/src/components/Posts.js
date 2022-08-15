@@ -13,19 +13,21 @@ const Posts = () => {
 
   return sessionUser && posts ? (
     <>
-      <div className="post-form-container">
-        <NavLink to={`/${sessionUser.id}`} exact={true}>
-          <div className="name-fixed">
-            <img
-              className="profile-picture-nav profile-home"
-              src={sessionUser?.profile_pic}
-            />
-            <p className="profile-home-name">
-              {sessionUser.first_name} {sessionUser.last_name}
-            </p>
-          </div>
-        </NavLink>
-        <PostFormModal sessionUser={sessionUser} />
+      <div className="post-form-outer-container">
+        <div className="post-form-container">
+          <NavLink to={`/${sessionUser.id}`} exact={true}>
+            <div className="name-fixed">
+              <img
+                className="profile-picture-nav profile-home"
+                src={sessionUser?.profile_pic}
+              />
+              <p className="profile-home-name">
+                {sessionUser.first_name} {sessionUser.last_name}
+              </p>
+            </div>
+          </NavLink>
+          <PostFormModal sessionUser={sessionUser} />
+        </div>
       </div>
       <div className="all-posts-container">
         {Object.values(posts)

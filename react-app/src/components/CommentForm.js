@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { addComment } from "../store/comments";
 
-function CommentForm({ post }) {
+function CommentForm({ post, ref }) {
   const dispatch = useDispatch();
 
   const sessionUser = useSelector((state) => state.session.user);
@@ -80,6 +80,7 @@ function CommentForm({ post }) {
             >
               <div className="comment-input-container">
                 <input
+                  ref={ref}
                   onMouseEnter={(e) => setHover(true)}
                   onMouseLeave={(e) => setHover(false)}
                   className="comment-form"

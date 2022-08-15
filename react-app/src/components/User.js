@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import "./User.css";
 import SplashPage from "./SplashPage";
 import PostFormModalUser from "./PostFormModal/PostFormModalUser";
-import { updateUser } from "../store/session";
 import SinglePostUser from "./SinglePostUser";
+import { getAllUsers, updateUser } from "../store/session";
 
 function User() {
   const sessionUser = useSelector((state) => state.session.user);
@@ -18,43 +18,46 @@ function User() {
   const posts = useSelector((state) => state.posts);
   const [imageLoading, setImageLoading] = useState(false);
 
-  // const fileRef = useRef();
+  const fileRef = useRef();
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
+  const handleSubmit = async (e) => {
+    // e.preventDefault();
 
-  //   const form = new FormData();
-  //   form.append("image", image);
+    const form = new FormData();
+    form.append("image", image);
 
-  //   const file = e.target.files[0];
-  //   setImage(file);
+    const file = e.target.files[0];
+    setImage(file);
+    setImageLoading(true);
 
-  //   setImageLoading(true);
+    const res = await fetch("/api/posts/post-image", {
+      method: "POST",
+      body: form,
+    });
 
-  //   const res = await fetch("/api/posts/post-image", {
-  //     method: "POST",
-  //     body: form,
-  //   });
+    if (res.ok) {
+      const data = await res.json();
+      console.log(data);
+      setImageLoading(false);
 
-  //   if (res.ok) {
-  //     const data = await res.json();
-  //     setImageLoading(false);
+      if (data.image) {
+        const updatedProfilePic = {
+          ...sessionUser,
+          profile_pic: data.image,
+        };
 
-  //     if (data.image) {
-  //       const updatedProfilePic = {
-  //         ...sessionUser,
-  //         profile_pic: data.image,
-  //       };
-  //       await dispatch(updateUser(updatedProfilePic));
-  //     } else {
-  //       const updatedProfilePic = {
-  //         ...sessionUser,
-  //         profile_pic: profilePic,
-  //       };
-  //       await dispatch(updateUser(updatedProfilePic));
-  //     }
-  //   }
-  // };
+        console.log(updatedProfilePic);
+
+        await dispatch(updateUser(updatedProfilePic));
+      } else {
+        const updatedProfilePic = {
+          ...sessionUser,
+          profile_pic: profilePic,
+        };
+        await dispatch(updateUser(updatedProfilePic));
+      }
+    }
+  };
 
   useEffect(() => {
     if (!userId) {
@@ -81,8 +84,6 @@ function User() {
 
   const birthday = `${month} ${day}, ${year}`;
 
-  console.log(birthday);
-
   return sessionUser && posts ? (
     <>
       <div className="profile-container">
@@ -93,25 +94,27 @@ function User() {
         </p>
         {/* {sessionUser.id.toString() === userId && (
           <>
-            <button
-              type="button"
-              className="comment-upload-button"
-              id="edit-upload-profile"
-              // onClick={(e) => fileRef.current.click(e)}
-            >
-              <i className="fa-solid fa-camera profile-camera"></i>
-            </button>
-            <button className="edit-cover-photo">
-              <i className="fa-solid fa-camera"></i> Edit cover photo
-            </button>
-            <input
-              // ref={fileRef}
-              type="file"
-              accept="image/png, image/jpg, image/gif, image/jpeg"
-              // onChange={handleSubmit}
-              id="comment-upload-photo"
-              hidden
-            />
+            <form>
+              <button
+                type="button"
+                className="comment-upload-button"
+                id="edit-upload-profile"
+                onClick={(e) => fileRef.current.click(e)}
+              >
+                <i className="fa-solid fa-camera profile-camera"></i>
+              </button>
+              <button className="edit-cover-photo">
+                <i className="fa-solid fa-camera"></i> Edit cover photo
+              </button>
+              <input
+                ref={fileRef}
+                type="file"
+                accept="image/png, image/jpg, image/gif, image/jpeg"
+                onChange={handleSubmit}
+                id="comment-upload-photo"
+                hidden
+              />
+            </form>
           </>
         )} */}
       </div>

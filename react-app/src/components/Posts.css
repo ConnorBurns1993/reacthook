@@ -43,6 +43,10 @@
     width: 100px;
 }
 
+.post-form-outer-container{
+    width: 100vw;
+}
+
 .post-form{
 
     position: relative;
@@ -82,7 +86,10 @@
 .all-posts-container{
     margin-top: 100px;
     position: relative;
-    width: 100%;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .post-profile{

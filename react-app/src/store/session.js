@@ -1,8 +1,8 @@
 // constants
-const GET_USERS = "sessions/GET_USERS";
+const GET_USERS = "session/GET_USERS";
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
-const EDIT_USER = "sessions/EDIT_USER";
+const EDIT_USER = "session/EDIT_USER";
 
 const getUsers = (users) => ({
   type: GET_USERS,
@@ -42,7 +42,7 @@ export const authenticate = () => async (dispatch) => {
 };
 
 export const getAllUsers = () => async (dispatch) => {
-  const response = await fetch("/api/users/");
+  const response = await fetch("/api/users");
   if (response.ok) {
     const data = await response.json();
     dispatch(getUsers(data.users));
@@ -156,11 +156,7 @@ export default function reducer(state = initialState, action) {
     case REMOVE_USER:
       return { user: null };
     case GET_USERS: {
-      const newState = {};
-      action.payload.forEach((user) => {
-        newState[user.id] = user;
-      });
-      return newState;
+      return { user: action.payload };
     }
     case EDIT_USER:
       return { user: action.payload };

@@ -61,7 +61,10 @@ const EditCommentForm = ({
             body,
             image_url: data.image,
           };
-          await dispatch(updateComment(editComment));
+          await dispatch(updateComment(editComment))
+            .then(() => setShowModal(false))
+            .then((e) => setEditForm(false))
+            .then(() => handleCommentOptions());
         } else {
           const editComment = {
             ...comment,

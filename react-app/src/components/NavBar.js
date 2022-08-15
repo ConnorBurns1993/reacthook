@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import LogoutButton from "./auth/LogoutButton";
 import "./NavBar.css";
 import useComponentVisible from "./useComponentVisible";
@@ -12,12 +13,10 @@ const NavBar = () => {
   const [userOptions, setUserOptions] = useState(false);
   const [connect, setConnect] = useState(false);
 
+  const { pathname } = useLocation();
+
   const { ref, isComponentVisible, setIsComponentVisible } =
     useComponentVisible(false);
-
-  const handleUserOptions = (e) => {
-    setUserOptions((current) => !current);
-  };
 
   const handleHome = () => {
     setHome(true);
@@ -40,14 +39,16 @@ const NavBar = () => {
         <div className="nav-buttons-container">
           <ul className="nav-ul">
             <li
-              className={active && home ? "nav-li-active" : "nav-li"}
+              className={
+                active && home && pathname === "/" ? "nav-li-active" : "nav-li"
+              }
               onClick={handleHome}
             >
               <NavLink to="/" exact={true}>
                 <i
                   title="Home"
                   className={
-                    active && home
+                    active && home && pathname === "/"
                       ? "home-logo-active fa-solid fa-house fa-brands"
                       : "home-logo fa-solid fa-house fa-brands"
                   }
@@ -73,14 +74,18 @@ const NavBar = () => {
               </a>
             </li>
             <li
-              className={active && connect ? "nav-li-active" : "nav-li"}
+              className={
+                active && connect && pathname === "/connect"
+                  ? "nav-li-active"
+                  : "nav-li"
+              }
               onClick={handleConnect}
             >
               <NavLink to="/connect" exact={true}>
                 <i
                   title="Connect"
                   className={
-                    active && connect
+                    active && connect && pathname === "/connect"
                       ? "arrows-active fa-brands fa-solid fa-people-arrows"
                       : "fa-brands fa-solid fa-people-arrows"
                   }

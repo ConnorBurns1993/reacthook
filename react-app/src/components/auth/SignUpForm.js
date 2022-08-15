@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { signUp } from "../../store/session";
 import "../SplashPage.css";
 
@@ -15,6 +15,7 @@ const SignUpForm = ({ setShowModal }) => {
   const [birthday, setBirthday] = useState("");
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const currentYear = new Date().getFullYear().toString();
   console.log(currentYear);
@@ -26,7 +27,7 @@ const SignUpForm = ({ setShowModal }) => {
     if (password === repeatPassword) {
       const data = await dispatch(
         signUp(firstName, lastName, email, birthday, gender, password)
-      );
+      ).then(() => history.push("/"));
       if (data) {
         setErrors(data);
       }
@@ -66,9 +67,9 @@ const SignUpForm = ({ setShowModal }) => {
     setRepeatPassword(e.target.value);
   };
 
-  if (user) {
-    return <Redirect to="/" exact={true} />;
-  }
+  // if (user) {
+  //   return <Redirect to="/" exact={true} />;
+  // }
 
   return (
     <form className="signup-container" onSubmit={onSignUp}>

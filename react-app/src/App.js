@@ -4,16 +4,21 @@ import { useDispatch, useSelector } from "react-redux";
 import NavBar from "./components/NavBar";
 import Posts from "./components/Posts";
 import { getAllPosts } from "./store/posts";
-import { authenticate } from "./store/session";
+import { authenticate, getAllUsers } from "./store/session";
 import Connect from "./components/Connect";
 import NotFound from "./components/NotFound";
 import User from "./components/User";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const comments = useSelector((state) => state.comments);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
 
   useEffect(() => {
     (async () => {
@@ -32,6 +37,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Switch>
         <Route path="/" exact={true}>
           {sessionUser ? <NavBar /> : ""}

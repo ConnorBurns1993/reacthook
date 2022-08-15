@@ -25,7 +25,6 @@ def user(id):
 def edit_user(id):
     form = UserForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print('\n \n \n', form.data)
     if form.validate_on_submit():
         to_edit = User.query.get(id)
         to_edit.profile_pic = form.data['profile_pic']
