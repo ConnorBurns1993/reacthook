@@ -117,7 +117,7 @@ const SinglePostUser = ({ post }) => {
         <img className="post-image" src={post.image_url}></img>
       )}
       <div className="likes-and-comments-amount">
-        <p className="like-amount">You and others like this.</p>
+        <p className="like-amount">People like this.</p>
         {post.comments.length > 0 && (
           <p className="comment-amount"> {post.comments.length} Comments</p>
         )}
