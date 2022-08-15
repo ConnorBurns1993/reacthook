@@ -2,12 +2,19 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { destroyComment } from "../../store/comments";
 
-const DeleteComment = ({ comment, setShowModal }) => {
+const DeleteComment = ({ comment, setShowModal, handleCommentOptions }) => {
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(destroyComment(comment?.id)).then(() => setShowModal(false));
+    dispatch(destroyComment(comment?.id))
+      .then(() => setShowModal(false))
+      .then(() => handleCommentOptions());
+  };
+
+  const handleCancel = () => {
+    setShowModal(false);
+    handleCommentOptions();
   };
 
   return (
@@ -20,17 +27,13 @@ const DeleteComment = ({ comment, setShowModal }) => {
         Are you sure you want to delete your comment? This action is
         irreversible.
       </p>
-      <button className="cancel-delete" onClick={(e) => setShowModal(false)}>
+      <button className="cancel-delete" onClick={handleCancel}>
         Cancel
       </button>
       <button className="delete-post" onClick={handleSubmit}>
         Delete
       </button>
-      <button
-        className="delete-post-x"
-        type="button"
-        onClick={(e) => setShowModal(false)}
-      >
+      <button className="delete-post-x" type="button" onClick={handleCancel}>
         <i className="fa-solid fa-x delete-x"></i>
       </button>
     </div>

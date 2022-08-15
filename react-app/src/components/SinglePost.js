@@ -14,7 +14,7 @@ const SinglePost = ({ post, sessionUser }) => {
 
   return (
     <li className="post-container">
-      <NavLink to={`/${post.user_id}`}>
+      <NavLink className="post-navlink" to={`/${post.user_id}`}>
         <img
           src={post.user?.profile_pic}
           className="profile-picture-nav post-profile single-post"
@@ -32,19 +32,22 @@ const SinglePost = ({ post, sessionUser }) => {
         ></i>
       )}
       {sessionUser.id === post.user_id && options && (
-        <div className="edit-delete-post-container">
-          <EditPostFormModal
-            post={post}
-            sessionUser={sessionUser}
-            handleOptions={handleOptions}
-          />
-          <p className="p2">__________________________________</p>
-          <DeletePostModal
-            post={post}
-            sessionUser={sessionUser}
-            handleOptions={handleOptions}
-          />
-        </div>
+        <>
+          <div className="edit-delete-post-container">
+            <EditPostFormModal
+              post={post}
+              sessionUser={sessionUser}
+              handleOptions={handleOptions}
+            />
+            <p className="p2">__________________________________</p>
+            <DeletePostModal
+              post={post}
+              sessionUser={sessionUser}
+              handleOptions={handleOptions}
+            />
+          </div>
+          <div className="overlay" onClick={() => setOptions(false)}></div>
+        </>
       )}
       <p className={post.body.length < 35 ? "post-body-short" : "post-body"}>
         {post.body}

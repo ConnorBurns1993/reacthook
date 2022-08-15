@@ -16,6 +16,11 @@ const SignUpForm = ({ setShowModal }) => {
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
 
+  const currentYear = new Date().getFullYear().toString();
+  console.log(currentYear);
+  const inputYear = birthday.slice(0, 4);
+  console.log(inputYear);
+
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
@@ -25,6 +30,11 @@ const SignUpForm = ({ setShowModal }) => {
       if (data) {
         setErrors(data);
       }
+      if (currentYear - inputYear < 13) {
+        setErrors(["You must be atleast 13 to join Reacthook."]);
+      }
+    } else {
+      setErrors(["Passwords must match."]);
     }
   };
 

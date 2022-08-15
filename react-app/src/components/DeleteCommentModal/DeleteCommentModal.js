@@ -22,6 +22,7 @@ function DeleteCommentModal({ post, comment, handleCommentOptions }) {
           }}
         >
           <DeleteComment
+            handleCommentOptions={handleCommentOptions}
             setShowModal={setShowModal}
             comment={comment}
             post={post}

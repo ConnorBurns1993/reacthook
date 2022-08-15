@@ -93,10 +93,11 @@
 
 .single-post{
     margin-top: 5px;
+    left: 6%;
 }
 
 .posts-names{
-    width: 400px;
+    width: fit-content;
     position:relative;
     left: 10.5%;
     bottom: 30px;
@@ -104,6 +105,10 @@
     font-weight: 600;
     font-size: 15px;
     cursor: pointer;
+}
+
+.post-navlink {
+    width: 200px;
 }
 
 .posts-names:hover{
@@ -283,7 +288,7 @@ text-decoration: underline;
     position: fixed;
     display: inline-flex;
     width: 300px;
-    right: 83.4%;
+    right: 83.2%;
     margin-top: 0%;
     padding: .3%;
     cursor: pointer;
@@ -328,4 +333,12 @@ text-decoration: underline;
     font-size: 11px;
     color: red;
     width: max-content;
+}
+
+.overlay{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
 }

@@ -63,19 +63,25 @@ const SingleComment = ({ comment, post, sessionUser }) => {
             )}
           </div>
           {commentOptions && (
-            <div className="edit-and-delete-comment">
-              <EditCommentFormModal
-                handleCommentOptions={handleCommentOptions}
-                post={post}
-                comment={comment}
-                setEditForm={setEditForm}
-              />
+            <>
+              <div className="edit-and-delete-comment">
+                <EditCommentFormModal
+                  handleCommentOptions={handleCommentOptions}
+                  post={post}
+                  comment={comment}
+                  setEditForm={setEditForm}
+                />
 
-              <DeleteCommentModal
-                comment={comment}
-                handleCommentOptions={handleCommentOptions}
-              />
-            </div>
+                <DeleteCommentModal
+                  comment={comment}
+                  handleCommentOptions={handleCommentOptions}
+                />
+              </div>
+              <div
+                className="overlay"
+                onClick={() => setCommentOptions(false)}
+              ></div>
+            </>
           )}
         </div>
       )}

@@ -32,7 +32,7 @@ function CommentForm({ post }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (body.length <= 150) {
+    if (body.length <= 150 && body) {
       const form = new FormData();
       form.append("image", image);
       setImageLoading(true);

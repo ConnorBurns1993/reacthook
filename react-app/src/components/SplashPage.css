@@ -298,10 +298,10 @@ border: none;
 
 .login-errors{
     position: relative;
-    left: 61%;
+    left: 60%;
     bottom: 180px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 13px;
+    font-size: 15px;
     padding: .2%;
     width: max-content;
     color: rgb(216, 18, 18);
@@ -309,10 +309,10 @@ border: none;
 
 .signup-errors {
     position: relative;
-    left: 35%;
-    bottom: 470px;
+    left: 0%;
+    bottom: 600px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 10px;
+    font-size: 15px;
     padding: .6%;
     display: flex;
     flex-direction: column;

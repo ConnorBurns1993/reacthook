@@ -91,7 +91,7 @@ function EditPostForm({ setShowModal, post, sessionUser, handleOptions }) {
         <button className="edit-x" onClick={(e) => handleCancel(e)}>
           <i className="fa-solid fa-x"></i>
         </button>
-        {body.length < 1 && (
+        {body.trim().length < 1 && (
           <p className="body-length-short">
             Your post must be atleast 1 character long.
           </p>
@@ -127,7 +127,7 @@ function EditPostForm({ setShowModal, post, sessionUser, handleOptions }) {
           Add to your post
         </div>
         <button
-          disabled={!body || body.length > 385}
+          disabled={body.trim().length < 1 || body.length > 385}
           className={view ? "save-edit-big" : "save-edit"}
         >
           Save

@@ -14,7 +14,7 @@ const SinglePostUser = ({ post, sessionUser }) => {
 
   return (
     <li className="post-container-user">
-      <NavLink to={`/${post.user_id}`}>
+      <NavLink className="post-navlink" to={`/${post.user_id}`}>
         <img
           src={post.user?.profile_pic}
           className="profile-picture-nav post-profile single-post"

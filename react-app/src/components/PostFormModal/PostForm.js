@@ -32,33 +32,34 @@ function PostForm({ setShowModal }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
+    if (body.length <= 150 && body) {
+      const form = new FormData();
+      form.append("image", image);
 
-    const form = new FormData();
-    form.append("image", image);
+      setImageLoading(true);
 
-    setImageLoading(true);
-
-    const res = await fetch("/api/posts/post-image", {
-      method: "POST",
-      body: form,
-    });
-
-    if (res.ok) {
-      const imageData = await res.json();
-      setImageLoading(false);
-      setShowModal(false);
-
-      const newPost = {
-        user_id: sessionUser.id,
-        body,
-        image_url: imageData.image,
-      };
-
-      const data = await dispatch(addPost(newPost)).then(() => {
-        setView("");
+      const res = await fetch("/api/posts/post-image", {
+        method: "POST",
+        body: form,
       });
-      if (data) {
-        setErrors(data.errors);
+
+      if (res.ok) {
+        const imageData = await res.json();
+        setImageLoading(false);
+        setShowModal(false);
+
+        const newPost = {
+          user_id: sessionUser.id,
+          body,
+          image_url: imageData.image,
+        };
+
+        const data = await dispatch(addPost(newPost)).then(() => {
+          setView("");
+        });
+        if (data) {
+          setErrors(data.errors);
+        }
       }
     }
   };
@@ -84,7 +85,7 @@ function PostForm({ setShowModal }) {
         <button className="edit-x" onClick={(e) => handleCancel(e)}>
           <i className="fa-solid fa-x"></i>
         </button>
-        {body.length < 1 && hover && (
+        {body.trim().length < 1 && hover && (
           <p className="body-length-short">
             Your post must be atleast 1 character long.
           </p>
@@ -126,7 +127,7 @@ function PostForm({ setShowModal }) {
           <div key={ind}>{error}</div>
         ))}
         <button
-          disabled={!body || body.length > 385}
+          disabled={body.trim().length < 1 || body.length > 385}
           className={view ? "save-edit-big" : "save-edit"}
         >
           Post
