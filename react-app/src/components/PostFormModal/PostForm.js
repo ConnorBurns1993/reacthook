@@ -91,12 +91,13 @@ function PostForm({ setShowModal }) {
           </p>
         )}
 
-        {body.length > 385 && (
+        {body.length > 300 && (
           <p className="body-length-short">
-            Your post cannot exceed 385 characters.
+            Your post cannot exceed 300 characters.
           </p>
         )}
         <textarea
+          maxLength={301}
           onMouseEnter={handleHover}
           onMouseLeave={handleHover}
           placeholder="What's on your mind?"
@@ -127,7 +128,7 @@ function PostForm({ setShowModal }) {
           <div key={ind}>{error}</div>
         ))}
         <button
-          disabled={body.trim().length < 1 || body.length > 385}
+          disabled={body.trim().length < 1 || body.length > 300}
           className={view ? "save-edit-big" : "save-edit"}
         >
           Post
