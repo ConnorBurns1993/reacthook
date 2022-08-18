@@ -20,46 +20,46 @@ function User() {
   const posts = useSelector((state) => state.posts);
   const [imageLoading, setImageLoading] = useState(false);
 
-  const fileRef = useRef();
+  // const fileRef = useRef();
 
-  const handleSubmit = async (e) => {
-    // e.preventDefault();
+  // const handleSubmit = async (e) => {
+  //   // e.preventDefault();
 
-    const form = new FormData();
-    form.append("image", image);
+  //   const form = new FormData();
+  //   form.append("image", image);
 
-    const file = e.target.files[0];
-    setImage(file);
-    setImageLoading(true);
+  //   const file = e.target.files[0];
+  //   setImage(file);
+  //   setImageLoading(true);
 
-    const res = await fetch("/api/posts/post-image", {
-      method: "POST",
-      body: form,
-    });
+  //   const res = await fetch("/api/posts/post-image", {
+  //     method: "POST",
+  //     body: form,
+  //   });
 
-    if (res.ok) {
-      const data = await res.json();
-      console.log(data);
-      setImageLoading(false);
+  //   if (res.ok) {
+  //     const data = await res.json();
+  //     console.log(data);
+  //     setImageLoading(false);
 
-      if (data.image) {
-        const updatedProfilePic = {
-          ...sessionUser,
-          profile_pic: data.image,
-        };
+  //     if (data.image) {
+  //       const updatedProfilePic = {
+  //         ...sessionUser,
+  //         profile_pic: data.image,
+  //       };
 
-        console.log(updatedProfilePic);
+  //       console.log(updatedProfilePic);
 
-        await dispatch(updateUser(updatedProfilePic));
-      } else {
-        const updatedProfilePic = {
-          ...sessionUser,
-          profile_pic: profilePic,
-        };
-        await dispatch(updateUser(updatedProfilePic));
-      }
-    }
-  };
+  //       await dispatch(updateUser(updatedProfilePic));
+  //     } else {
+  //       const updatedProfilePic = {
+  //         ...sessionUser,
+  //         profile_pic: profilePic,
+  //       };
+  //       await dispatch(updateUser(updatedProfilePic));
+  //     }
+  //   }
+  // };
 
   const getUser = async () => {
     try {

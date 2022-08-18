@@ -5,11 +5,6 @@ import DeletePost from "./DeletePost";
 function DeletePostModal({ post, handleOptions }) {
   const [showModal, setShowModal] = useState(false);
 
-  const handleClose = () => {
-    setShowModal(false);
-    handleOptions();
-  };
-
   return (
     <>
       <button className="delete-modal" onClick={() => setShowModal(true)}>

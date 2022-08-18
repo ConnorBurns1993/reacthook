@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import NavBar from "./components/NavBar";
 import Posts from "./components/Posts";
 import { getAllPosts } from "./store/posts";
-import { authenticate, getAllUsers } from "./store/session";
+import { authenticate } from "./store/session";
 import Connect from "./components/Connect";
 import NotFound from "./components/NotFound";
 import User from "./components/User";

@@ -299,7 +299,7 @@ text-decoration: underline;
     margin-top: 0%;
     padding: .3%;
     cursor: pointer;
-    z-index: 2;;
+    /* z-index: 2;; */
 }
 
 .name-fixed:hover{

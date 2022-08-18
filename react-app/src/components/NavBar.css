@@ -2,6 +2,10 @@
     width: 40px;
 }
 
+.search-bar{
+    width: 500px;
+}
+
 
 nav {
     border-bottom: solid 1px rgb(226, 226, 226);

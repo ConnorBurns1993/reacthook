@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getPostComments } from "../store/comments";
 import { useEffect } from "react";
@@ -11,7 +11,7 @@ const Comments = ({ post }) => {
 
   useEffect(() => {
     dispatch(getPostComments(post.id));
-  }, [dispatch]);
+  }, [dispatch, post.id]);
 
   return (
     <>

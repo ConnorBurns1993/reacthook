@@ -7,7 +7,11 @@ const Connect = () => {
       <h2 className="connect-h2">
         Hey, I'm Connor Burns. I hope you've enjoyed my Facebook clone.
       </h2>
-      <img className="connect-image" src="https://i.imgur.com/RfH5lig.jpg" />
+      <img
+        className="connect-image"
+        alt="connect"
+        src="https://i.imgur.com/RfH5lig.jpg"
+      />
       <p>
         I enjoy building quality applications and I am learning more about
         software development everyday. I aspire to be a better software

@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import LogoutButton from "./auth/LogoutButton";
+import SearchBar from "./SearchBar";
 import "./NavBar.css";
 import useComponentVisible from "./useComponentVisible";
 
@@ -10,8 +11,17 @@ const NavBar = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const [active, setActive] = useState(true);
   const [home, setHome] = useState(true);
-  const [userOptions, setUserOptions] = useState(false);
   const [connect, setConnect] = useState(false);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch("/api/users/");
+      const responseData = await response.json();
+      setUsers(responseData.users);
+    }
+    fetchData();
+  }, []);
 
   const { pathname } = useLocation();
 
@@ -35,6 +45,7 @@ const NavBar = () => {
           <NavLink to="/" exact={true}>
             <img className="logo-navbar" src="../../favicon.ico" />
           </NavLink>
+          <SearchBar placeholder="Search Reacthook" users={users} />
         </div>
         <div className="nav-buttons-container">
           <ul className="nav-ul">

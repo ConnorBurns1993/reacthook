@@ -117,15 +117,15 @@ const SinglePost = ({ post }) => {
         <img className="post-image" src={post.image_url}></img>
       )}
       <div className="likes-and-comments-amount">
-        <p className="like-amount">People like this.</p>
+        <p className="like-amount">Likes placeholder.</p>
         {post.comments.length > 0 && (
           <p className="comment-amount"> {post.comments.length} Comments</p>
         )}
       </div>
       <div className="likes-and-comments">
-        {/* <p className="like">
+        <p className="like">
           <i className="fa-regular fa-thumbs-up"></i>Like
-        </p> */}
+        </p>
         <p className="comment" onClick={() => ref.current.focus()}>
           <i className="fa-regular fa-message"></i>Comment
         </p>
