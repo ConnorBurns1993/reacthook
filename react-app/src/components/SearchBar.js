@@ -29,11 +29,10 @@ const SearchBar = ({ placeholder, users }) => {
   return (
     <div className="search">
       <div className="search-inputs">
-        {wordEntered.length === 0 ? (
+        {/* {wordEntered.length === 0 ? (
           <i className="fa-solid fa-magnifying-glass search-magnifying"></i>
         ) : (
-          <i className="fa-solid fa-arrow-left" onClick={handleClear}></i>
-        )}
+        )} */}
         <input
           value={wordEntered}
           type="text"
@@ -44,14 +43,18 @@ const SearchBar = ({ placeholder, users }) => {
       </div>
       {filteredData.length !== 0 && (
         <div className="data-result">
-          {filteredData.slice(0, 8).map((user, key) => {
+          <i className="fa-solid fa-arrow-left" onClick={handleClear}></i>
+          {filteredData.slice(0, 6).map((user, key) => {
             return (
               <NavLink
                 to={`/${user.id}`}
                 className="data-item"
                 onClick={handleClear}
               >
-                <img className="profile-picture-nav" src={user.profile_pic} />{" "}
+                <img
+                  className="profile-picture-nav search-profile"
+                  src={user.profile_pic}
+                />{" "}
                 <p className="search-p">
                   {user.first_name} {user.last_name}
                 </p>

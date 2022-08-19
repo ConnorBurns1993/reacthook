@@ -30,6 +30,7 @@ nav {
 
 .home-logo-container{
     position: relative;
+    top: 5px;
 
 }
 
@@ -114,6 +115,23 @@ margin-right: .5%;
 
 .nav-ul {
     width: 500px;
+    position: relative;
+    right: 20%;
+}
+
+.search-profile {
+    position: relative;
+    left: 15px;
+    top: 10px;
+}
+
+.fa-arrow-left{
+    position: relative;
+    bottom: 30px;
+    left: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: gray;
 }
 
 .all-nav-container{
@@ -130,6 +148,11 @@ margin-right: .5%;
     height: 43px;
     object-fit: cover;
     border-radius: 50px;
+}
+
+.profile-nav{
+    position:relative;
+    top: 3px;
 }
 
 .profile-picture-nav:hover,

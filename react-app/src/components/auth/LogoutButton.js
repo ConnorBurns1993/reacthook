@@ -2,11 +2,13 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../../store/session";
 import "../NavBar.css";
+import { useHistory } from "react-router-dom";
 
 const LogoutButton = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const onLogout = async (e) => {
-    await dispatch(logout());
+    await dispatch(logout()).then(() => history.push("/"));
   };
 
   return (

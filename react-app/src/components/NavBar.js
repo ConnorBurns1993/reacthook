@@ -109,7 +109,7 @@ const NavBar = () => {
           <img
             title="Account"
             ref={ref}
-            className="profile-picture-nav"
+            className="profile-picture-nav profile-nav"
             src={sessionUser?.profile_pic}
             onClick={() => setIsComponentVisible(!isComponentVisible)}
           />
