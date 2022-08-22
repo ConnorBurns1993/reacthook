@@ -123,9 +123,9 @@ const SinglePost = ({ post }) => {
         )}
       </div>
       <div className="likes-and-comments">
-        <p className="like">
+        {/* <p className="like">
           <i className="fa-regular fa-thumbs-up"></i>Like
-        </p>
+        </p> */}
         <p className="comment" onClick={() => ref.current.focus()}>
           <i className="fa-regular fa-message"></i>Comment
         </p>
