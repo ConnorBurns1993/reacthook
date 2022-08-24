@@ -21,5 +21,6 @@ class Post(db.Model):
             'body': self.body,
             'image_url': self.image_url,
             'user': self.user.to_dict(),
-            'comments': [comment.to_dict() for comment in self.comments]
+            'comments': [comment.to_dict() for comment in self.comments],
+            'post_likes': [likes.to_dict() for likes in self.post_likes]
         }

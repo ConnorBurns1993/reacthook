@@ -258,7 +258,27 @@ text-decoration: underline;
     cursor: pointer;
     margin-top: .75%;
     margin-bottom: .75%;
-    transition: .050s background-color
+    transition: .050s background-color;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.like-full {
+    color: #0571ed;
+    padding: 1%;
+    width: 312.5px;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    margin-top: .75%;
+    margin-bottom: .75%;
+    transition: .050s background-color;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .like:hover, .comment:hover{

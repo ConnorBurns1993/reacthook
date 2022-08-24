@@ -6,12 +6,20 @@ import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addComment } from "../store/comments";
 import { useSelector } from "react-redux";
+import { addPostLike } from "../store/postLike";
+import { getAllPosts } from "../store/posts";
 
 const SinglePost = ({ post }) => {
   const [options, setOptions] = useState(false);
   const dispatch = useDispatch();
 
   const sessionUser = useSelector((state) => state.session.user);
+
+  console.log(
+    post.post_likes.filter((post_like) => {
+      return post_like.user_id === sessionUser.id;
+    })
+  );
 
   const [body, setBody] = useState("");
   const [image, setImage] = useState("");
@@ -67,6 +75,12 @@ const SinglePost = ({ post }) => {
     }
   };
 
+  const handleLike = async (e) => {
+    e.preventDefault();
+    await dispatch(addPostLike(post.id));
+    await dispatch(getAllPosts());
+  };
+
   const handleOptions = (e) => {
     setOptions((current) => !current);
   };
@@ -117,15 +131,39 @@ const SinglePost = ({ post }) => {
         <img className="post-image" src={post.image_url}></img>
       )}
       <div className="likes-and-comments-amount">
-        <p className="like-amount">Likes placeholder.</p>
+        {post.post_likes.length > 0 && post.post_likes.length === 1 && (
+          <p className={"like-amount"}>{post.post_likes.length} like</p>
+        )}
+        {post.post_likes.length > 0 && post.post_likes.length > 1 && (
+          <p className="like-amount">{post.post_likes.length} likes</p>
+        )}
+
         {post.comments.length > 0 && (
           <p className="comment-amount"> {post.comments.length} Comments</p>
         )}
       </div>
       <div className="likes-and-comments">
-        {/* <p className="like">
-          <i className="fa-regular fa-thumbs-up"></i>Like
-        </p> */}
+        <p
+          className={
+            post.post_likes?.filter((post_like) => {
+              return post_like.user_id === sessionUser.id;
+            }).length === 1
+              ? "like-full"
+              : "like"
+          }
+          onClick={handleLike}
+        >
+          <i
+            className={
+              post.post_likes?.filter((post_like) => {
+                return post_like.user_id === sessionUser.id;
+              }).length === 1
+                ? "fa-solid fa-thumbs-up"
+                : "fa-regular fa-thumbs-up"
+            }
+          ></i>
+          Like
+        </p>
         <p className="comment" onClick={() => ref.current.focus()}>
           <i className="fa-regular fa-message"></i>Comment
         </p>

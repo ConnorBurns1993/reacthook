@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request, session
 from flask_login import login_required, current_user
-from app.models import User, Post, Comment, db
+from app.models import User, Post, Comment, PostLike, db
 from app.forms import PostForm
 from app.api.auth_routes import validation_errors_to_error_messages
 from app.aws import (
@@ -87,3 +87,21 @@ def delete_post(id):
     db.session.commit()
 
     return { "message": "Success!"}
+
+@post_routes.route('/<int:id>/likes', methods=['POST'])
+@login_required
+def like_post(id):
+    post = Post.query.get(id)
+    like = PostLike.query.filter_by(user_id=current_user.id, post_id=id).first()
+
+    if like:
+        db.session.delete(like)
+        db.session.commit()
+    else:
+        like = PostLike(user_id=current_user.id, post_id=id)
+        db.session.add(like)
+        db.session.commit()
+
+        print(like)
+        return like.to_dict()
+    return like.to_dict()
