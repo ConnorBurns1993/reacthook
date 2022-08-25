@@ -281,7 +281,21 @@ text-decoration: underline;
     -ms-user-select: none;
 }
 
-.like:hover, .comment:hover{
+.thumbs-up{
+    width: 28px;
+}
+
+.post-likes{
+    position: relative;
+    left: 5px;
+    top: 5px;
+}
+
+.thumb-num{
+    display: inline-flex;
+}
+
+.like:hover, .like-full:hover, .comment:hover{
     background-color: rgb(240,240,240);
     border-radius: 3px
 
@@ -299,12 +313,24 @@ text-decoration: underline;
     color: #6e747c;
     display: inline-flex;
     position: relative;
-    padding: 2%;
-    left: 1%;
+    padding: 1%;
+    left: 2%;
     justify-content: space-between;
-    width: 625px;
+    width: 612px;
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.comment-amount{
+    height:fit-content;
+    position: relative;
+    top: 7px;
+}
+
+.comment-amount-single{
+   position: relative;
+   left: 535px;
+   bottom: 5px;
 }
 
 .comment-amount:hover, .like-amount:hover{

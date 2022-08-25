@@ -125,15 +125,39 @@ const SinglePost = ({ post }) => {
         <img className="post-image" src={post.image_url}></img>
       )}
       <div className="likes-and-comments-amount">
-        {post.post_likes.length > 0 && post.post_likes.length === 1 && (
-          <p className={"like-amount"}>{post.post_likes.length} like</p>
-        )}
-        {post.post_likes.length > 0 && post.post_likes.length > 1 && (
-          <p className="like-amount">{post.post_likes.length} likes</p>
+        {post.post_likes.length > 0 && (
+          <div className="thumb-num">
+            <img
+              className="thumbs-up"
+              src="https://i.pinimg.com/originals/39/44/6c/39446caa52f53369b92bc97253d2b2f1.png"
+            />{" "}
+            <p className="post-likes">{post.post_likes.length}</p>
+          </div>
         )}
 
-        {post.comments.length > 0 && (
-          <p className="comment-amount"> {post.comments.length} Comments</p>
+        {post.comments.length > 0 && post.comments.length === 1 && (
+          <p
+            className={
+              post.post_likes.length > 0
+                ? "comment-amount"
+                : "comment-amount-single"
+            }
+          >
+            {" "}
+            {post.comments.length} Comment
+          </p>
+        )}
+        {post.comments.length > 1 && (
+          <p
+            className={
+              post.post_likes.length > 0
+                ? "comment-amount"
+                : "comment-amount-single"
+            }
+          >
+            {" "}
+            {post.comments.length} Comments
+          </p>
         )}
       </div>
       <div className="likes-and-comments">
