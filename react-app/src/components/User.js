@@ -157,6 +157,7 @@ function User() {
           .reverse()
           .map((post) => (
             <SinglePostUser
+              user={user}
               post={post}
               key={post.id}
               sessionUser={sessionUser}
