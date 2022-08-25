@@ -11,6 +11,19 @@
     overflow-wrap:break-word;
     display: flex;
     flex-direction: column;
+}
+
+.post-container-profile{
+    border: 1px solid rgb(214, 214, 214);
+    border-radius: 10px;
+    width: 675px;
+    position: relative;
+    margin-bottom: 1%;
+    background-color: white;
+    box-shadow: 1px 1px 5px rgb(214, 214, 214);
+    overflow-wrap:break-word;
+    display: flex;
+    flex-direction: column;
     left: 33.5%;
 }
 
@@ -44,7 +57,10 @@
 }
 
 .post-form-outer-container{
+    display: flex;
     width: 100vw;
+    justify-content: center;
+    align-items: center;
 }
 
 .post-form{
@@ -74,7 +90,7 @@
     background-color: white;
     position: relative;
     top: 80px;
-    left: 33.5%;
+    /* left: 33.5%; */
     width: 675px;
     height: 60px;
     border-radius: 10px;
@@ -91,6 +107,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .post-profile{
@@ -348,7 +365,7 @@ text-decoration: underline;
     position: fixed;
     display: inline-flex;
     width: 300px;
-    right: 83.2%;
+    left: 5px;
     margin-top: 0%;
     padding: .3%;
     cursor: pointer;

@@ -1,14 +1,33 @@
 .login-container {
+    /* background-color: white;
+    position: relative;
+    left: 150%;
+    width: 390px;
+    height: 370px;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 29px 2px; */
+}
+
+.splash-wrapper{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.login-form{
     background-color: white;
     position: relative;
     width: 390px;
     height: 370px;
-    left: 55%;
-    bottom: 160px;
     border-radius: 10px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 29px 2px;
 }
-
 
 .login-email {
     border: 1px solid rgb(214, 214, 214);
@@ -94,19 +113,25 @@
 
 .signup-splash{
     position: relative;
-    left: 59.7%;
+    bottom: 80px;
+    left: 90px;
     width: 200px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    bottom: 240px;
     border: 1px solid rgb(214, 214, 214);
     font-size: 17px;
-    padding: .7%;
+    padding: 3%;
     font-weight: 700;
     font-size: 16px;
     border-radius: 7px;
     color: white;
     background-color:
-    #42b72a
+    #42b72a;
+}
+
+.signup-login-wrapper{
+    position: relative;
+    left: 28%;
+    bottom: 150px;
 }
 
 .signup-splash:hover{
@@ -117,8 +142,7 @@
 .reacthook {
     height: 250px;
     position: relative;
-    left: 23%;
-    top: 130px;
+
 }
 
 .reacthook-h2 {
@@ -126,9 +150,15 @@
     font-weight: 100;
     font-size: 26px;
     position: relative;
-    left: 23.2%;
-    top: 35px;
+    left: 1.5%;
+    bottom: 100px;
     width: 480px;
+}
+
+.reacthook-logo-div{
+position: relative;
+left: 24%;
+bottom: 220px;
 }
 
 .footer-div {
@@ -137,7 +167,7 @@
     bottom: 0;
     margin: auto;
     background-color: white;
-    height: 220px;
+    height: 25%;
 }
 
 .signup-container {
@@ -298,13 +328,18 @@ border: none;
 
 .login-errors{
     position: relative;
-    left: 60%;
-    bottom: 180px;
+    bottom: 50px;
+    left: 25%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     padding: .2%;
     width: max-content;
     color: rgb(216, 18, 18);
+}
+.login-errors-p{
+    position: relative;
+    width: max-content;
+
 }
 
 .signup-errors {

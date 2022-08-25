@@ -36,11 +36,11 @@ const LoginForm = () => {
 
   return (
     <>
-      <form onSubmit={onLogin}>
+      <form className="login-form" onSubmit={onLogin}>
         <div>
           {errors.map((error, ind) => (
             <div className="login-errors" key={ind}>
-              {error}
+              <p className="login-errors-p">{error}</p>
             </div>
           ))}
         </div>
@@ -81,7 +81,6 @@ const LoginForm = () => {
           </div>
         </div>
       </form>
-      <Footer />
     </>
   );
 };

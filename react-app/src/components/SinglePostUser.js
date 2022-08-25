@@ -82,7 +82,7 @@ const SinglePostUser = ({ post }) => {
   const ref = useRef();
 
   return (
-    <li className="post-container">
+    <li className="post-container-profile">
       <NavLink className="post-navlink" to={`/${post.user_id}`}>
         <img
           src={post.user?.profile_pic}
