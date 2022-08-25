@@ -1,24 +1,14 @@
-.login-container {
-    /* background-color: white;
-    position: relative;
-    left: 150%;
-    width: 390px;
-    height: 370px;
-    border-radius: 10px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 29px 2px; */
-}
+
 
 .splash-wrapper{
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     display: flex;
     align-items: center;
-    position:absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    position:relative;
+    top: 300px;
 }
+
 
 .login-form{
     background-color: white;
