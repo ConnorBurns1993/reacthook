@@ -313,11 +313,13 @@ text-decoration: underline;
     color: #6e747c;
     display: inline-flex;
     position: relative;
-    padding: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
     left: 2%;
     justify-content: space-between;
     width: 612px;
-    height: 41.5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -325,13 +327,16 @@ text-decoration: underline;
 .comment-amount{
     height:fit-content;
     position: relative;
-    top: 7px;
+    top: 6px;
+    left: .1px;
 }
 
 .comment-amount-single{
    position: relative;
    left: 535px;
-   bottom: 5px;
+   margin-top: 5.5px;
+   margin-bottom: 5.5px;
+   /* bottom: 5px; */
 }
 
 .comment-amount:hover, .like-amount:hover{
