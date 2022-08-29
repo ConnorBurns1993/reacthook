@@ -15,14 +15,6 @@ const SinglePostUser = ({ post, user }) => {
 
   const sessionUser = useSelector((state) => state.session.user);
 
-  console.log(
-    post.post_likes
-      .map((post_like) => {
-        return post_like.user_id === sessionUser.id;
-      })
-      .includes(true)
-  );
-
   const [body, setBody] = useState("");
   const [image, setImage] = useState("");
   const [imageLoading, setImageLoading] = useState(false);

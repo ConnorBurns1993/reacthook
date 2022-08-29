@@ -52,5 +52,5 @@ class User(db.Model, UserMixin):
             'cover_pic': self.cover_pic,
             'location': self.location,
             'hometown': self.hometown,
-            'relationship_status': self.relationship_status
+            'relationship_status': self.relationship_status,
         }
