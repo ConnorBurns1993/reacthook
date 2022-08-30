@@ -28,6 +28,45 @@ const Posts = () => {
           </NavLink>
           <PostFormModal sessionUser={sessionUser} />
         </div>
+        <div className="technologies">
+          <p className="p6">_________________________</p>
+          <p className="sponsored used">Technologies Used</p>
+          <div className="technologies-used">
+            <p>
+              <i className="fa-brands fa-react tech"></i>React
+            </p>
+            <p>
+              <i className="fa-brands fa-js tech"></i>Javascript
+            </p>
+            <p>
+              <i className="fa-brands fa-python tech"></i>Python
+            </p>
+            <p>
+              <i className="fa-brands fa-aws tech"></i>Amazon Web Services
+            </p>
+            <p className="postgresql-text">
+              <img className="postgresql tech" src="./images/postgresql.png" />
+              <p className="postgres-center">PostgreSQL</p>
+            </p>
+          </div>
+        </div>
+        <div className="ads">
+          <p className="sponsored">Sponsored</p>
+          <a
+            href="https://www.appacademy.io/"
+            target="_blank"
+            className="ads-info"
+          >
+            <img
+              className="app-academy"
+              src="https://assets-global.website-files.com/5dcc7f8c449e597ed83356b8/603820afd31232aab368ea6f_New%20Red-logo-emblem.png"
+            />
+            <div className="info-ad-div">
+              <p className="ads-text">Become a Software Developer</p>
+              <p className="ads-subtext">appacademy.io</p>
+            </div>
+          </a>
+        </div>
       </div>
       <div className="all-posts-container">
         {Object.values(posts)

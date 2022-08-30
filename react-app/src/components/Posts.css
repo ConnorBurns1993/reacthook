@@ -422,3 +422,106 @@ text-decoration: underline;
     left: 0;
     top: 0;
 }
+
+.ads{
+position: fixed;
+right: 0;
+top: 10%;
+width: 350px;
+}
+
+.app-academy{
+    width: 100px;
+    border: solid rgb(184, 184, 184) 1px;
+    border-radius: 10px;
+    padding: 2%;
+    margin-right: 15px;
+}
+
+.sponsored {
+    color: rgb(97, 97, 97);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    text-indent: 10px;
+}
+
+.ads-info{
+    display: inline-flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 5%;
+    width: max-content;
+    padding: 2%;
+    cursor: pointer;
+}
+
+.ads-info:hover{
+    background-color: rgb(230, 230, 230);
+    border-radius: 10px;
+}
+
+.info-ad-div{
+    margin: auto;
+}
+
+.ads-text{
+    position: relative;
+    width:220px;
+    margin: auto;
+}
+
+.ads-subtext{
+    color:#6e747c;
+    font-weight: 100;
+    font-size: small;
+}
+
+.technologies{
+    position: fixed;
+    left: 0;
+    top: 130px;
+    DISPLAY: flex;
+    flex-direction: column;
+}
+
+.used{
+    margin-left: 10px;
+}
+
+.p6{
+    color: rgb(200, 200, 200);
+    position: relative;
+    left: 18px;
+    margin-bottom: 15px;
+}
+
+.technologies-used{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    padding: 5%;
+    width:max-content;
+}
+
+.tech{
+    color:#1b88f5;
+    width: 30px;
+    margin-right: 17px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.postgresql{
+    width: 30px
+}
+
+.postgresql-text{
+    display: inline-flex;
+}
+
+.postgres-center{
+    position: relative;
+    top: 20px;
+}
