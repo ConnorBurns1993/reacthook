@@ -169,7 +169,8 @@ text-decoration: underline;
     width: 20px;
     height: 20px;
     text-align: center;
-    padding: 1%;;
+    padding: 1%;
+    user-select: none;
 
 
 
@@ -218,6 +219,7 @@ text-decoration: underline;
     color: #363636;
     transition: .1s background-color;
     z-index: 2;
+    user-select: none;
 }
 
 .delete-modal:hover, .edit-modal:hover{
@@ -246,6 +248,7 @@ text-decoration: underline;
     top: 35%;
     left: 4%;
     color: rgb(199, 199, 199);
+    user-select: none;
 }
 
 .fa-thumbs-up,

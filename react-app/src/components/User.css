@@ -60,8 +60,8 @@ object-position: 50% 20%;
 
 #edit-upload-profile{
     position: relative;
-    top: -20px;
-    left: 27%;
+    top: -30px;
+    left: 27.5%;
 }
 
 .profile-camera{
@@ -73,9 +73,9 @@ object-position: 50% 20%;
     background-color: white;
     border: 1px solid white;
     border-radius: 5px;
-    position: relative;
-    left: 72%;
-    bottom: 165px;
+    position: absolute;
+    right: 18%;
+    top: 39%;
     padding: .5%;
     width: 155px;
     cursor: pointer;
@@ -86,6 +86,11 @@ object-position: 50% 20%;
 
 .edit-cover-photo:hover{
     filter: brightness(95%)
+}
+
+.cover-submit{
+    position: relative;
+    bottom: 500px;
 }
 
 .post-container-user {

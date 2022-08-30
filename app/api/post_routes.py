@@ -102,6 +102,5 @@ def like_post(id):
         db.session.add(like)
         db.session.commit()
 
-        print(like)
         return like.to_dict()
     return like.to_dict()
