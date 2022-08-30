@@ -193,10 +193,11 @@ height: 35px;
     height: 168px;
     border-radius: 250px;
     position: relative;
-    bottom: 150px;
+    bottom: 80px;
     left: 20.5%;
     object-fit: cover;
     border: 4px solid white;
+    z-index: 2;
 }
 
 .comment-upload-x{
@@ -211,8 +212,19 @@ border: transparent;
 
 .profile-upload-x{
     position: relative;
-    bottom: 178px;
+    bottom: 118px;
     left: 20%;
+    border-radius: 50px;
+    width: 28px;
+    height: 28px;
+    border: transparent;
+    text-indent: 1.5px;
+}
+
+.cover-upload-x{
+    position: absolute;
+    top: 450px;
+    left: 82%;
     border-radius: 50px;
     width: 28px;
     height: 28px;
@@ -222,8 +234,20 @@ border: transparent;
 
 .profile-submit{
     position: relative;
-    bottom: 175px;
+    bottom: 115px;
     left: 17%;
+    width: 27px;
+    height: 27px;
+    font-size: 15px;
+    border: transparent;
+    border-radius: 50px;
+    z-index: 2;
+}
+
+.cover-submit{
+    position: relative;
+    top: -100px;
+    left: 77.5%;
     width: 27px;
     height: 27px;
     font-size: 15px;
@@ -233,7 +257,9 @@ border: transparent;
 
 .comment-upload-x:hover,
 .profile-upload-x:hover,
-.profile-submit:hover{
+.profile-submit:hover,
+.cover-upload-x:hover,
+.cover-submit:hover{
     filter:brightness(90%);
     cursor: pointer;
 }

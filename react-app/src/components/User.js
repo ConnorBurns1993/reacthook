@@ -13,6 +13,7 @@ function User() {
   const history = useHistory();
   const [user, setUser] = useState({});
   const [view, setView] = useState("");
+  const [coverView, setCoverView] = useState("");
   const [image, setImage] = useState("");
   const [coverImage, setCoverImage] = useState("");
   const [profilePic, setProfilePic] = useState(sessionUser?.profile_pic);
@@ -40,7 +41,7 @@ function User() {
     const coverFile = e.target.files[0];
     setCoverImage(coverFile);
     if (coverFile) {
-      setView(URL.createObjectURL(coverFile));
+      setCoverView(URL.createObjectURL(coverFile));
     }
   };
 
@@ -103,24 +104,24 @@ function User() {
 
       setImageLoading(false);
 
-      if (data.coverImage) {
+      if (data.image) {
         const updatedCoverPic = {
           ...sessionUser,
-          cover_pic: data.coverImage,
+          cover_pic: data.image,
         };
 
         await dispatch(updateUser(updatedCoverPic)).then(() => {
           setCoverImage("");
-          setView("");
+          setCoverView("");
         });
       } else {
         const updatedCoverPic = {
           ...sessionUser,
-          profile_pic: coverPic,
+          cover_pic: coverPic,
         };
         await dispatch(updateUser(updatedCoverPic)).then(() => {
           setCoverImage("");
-          setView("");
+          setCoverView("");
         });
       }
     }
@@ -153,7 +154,11 @@ function User() {
   return sessionUser && posts && user ? (
     <>
       <div className="profile-container">
-        <img className="cover-pic" src={user?.cover_pic} />
+        {sessionUser.id.toString() === userId ? (
+          <img className="cover-pic" src={sessionUser?.cover_pic} />
+        ) : (
+          <img className="cover-pic" src={user?.cover_pic} />
+        )}
         {sessionUser.id.toString() === userId ? (
           <img className="profile-page-image" src={sessionUser?.profile_pic} />
         ) : (
@@ -180,13 +185,28 @@ function User() {
                   </button>
                   {/* {imageLoading && (
                     <div>
-                      <img
-                        className="image-loading"
-                        src="https://flevix.com/wp-content/uploads/2019/07/Untitled-2.gif"
-                      ></img>
+                    <img
+                    className="image-loading"
+                    src="https://flevix.com/wp-content/uploads/2019/07/Untitled-2.gif"
+                    ></img>
                       <p>Posting</p>
-                    </div>
-                  )} */}
+                      </div>
+                    )} */}
+                </>
+              )}
+              {coverView && (
+                <>
+                  <img className="cover-pic-view" src={coverView} />
+                  <button
+                    className="cover-upload-x"
+                    type="button"
+                    onClick={(e) => {
+                      setCoverView("");
+                      setCoverImage("");
+                    }}
+                  >
+                    <i className="fa-solid fa-x comment-x"></i>
+                  </button>
                 </>
               )}
               {!view ? (
@@ -203,13 +223,19 @@ function User() {
                   <i className="fa-solid fa-check"></i>
                 </button>
               )}
-              <button
-                className="edit-cover-photo"
-                onClick={(e) => coverRef.current.click(e)}
-                type="button"
-              >
-                <i className="fa-solid fa-camera"></i> Edit cover photo
-              </button>
+              {!coverView ? (
+                <button
+                  className="edit-cover-photo"
+                  onClick={(e) => coverRef.current.click(e)}
+                  type="button"
+                >
+                  <i className="fa-solid fa-camera"></i> Edit cover photo
+                </button>
+              ) : (
+                <button className="cover-submit" onClick={handleCoverSubmit}>
+                  <i className="fa-solid fa-check"></i>
+                </button>
+              )}
 
               <input
                 ref={fileRef}
@@ -228,9 +254,6 @@ function User() {
                 id="comment-upload-photo"
                 hidden
               />
-              <button className="cover-submit" onClick={handleCoverSubmit}>
-                COVER SUBMIT
-              </button>
             </form>
           </>
         )}

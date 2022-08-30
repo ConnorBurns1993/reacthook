@@ -1,18 +1,29 @@
 .cover-pic {
-width: 68vw;
-height: 500px;
-position: relative;
-left: 15.5%;
-bottom: 65px;
-border-bottom-left-radius: 10px;
-border-bottom-right-radius: 10px;
-object-fit: cover;
-object-position: 50% 20%;
+    width: 68vw;
+    height: 500px;
+    position: relative;
+    left: 15.5%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    object-fit: cover;
+    object-position: 50% 20%;
+}
+
+.cover-pic-view{
+    width: 69vw;
+    height: 500px;
+    position: absolute;
+    left: 15.5%;
+    top: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    object-fit: cover;
+    object-position: 50% 20%;
 }
 
 .profile-container{
     background-color: white;
-    height: 600px;
+    height: 650px;
     width: 100vw;
     border-bottom: solid 1px rgb(226, 226, 226);
     box-shadow: .5px .5px 7px rgb(214, 214, 214);
@@ -24,9 +35,10 @@ object-position: 50% 20%;
     height: 168px;
     position: relative;
     right: 47.5%;
-    top: 70px;
+    top: 140px;
     border: 4px solid white;
     object-fit: cover;
+    z-index: 1;
 }
 
 .profile-page-name{
@@ -35,9 +47,10 @@ object-position: 50% 20%;
     font-size: 30px;
     position: relative;
     left: 30%;
-    bottom: 50px;
+    top: 10px;
     width: fit-content;
 }
+
 
 .post-form-container-profile{
     background-color: white;
@@ -60,8 +73,9 @@ object-position: 50% 20%;
 
 #edit-upload-profile{
     position: relative;
-    top: -30px;
+    top: 40px;
     left: 27.5%;
+    z-index: 1;
 }
 
 .profile-camera{
@@ -75,7 +89,7 @@ object-position: 50% 20%;
     border-radius: 5px;
     position: absolute;
     right: 18%;
-    top: 39%;
+    top: 47%;
     padding: .5%;
     width: 155px;
     cursor: pointer;
@@ -90,8 +104,9 @@ object-position: 50% 20%;
 
 .cover-submit{
     position: relative;
-    bottom: 500px;
+    bottom: 400px;
 }
+
 
 .post-container-user {
     border: 1px solid rgb(214, 214, 214);
