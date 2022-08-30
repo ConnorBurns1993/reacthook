@@ -45,7 +45,10 @@ const Posts = () => {
               <i className="fa-brands fa-aws tech"></i>Amazon Web Services
             </p>
             <p className="postgresql-text">
-              <img className="postgresql tech" src="./images/postgresql.png" />
+              <img
+                className="postgresql tech"
+                src="https://i.imgur.com/w9j6gvE.png"
+              />
               <p className="postgres-center">PostgreSQL</p>
             </p>
           </div>
