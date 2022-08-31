@@ -22,12 +22,6 @@ const SinglePost = ({ post }) => {
   const [hover, setHover] = useState(false);
   const [errors, setErrors] = useState([]);
 
-  const postDate = new Date(post.updated_on);
-
-  console.log(postDate);
-
-  console.log(moment(postDate).fromNow());
-
   const fileRef = useRef();
 
   const handleHover = () => {

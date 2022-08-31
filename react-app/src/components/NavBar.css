@@ -79,6 +79,12 @@ nav {
     cursor: pointer;
 }
 
+.fa-house, .fa-people-arrows{
+    color: rgb(150, 150, 150);
+    font-size: 27px;
+    cursor: pointer;
+}
+
 .nav-li:hover {
     background-color: rgb(240,240,240);
     border-radius: 10px;

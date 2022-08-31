@@ -60,10 +60,10 @@ const NavBar = () => {
                   title="Home"
                   className={
                     active && home && pathname === "/"
-                      ? "home-logo-active fa-solid fa-house fa-brands"
-                      : "home-logo fa-solid fa-house fa-brands"
+                      ? "home-logo-active fa-solid fa-house"
+                      : "home-logo fa-solid fa-house"
                   }
-                ></i>
+                />
               </NavLink>
             </li>
             <li className="nav-li">
@@ -97,8 +97,8 @@ const NavBar = () => {
                   title="Connect"
                   className={
                     active && connect && pathname === "/connect"
-                      ? "arrows-active fa-brands fa-solid fa-people-arrows"
-                      : "fa-brands fa-solid fa-people-arrows"
+                      ? "arrows-active fa-solid fa-people-arrows"
+                      : "fa-solid fa-people-arrows"
                   }
                 ></i>
               </NavLink>
