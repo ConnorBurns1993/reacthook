@@ -142,7 +142,7 @@ text-decoration: underline;
 
 .post-body{
     position: relative;
-    left: 2%;
+    left: 3%;
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 2%;
     z-index: 0;
@@ -152,7 +152,7 @@ text-decoration: underline;
 
 .post-body-short{
     position: relative;
-    left: 2%;
+    left: 3%;
     font-size: 24px;
     font-family: Arial, Helvetica, sans-serif;
     width: fit-content;
@@ -520,8 +520,8 @@ width: 350px;
     font-weight: 100;
     font-size: 11px;
     position: relative;
-    left: 9.5%;
-    bottom: 15px;
+    left: 9.3%;
+    bottom: 18px;
     cursor:default;
     width:fit-content;
     height: fit-content;
