@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import "./Comments.css";
 import EditCommentFormModal from "./EditCommentModal/EditCommentFormModal";
 import { NavLink } from "react-router-dom";
+import moment from "moment";
 
 const SingleComment = ({ comment, post, sessionUser }) => {
   const [editForm, setEditForm] = useState(false);
@@ -62,6 +63,7 @@ const SingleComment = ({ comment, post, sessionUser }) => {
               ></i>
             )}
           </div>
+          <p className="comment-time">{moment(comment.created_on).fromNow()}</p>
           {commentOptions && (
             <>
               <div className="edit-and-delete-comment">

@@ -200,6 +200,19 @@ height: 35px;
     z-index: 2;
 }
 
+.comment-time{
+    position: relative;
+    left: 12%;
+    color: gray;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 100;
+    font-size: 11px;
+    cursor:default;
+    width:fit-content;
+    height: fit-content;
+    bottom: 5px;
+}
+
 .comment-upload-x{
 position: relative;
 bottom: 85px;
