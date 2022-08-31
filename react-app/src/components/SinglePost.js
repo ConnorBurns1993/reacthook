@@ -8,11 +8,11 @@ import { addComment } from "../store/comments";
 import { useSelector } from "react-redux";
 import { addPostLike } from "../store/postLike";
 import { getAllPosts } from "../store/posts";
+import moment from "moment";
 
 const SinglePost = ({ post }) => {
   const [options, setOptions] = useState(false);
   const dispatch = useDispatch();
-
   const sessionUser = useSelector((state) => state.session.user);
 
   const [body, setBody] = useState("");
@@ -21,6 +21,12 @@ const SinglePost = ({ post }) => {
   const [view, setView] = useState("");
   const [hover, setHover] = useState(false);
   const [errors, setErrors] = useState([]);
+
+  const postDate = new Date(post.updated_on);
+
+  console.log(postDate);
+
+  console.log(moment(postDate).fromNow());
 
   const fileRef = useRef();
 
@@ -94,6 +100,7 @@ const SinglePost = ({ post }) => {
           {post.user?.first_name} {post.user?.last_name}
         </p>
       </NavLink>
+      <p className="post-time">{moment(post.created_on).fromNow()}</p>
       {sessionUser.id === post.user_id && (
         <i
           className="fa-solid fa-ellipsis posts-ellipsis"
