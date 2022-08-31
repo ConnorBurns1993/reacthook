@@ -142,7 +142,7 @@ text-decoration: underline;
 
 .post-body{
     position: relative;
-    left: 3%;
+    left: 2%;
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 1%;
     z-index: 0;
@@ -152,11 +152,11 @@ text-decoration: underline;
 
 .post-body-short{
     position: relative;
-    left: 3%;
+    left: 2%;
     font-size: 24px;
     font-family: Arial, Helvetica, sans-serif;
     width: fit-content;
-    margin-bottom: 3%;
+    margin-bottom: 1%;
 }
 
 .posts-ellipsis {
@@ -171,7 +171,7 @@ text-decoration: underline;
     text-align: center;
     padding: 1%;
     user-select: none;
-    margin-top: -20px;
+    margin-top: -10px;
 
 
 
@@ -240,7 +240,7 @@ text-decoration: underline;
     box-shadow: .5px .5px 3px rgb(214, 214, 214);
     z-index: 1;
     left: 51%;
-    top: 50px;
+    top: 45px;
     border-radius: 10px;
 }
 
@@ -521,10 +521,11 @@ width: 350px;
     font-size: 11px;
     position: relative;
     left: 9.5%;
-    bottom: 30px;
+    bottom: 15px;
     cursor:default;
     width:fit-content;
     height: fit-content;
+    margin-top: -15px;
 }
 
 .postgresql{

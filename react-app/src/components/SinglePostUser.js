@@ -8,6 +8,7 @@ import { addComment } from "../store/comments";
 import { useSelector } from "react-redux";
 import { addPostLike } from "../store/postLike";
 import { getAllPosts } from "../store/posts";
+import moment from "moment";
 
 const SinglePostUser = ({ post, user }) => {
   const [options, setOptions] = useState(false);
@@ -96,6 +97,7 @@ const SinglePostUser = ({ post, user }) => {
               {post.user?.first_name} {post.user?.last_name}
             </p>
           </NavLink>
+          <p className="post-time">{moment(post.created_on).fromNow()}</p>
           {sessionUser.id === post.user_id && (
             <i
               className="fa-solid fa-ellipsis posts-ellipsis"
