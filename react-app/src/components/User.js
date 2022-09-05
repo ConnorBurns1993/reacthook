@@ -154,46 +154,71 @@ function User() {
   return sessionUser && posts && user ? (
     <>
       <div className="profile-container">
-        {sessionUser.id.toString() === userId ? (
-          <img className="cover-pic" src={sessionUser?.cover_pic} />
-        ) : (
-          <img className="cover-pic" src={user?.cover_pic} />
-        )}
-        {sessionUser.id.toString() === userId ? (
-          <img className="profile-page-image" src={sessionUser?.profile_pic} />
-        ) : (
-          <img className="profile-page-image" src={user?.profile_pic} />
-        )}
-        <p className="profile-page-name">
-          {user?.first_name} {user?.last_name}
-        </p>
+        <div>
+          {!coverView ? (
+            <button
+              className="edit-cover-photo"
+              onClick={(e) => coverRef.current.click(e)}
+              type="button"
+            >
+              <i className="fa-solid fa-camera"></i> Edit cover photo
+            </button>
+          ) : (
+            <button className="cover-submit" onClick={handleCoverSubmit}>
+              <i className="fa-solid fa-check"></i>
+            </button>
+          )}
+          {sessionUser.id.toString() === userId ? (
+            <img className="cover-pic" src={sessionUser?.cover_pic} />
+          ) : (
+            <img className="cover-pic" src={user?.cover_pic} />
+          )}
+        </div>
+        <div className="picture-and-name-profile">
+          {sessionUser.id.toString() === userId ? (
+            <img
+              className="profile-page-image"
+              src={sessionUser?.profile_pic}
+            />
+          ) : (
+            <img className="profile-page-image" src={user?.profile_pic} />
+          )}
+          <p className="profile-page-name">
+            {user?.first_name} {user?.last_name}
+          </p>
+          {!view ? (
+            <button
+              type="button"
+              className="comment-upload-button"
+              id="edit-upload-profile"
+              onClick={(e) => fileRef.current.click(e)}
+            >
+              <i className="fa-solid fa-camera profile-camera"></i>
+            </button>
+          ) : (
+            <button className="profile-submit" onClick={handleSubmit}>
+              <i className="fa-solid fa-check"></i>
+            </button>
+          )}
+          {view && (
+            <>
+              <img className="profile-image-preview" src={view} />
+              <button
+                className="profile-upload-x"
+                type="button"
+                onClick={(e) => {
+                  setView("");
+                  setImage("");
+                }}
+              >
+                <i className="fa-solid fa-x comment-x"></i>
+              </button>
+            </>
+          )}
+        </div>
         {sessionUser.id.toString() === userId && (
           <>
             <form>
-              {view && (
-                <>
-                  <img className="profile-image-preview" src={view} />
-                  <button
-                    className="profile-upload-x"
-                    type="button"
-                    onClick={(e) => {
-                      setView("");
-                      setImage("");
-                    }}
-                  >
-                    <i className="fa-solid fa-x comment-x"></i>
-                  </button>
-                  {/* {imageLoading && (
-                    <div>
-                    <img
-                    className="image-loading"
-                    src="https://flevix.com/wp-content/uploads/2019/07/Untitled-2.gif"
-                    ></img>
-                      <p>Posting</p>
-                      </div>
-                    )} */}
-                </>
-              )}
               {coverView && (
                 <>
                   <img className="cover-pic-view" src={coverView} />
@@ -208,33 +233,6 @@ function User() {
                     <i className="fa-solid fa-x comment-x"></i>
                   </button>
                 </>
-              )}
-              {!view ? (
-                <button
-                  type="button"
-                  className="comment-upload-button"
-                  id="edit-upload-profile"
-                  onClick={(e) => fileRef.current.click(e)}
-                >
-                  <i className="fa-solid fa-camera profile-camera"></i>
-                </button>
-              ) : (
-                <button className="profile-submit" onClick={handleSubmit}>
-                  <i className="fa-solid fa-check"></i>
-                </button>
-              )}
-              {!coverView ? (
-                <button
-                  className="edit-cover-photo"
-                  onClick={(e) => coverRef.current.click(e)}
-                  type="button"
-                >
-                  <i className="fa-solid fa-camera"></i> Edit cover photo
-                </button>
-              ) : (
-                <button className="cover-submit" onClick={handleCoverSubmit}>
-                  <i className="fa-solid fa-check"></i>
-                </button>
               )}
 
               <input

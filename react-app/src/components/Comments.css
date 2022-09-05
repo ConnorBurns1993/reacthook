@@ -194,7 +194,7 @@ height: 35px;
     border-radius: 250px;
     position: relative;
     bottom: 80px;
-    left: 20.5%;
+    right: 59%;
     object-fit: cover;
     border: 4px solid white;
     z-index: 2;
@@ -225,8 +225,8 @@ border: transparent;
 
 .profile-upload-x{
     position: relative;
-    bottom: 118px;
-    left: 20%;
+    bottom: 117px;
+    right: 57%;
     border-radius: 50px;
     width: 28px;
     height: 28px;
@@ -235,8 +235,8 @@ border: transparent;
 }
 
 .cover-upload-x{
-    position: absolute;
-    top: 450px;
+    position: relative;
+    top: -314px;
     left: 82%;
     border-radius: 50px;
     width: 28px;
@@ -254,13 +254,14 @@ border: transparent;
     font-size: 15px;
     border: transparent;
     border-radius: 50px;
-    z-index: 2;
+    z-index: 5;
 }
 
 .cover-submit{
     position: relative;
-    top: -100px;
-    left: 77.5%;
+    left: 80%;
+    top: -30px;
+    z-index: 1;
     width: 27px;
     height: 27px;
     font-size: 15px;
