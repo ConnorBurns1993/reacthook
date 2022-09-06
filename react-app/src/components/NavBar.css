@@ -156,6 +156,11 @@ margin-right: .5%;
     border-radius: 50px;
 }
 
+.div-picture-nav{
+    margin-top: 3%;
+    margin-left: 3%;
+}
+
 .profile-nav{
     position:relative;
     top: 3px;
@@ -186,8 +191,8 @@ margin-right: .5%;
 .user-options-inner{
 
     background-color: white;
-    width: 290px;
-    height: 60px;
+    width: 310px;
+    height: 50px;
     position: relative;
     left: 3%;
     top: 10px;
@@ -195,13 +200,18 @@ margin-right: .5%;
     border-radius: 10px;
     box-shadow: 0px 1px 15px rgb(214, 214, 214);
     display: inline-flex;
-    padding: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .profile-name-options {
-    margin-left: 5%;
-    margin-top: 3%;
+    margin-left: 3%;
+    margin-top: 6%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
 }
 
 .p{
@@ -249,4 +259,12 @@ margin-right: .5%;
     width: 100px;
     font-weight: bold;
     cursor:pointer;
+}
+
+.user-hover{
+    display: inline-flex;
+    width: 310px;
+    height: 70px;
+    position: relative;
+    bottom: 10px;
 }

@@ -373,12 +373,18 @@ text-decoration: underline;
     margin-top: 0%;
     padding: .3%;
     cursor: pointer;
-    /* z-index: 2;; */
+    z-index: 1;
 }
 
 .name-fixed:hover{
     background-color: rgb(230, 230, 230);
     border-radius: 10px;
+}
+
+.user-hover:hover{
+    background-color: rgb(245, 245, 245);
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .profile-home {
@@ -429,6 +435,7 @@ position: fixed;
 right: 0;
 top: 10%;
 width: 350px;
+z-index: 1;
 }
 
 .app-academy{

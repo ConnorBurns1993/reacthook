@@ -72,6 +72,13 @@
     box-shadow: .5px .5px 7px rgb(214, 214, 214);
 }
 
+@media only screen and (max-width: 1399px) {
+    .post-form-container-profile{
+        position: relative;
+        left: 28%;
+    }
+}
+
 .all-posts-container-profile{
     margin-top: 45px;
     position: relative;
@@ -97,7 +104,7 @@
     border-radius: 5px;
     position: absolute;
     right: 18%;
-    top: 47%;
+    top: 440px;
     padding: .5%;
     width: 155px;
     cursor: pointer;

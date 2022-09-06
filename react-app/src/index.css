@@ -25,6 +25,19 @@ a{
     width: fit-content;
 }
 
-#wrapper {
-    /* width:1900px; */
-}
+@media only screen and (max-width: 1399px) {
+    .name-fixed,
+    .ads,
+    .technologies,
+    .intro-div {
+      display: none;
+      visibility: hidden;
+
+    }
+    #root{
+        width: 50%;
+    }
+    .all-posts-container-profile{
+        width: 60%;
+    }
+  }

@@ -117,13 +117,20 @@ const NavBar = () => {
             <div ref={ref} className="user-options-container">
               <div>
                 <div className="user-options-inner">
-                  <img
-                    className="profile-picture-nav"
-                    src={sessionUser?.profile_pic}
-                  />
-                  <h3 className="profile-name-options">
-                    {sessionUser?.first_name} {sessionUser?.last_name}
-                  </h3>
+                  <NavLink
+                    to={`/${sessionUser.id}`}
+                    onClick={() => setIsComponentVisible(!isComponentVisible)}
+                  >
+                    <div className="user-hover">
+                      <img
+                        className="profile-picture-nav div-picture-nav"
+                        src={sessionUser?.profile_pic}
+                      />
+                      <h3 className="profile-name-options">
+                        {sessionUser?.first_name} {sessionUser?.last_name}
+                      </h3>
+                    </div>
+                  </NavLink>
                 </div>
                 <LogoutButton />
               </div>
