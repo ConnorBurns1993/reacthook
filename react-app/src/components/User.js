@@ -155,7 +155,7 @@ function User() {
     <>
       <div className="profile-container">
         <div>
-          {!coverView ? (
+          {!coverView && sessionUser.id === user.id ? (
             <button
               className="edit-cover-photo"
               onClick={(e) => coverRef.current.click(e)}
@@ -164,7 +164,10 @@ function User() {
               <i className="fa-solid fa-camera"></i> Edit cover photo
             </button>
           ) : (
-            <button className="cover-submit" onClick={handleCoverSubmit}>
+            <button
+              className={sessionUser.id === user.id ? "cover-submit" : "hidden"}
+              onClick={handleCoverSubmit}
+            >
               <i className="fa-solid fa-check"></i>
             </button>
           )}
@@ -186,7 +189,7 @@ function User() {
           <p className="profile-page-name">
             {user?.first_name} {user?.last_name}
           </p>
-          {!view ? (
+          {!view && sessionUser.id === user.id ? (
             <button
               type="button"
               className="comment-upload-button"
@@ -196,7 +199,12 @@ function User() {
               <i className="fa-solid fa-camera profile-camera"></i>
             </button>
           ) : (
-            <button className="profile-submit" onClick={handleSubmit}>
+            <button
+              className={
+                sessionUser.id === user.id ? "profile-submit" : "hidden"
+              }
+              onClick={handleSubmit}
+            >
               <i className="fa-solid fa-check"></i>
             </button>
           )}
