@@ -1,4 +1,4 @@
-/* @media only screen and (max-width: 450px) {
+@media only screen and (max-width: 450px) {
     .reacthook-logo-div {
         width: 0px;
         position: relative;
@@ -29,7 +29,7 @@
     body {
         margin: -110px;
     }
-  } */
+  }
 
 
 .splash-wrapper{
