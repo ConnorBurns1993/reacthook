@@ -1,3 +1,35 @@
+@media only screen and (max-width: 450px) {
+    .reacthook-logo-div {
+        width: 0px;
+        position: relative;
+        left: 50px;
+    }
+    .reacthook{
+        position: relative;
+        left: 70px
+    }
+    .signup-container{
+        right: 70px;
+        width: 0px;
+    }
+    .login-form
+    {
+        margin-left: 5px;
+    }
+    .reacthook-h2{
+        display: none;
+    }
+    .signup-login-wrapper{
+        position: relative;
+        top: 50px;
+    }
+    .footer-div{
+        display: none;
+    }
+    body {
+        margin: -110px;
+    }
+  }
 
 
 .splash-wrapper{
