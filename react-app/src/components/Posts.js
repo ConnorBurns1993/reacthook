@@ -47,7 +47,7 @@ const Posts = () => {
             <p className="postgresql-text">
               <img
                 className="postgresql tech"
-                src="https://i.imgur.com/w9j6gvE.png"
+                src="https://i.imgur.com/QF2ZGTM.png"
               />
               <p className="postgres-center">PostgreSQL</p>
             </p>

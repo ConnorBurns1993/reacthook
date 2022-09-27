@@ -10,7 +10,7 @@ const SplashPage = () => {
         <div className="reacthook-logo-div">
           <img
             className="reacthook"
-            src="https://i.imgur.com/hAKwnsI.png"
+            src="https://i.imgur.com/Ik3igUA.png"
           ></img>
           <h2 className="reacthook-h2">
             Connect with friends and the world around you on Reacthook.
