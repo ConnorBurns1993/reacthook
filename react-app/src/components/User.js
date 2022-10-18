@@ -174,7 +174,12 @@ function User() {
           {sessionUser.id.toString() === userId ? (
             <img className="cover-pic" src={sessionUser?.cover_pic} />
           ) : (
-            <img className="cover-pic" src={user?.cover_pic} />
+            <>
+              <img className="cover-pic" src={user?.cover_pic} />
+              <button className="add-friend">
+                <i className="fa-solid fa-user-plus"></i>Add Friend
+              </button>
+            </>
           )}
         </div>
         <div className="picture-and-name-profile">

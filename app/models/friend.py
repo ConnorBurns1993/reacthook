@@ -4,16 +4,17 @@ class Friend(db.Model):
     __tablename__ = 'friends'
 
     id = db.Column(db.Integer, primary_key=True)
-    user_a_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    user_b_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    sender_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='CASCADE'), nullable=False)
+    reciever_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='CASCADE'), nullable=False)
+    accepted = db.Column(db.Boolean, nullable=True)
 
     #relationships
-    user_a = db.relationship('User', back_populates='first_friend', foreign_keys=[user_a_id])
-    user_b = db.relationship('User', back_populates='second_friend', foreign_keys=[user_b_id])
+    friend_requester = db.relationship('User', back_populates='sender', foreign_keys=[sender_id])
+    request_reciever = db.relationship('User', back_populates='reciever', foreign_keys=[reciever_id])
 
     def to_dict(self):
         return {
             'id': self.id,
-            'user_a_id': self.user_a_id,
-            'user_b_id': self.user_b_id,
+            'sender_id': self.sender_id,
+            'reciever_id': self.reciever_id,
         }

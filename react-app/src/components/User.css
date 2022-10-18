@@ -107,6 +107,7 @@
     top: 440px;
     padding: .5%;
     width: 155px;
+    height: 40px;
     cursor: pointer;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 500;
@@ -177,4 +178,24 @@
     font-size: 20px;
     text-align: left;
     margin-right: 5%;
+}
+
+.add-friend{
+    background-color: #1b74e4;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    border: transparent;
+    border-radius: 6px;
+    width: 135px;
+    height: 37px;
+    left: 72%;
+    top: 57.5%;
+    position: absolute;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.fa-user-plus {
+    margin-right: 5px;
 }

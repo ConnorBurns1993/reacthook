@@ -172,6 +172,11 @@ margin-right: .5%;
     cursor: pointer;
 }
 
+.add-friend:hover{
+    filter:brightness(95%);
+    cursor: pointer;
+}
+
 .nav-img {
     position: relative;
 }

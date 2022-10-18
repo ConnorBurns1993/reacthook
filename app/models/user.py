@@ -25,8 +25,8 @@ class User(db.Model, UserMixin):
     post_likes = db.relationship('PostLike', back_populates='user')
     comments = db.relationship('Comment', back_populates='user')
     comment_likes = db.relationship('CommentLike', back_populates='user')
-    first_friend = db.relationship('Friend', back_populates='user_a', foreign_keys='[Friend.user_a_id]')
-    second_friend = db.relationship('Friend', back_populates='user_b', foreign_keys='[Friend.user_b_id]')
+    sender = db.relationship('Friend', back_populates='friend_requester', foreign_keys='[Friend.sender_id]')
+    reciever = db.relationship('Friend', back_populates='request_reciever', foreign_keys='[Friend.reciever_id]')
 
     @property
     def password(self):

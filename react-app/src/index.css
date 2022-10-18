@@ -29,7 +29,8 @@ a{
     .name-fixed,
     .ads,
     .technologies,
-    .intro-div {
+    .intro-div,
+    .searchbar-input {
       display: none;
       visibility: hidden;
 
