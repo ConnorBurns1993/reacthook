@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../../store/session";
-import "../NavBar.css";
+import "../NavBar/NavBar.css";
 import { useHistory } from "react-router-dom";
 
 const LogoutButton = () => {

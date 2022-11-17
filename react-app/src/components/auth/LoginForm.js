@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import { login } from "../../store/session";
 import Footer from "../Footer";
-import "../SplashPage.css";
+import "../SplashPage/SplashPage.css";
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);

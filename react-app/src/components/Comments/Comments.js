@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getPostComments } from "../store/comments";
+import { getPostComments } from "../../store/comments";
 import { useEffect } from "react";
 import SingleComment from "./SingleComment";
 

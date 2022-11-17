@@ -2,14 +2,16 @@ import React, { useState, useEffect, useRef } from "react";
 import { useParams, useHistory, withRouter } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./User.css";
-import SplashPage from "./SplashPage";
-import PostFormModalUser from "./PostFormModal/PostFormModalUser";
-import SinglePostUser from "./SinglePostUser";
-import { getAllUsers, updateUser } from "../store/session";
-import NotFound from "./NotFound";
+import PostFormModalUser from "../PostFormModal/PostFormModalUser";
+import SinglePostUser from "../Posts/SinglePostUser";
+import { updateUser } from "../../store/session";
+import { addRequest, destroyRequest } from "../../store/friends";
+import { getAllFriends } from "../../store/friends";
+import NotFound from "../NotFound";
 
 function User() {
   const sessionUser = useSelector((state) => state.session.user);
+  const friends = useSelector((state) => Object.values(state.friends));
   const history = useHistory();
   const [user, setUser] = useState({});
   const [view, setView] = useState("");
@@ -23,6 +25,7 @@ function User() {
   const posts = useSelector((state) => state.posts);
   const [imageLoading, setImageLoading] = useState(false);
   const [profileOptions, setProfileOptions] = useState(false);
+  const [friended, setFriended] = useState(false);
 
   const fileRef = useRef();
   const coverRef = useRef();
@@ -138,6 +141,10 @@ function User() {
   };
 
   useEffect(() => {
+    dispatch(getAllFriends());
+  }, [userId]);
+
+  useEffect(() => {
     getUser();
   }, [userId]);
 
@@ -150,6 +157,21 @@ function User() {
   const year = date?.slice(7, 11);
 
   const birthday = `${month} ${day}, ${year}`;
+
+  const handleAddFriend = async (e) => {
+    const newRequest = {
+      sender_id: sessionUser.id,
+      reciever_id: userId,
+      accepted: false,
+    };
+
+    await dispatch(addRequest(newRequest));
+  };
+
+  console.log([] === true);
+  const handleCancelFriend = async (e) => {
+    await dispatch(destroyRequest(friends[0].id));
+  };
 
   return sessionUser && posts && user ? (
     <>
@@ -176,9 +198,18 @@ function User() {
           ) : (
             <>
               <img className="cover-pic" src={user?.cover_pic} />
-              <button className="add-friend">
-                <i className="fa-solid fa-user-plus"></i>Add Friend
-              </button>
+              {/* {friends[0]?.reciever_id.toString() !== userId && (
+                <button className={"add-friend"} onClick={handleAddFriend}>
+                  <i className="fa-solid fa-user-plus"></i>
+                  Add Friend
+                </button>
+              )}
+              {friends[0]?.reciever_id.toString() === userId && (
+                <button className={"pending"} onClick={handleCancelFriend}>
+                  <i className="fa-solid fa-user-xmark"></i>
+                  Cancel Request
+                </button> */}
+              {/* )} */}
             </>
           )}
         </div>

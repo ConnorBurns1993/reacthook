@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import LogoutButton from "./auth/LogoutButton";
-import SearchBar from "./SearchBar";
+import LogoutButton from "../auth/LogoutButton";
+import SearchBar from "../SearchBar/SearchBar";
 import "./NavBar.css";
-import useComponentVisible from "./useComponentVisible";
+import useComponentVisible from "../useComponentVisible";
 
 const NavBar = () => {
   const sessionUser = useSelector((state) => state.session.user);

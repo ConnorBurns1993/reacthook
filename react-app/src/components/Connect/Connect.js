@@ -10,7 +10,7 @@ const Connect = () => {
       <img
         className="connect-image"
         alt="connect"
-        src="https://i.imgur.com/RfH5lig.jpg"
+        src="https://i.imgur.com/m43AMd6.jpg"
       />
       <p>
         I enjoy building quality applications and I am learning more about
@@ -18,8 +18,7 @@ const Connect = () => {
         developer tomorrow than I am today, so I consider myself a constant
         student. I would love if you would reach out to me if you have any
         questions or just want to talk about software development in general.
-        Please see the links below for ways to reach me and thank you again for
-        visiting my site!
+        Thank you again for visiting my site!
       </p>
     </div>
   );

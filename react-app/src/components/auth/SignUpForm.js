@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { signUp } from "../../store/session";
-import "../SplashPage.css";
+import "../SplashPage/SplashPage.css";
 import { Redirect } from "react-router-dom";
 
 const SignUpForm = ({ setShowModal }) => {

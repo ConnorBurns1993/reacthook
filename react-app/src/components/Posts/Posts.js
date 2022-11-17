@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import PostFormModal from "./PostFormModal/PostFormModal";
+import PostFormModal from "../PostFormModal/PostFormModal";
 import "./Posts.css";
 import SinglePost from "./SinglePost";
-import SplashPage from "./SplashPage";
+import SplashPage from "../SplashPage/SplashPage";
 import { NavLink } from "react-router-dom";
 
 const Posts = () => {

@@ -1,7 +1,7 @@
 import React from "react";
-import LoginForm from "./auth/LoginForm";
-import SignUpFormModal from "./auth/SignUpFormModal";
-import Footer from "./Footer";
+import LoginForm from "../auth/LoginForm";
+import SignUpFormModal from "../auth/SignUpFormModal";
+import Footer from "../Footer";
 
 const SplashPage = () => {
   return (

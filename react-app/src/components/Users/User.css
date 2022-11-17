@@ -196,6 +196,24 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.fa-user-plus {
+.pending{
+    background-color: #dfdfdf;
+    font-weight: 600;
+    font-size: 15px;
+    border: transparent;
+    border-radius: 6px;
+    padding-right: 5px;
+    padding-left: 5px;
+    width: 155px;
+    height: 37px;
+    left: 72%;
+    top: 57.5%;
+    position: absolute;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.fa-user-plus,
+.fa-user-xmark {
     margin-right: 5px;
 }

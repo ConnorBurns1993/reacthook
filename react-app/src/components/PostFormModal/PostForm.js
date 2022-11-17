@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost } from "../../store/posts";
-import "../Posts.css";
+import "../Posts/Posts.css";
 
 function PostForm({ setShowModal }) {
   const dispatch = useDispatch();

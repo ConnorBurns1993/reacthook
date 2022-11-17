@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { addComment } from "../store/comments";
+import { addComment } from "../../store/comments";
 
 function CommentForm({ post, ref }) {
   const dispatch = useDispatch();

@@ -1,13 +1,13 @@
 import React, { useState, useRef } from "react";
-import EditPostFormModal from "./EditPostFormModal/EditPostFormModal";
-import DeletePostModal from "./DeletePostModal/DeletePostModal";
-import Comments from "./Comments";
+import EditPostFormModal from "../EditPostFormModal/EditPostFormModal";
+import DeletePostModal from "../DeletePostModal/DeletePostModal";
+import Comments from "../Comments/Comments";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addComment } from "../store/comments";
+import { addComment } from "../../store/comments";
 import { useSelector } from "react-redux";
-import { addPostLike } from "../store/postLike";
-import { getAllPosts } from "../store/posts";
+import { addPostLike } from "../../store/postLike";
+import { getAllPosts } from "../../store/posts";
 import moment from "moment";
 
 const SinglePostUser = ({ post, user }) => {

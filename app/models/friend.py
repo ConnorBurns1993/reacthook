@@ -6,7 +6,7 @@ class Friend(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     sender_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='CASCADE'), nullable=False)
     reciever_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='CASCADE'), nullable=False)
-    accepted = db.Column(db.Boolean, nullable=True)
+    accepted = db.Column(db.Boolean, nullable=False)
 
     #relationships
     friend_requester = db.relationship('User', back_populates='sender', foreign_keys=[sender_id])
@@ -17,4 +17,5 @@ class Friend(db.Model):
             'id': self.id,
             'sender_id': self.sender_id,
             'reciever_id': self.reciever_id,
+            'accepted': self.accepted
         }

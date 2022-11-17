@@ -1,8 +1,8 @@
 import { useState } from "react";
-import DeleteCommentModal from "./DeleteCommentModal/DeleteCommentModal";
+import DeleteCommentModal from "../DeleteCommentModal/DeleteCommentModal";
 import { useEffect } from "react";
 import "./Comments.css";
-import EditCommentFormModal from "./EditCommentModal/EditCommentFormModal";
+import EditCommentFormModal from "../EditCommentModal/EditCommentFormModal";
 import { NavLink } from "react-router-dom";
 import moment from "moment";
 
