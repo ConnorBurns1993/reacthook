@@ -1,5 +1,6 @@
 # Start with the python:3.9 image
 FROM python:3.9
+FROM node:23.7.0
 # Set the following enviroment variables
 #
 # REACT_APP_BASE_URL -> Your deployment URL
