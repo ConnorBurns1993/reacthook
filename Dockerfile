@@ -7,7 +7,7 @@ FROM node:23.7.0
 # FLASK_APP -> entry point to your flask app
 # FLASK_ENV -> Tell flask to use the production server
 # SQLALCHEMY_ECHO -> Just set it to true
-ENV REACT_APP_BASE_URL=https://reacthook-fb.herokuapp.com/
+ENV REACT_APP_BASE_URL=https://reacthook-548f4de40617.herokuapp.com/
 ENV FLASK_APP=app
 ENV FLASK_ENV=production
 ENV SQLALCHEMY_ECHO=True
