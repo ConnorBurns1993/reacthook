@@ -1,1 +1,1 @@
-web: python Dockerfile
+web: gunicorn app:app
