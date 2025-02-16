@@ -24,6 +24,7 @@ COPY /react-app/build/* app/static/
 RUN pip install greenlet --only-binary :all:
 RUN pip install -r requirements.txt
 RUN pip install psycopg2
+RUN pip install six
 RUN pip install email_validator
 # Start the flask environment by setting our
 # closing command to gunicorn app:app
