@@ -1,5 +1,5 @@
 # Step 1: Build the React frontend
-FROM node:23.7.0 AS frontend
+FROM node:16 AS frontend
 
 WORKDIR /app
 COPY react-app/package.json react-app/package-lock.json ./
