@@ -1,5 +1,6 @@
 FROM node:16 AS frontend
 
+WORKDIR react-app/
 COPY react-app/package.json react-app/package-lock.json ./
 RUN npm install
 COPY react-app ./
