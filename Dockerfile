@@ -14,7 +14,7 @@ WORKDIR /var/www
 COPY . .
 
 # Copy the built react app from the react-app/build/ directory to the flask app static folder
-COPY react-app/build/ app/static/
+COPY /react-app/build/* app/static/
 
 # Run the next two python install commands with PIP
 RUN pip install -r requirements.txt
