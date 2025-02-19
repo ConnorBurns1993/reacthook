@@ -1,6 +1,12 @@
 # Start with the python:3.9 image
 FROM python:3.9
 
+WORKDIR /app
+COPY react-app/package.json react-app/package-lock.json ./
+RUN npm install
+RUN npm run build
+COPY react-app ./
+
 # Set the following environment variables
 ENV REACT_APP_BASE_URL=https://reacthook-548f4de40617.herokuapp.com/
 ENV FLASK_APP=app
