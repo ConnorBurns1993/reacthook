@@ -1,30 +1,30 @@
-# Step 1: Build the React frontend
-FROM node:16 AS frontend
-
-WORKDIR /app
-COPY react-app/package.json react-app/package-lock.json ./
-RUN npm install
-COPY react-app ./
-RUN npm run build
-
-# Step 2: Build the Python backend
-FROM python:3.9 AS backend
-
+# Start with the python:3.9 image
+FROM python:3.9
+# Set the following enviroment variables
+#
+# REACT_APP_BASE_URL -> Your deployment URL
+# FLASK_APP -> entry point to your flask app
+# FLASK_ENV -> Tell flask to use the production server
+# SQLALCHEMY_ECHO -> Just set it to true
+ENV REACT_APP_BASE_URL=https://reacthook-548f4de40617.herokuapp.com/
 ENV FLASK_APP=app
 ENV FLASK_ENV=production
 ENV SQLALCHEMY_ECHO=True
-
+# Set the directory for upcoming commands to /var/www
 WORKDIR /var/www
-COPY /react-app/build/* /app/static/
+# Copy all the files from your repo to the working directory
 COPY . .
-RUN pip install greenlet --only-binary :all:
+# Copy the built react app (it's built for us) from the
+# /react-app/build/ directory into your flasks app/static directory
+COPY /react-app/build/* app/static/
+# Run the next two python install commands with PIP
+# install -r requirements.txt
+# install psycopg2
 RUN pip install -r requirements.txt
 RUN pip install psycopg2
-RUN pip install six
 RUN pip install email_validator
-
+# Start the flask environment by setting our
+# closing command to gunicorn app:app
 # Expose the port
 EXPOSE 5000
-
-# Start the Flask app
 CMD gunicorn -b 0.0.0.0:$PORT app:app
