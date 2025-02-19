@@ -2,6 +2,7 @@ FROM node:16 AS frontend
 
 COPY react-app/package.json react-app/package-lock.json ./
 RUN npm install
+COPY react-app ./
 RUN npm run build
 COPY react-app ./
 FROM python:3.9 as backend
