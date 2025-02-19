@@ -16,8 +16,6 @@ ENV SQLALCHEMY_ECHO=True
 
 WORKDIR /var/www
 COPY --from=frontend /app/build /app/static/
-RUN npm install -g serve
-RUN serve -s build
 COPY . .
 RUN pip install greenlet --only-binary :all:
 RUN pip install -r requirements.txt
