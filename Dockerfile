@@ -27,4 +27,4 @@ RUN pip install email_validator
 EXPOSE 5000
 
 # Start the Flask app
-CMD ["gunicorn", "-b", "0.0.0.0:5000", "app:app"]
+CMD gunicorn -b 0.0.0.0:$PORT app:app
