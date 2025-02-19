@@ -15,7 +15,7 @@ ENV FLASK_ENV=production
 ENV SQLALCHEMY_ECHO=True
 
 WORKDIR /var/www
-COPY --from=frontend /react-app/build/* /app/static/
+COPY /react-app/build/* /app/static/
 COPY . .
 RUN pip install greenlet --only-binary :all:
 RUN pip install -r requirements.txt
