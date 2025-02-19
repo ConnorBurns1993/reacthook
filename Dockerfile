@@ -13,10 +13,6 @@ WORKDIR /var/www
 # Copy all the files from your repo to the working directory
 COPY . .
 
-# Build the React app (if not already built)
-# Make sure to change to the react-app directory and run the build command
-RUN cd react-app && npm install && npm run build
-
 # Copy the built react app from the react-app/build/ directory to the flask app static folder
 COPY react-app/build/ app/static/
 
