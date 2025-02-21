@@ -10,17 +10,17 @@ RUN npm run build
 
 # Backend build stage
 FROM python:3.10 AS backend
-WORKDIR /app
-COPY requirements.txt ./
+WORKDIR /var/www
+
+COPY . .
+# Copy frontend build into backend
+COPY --from=frontend react-app/build app/static
+
 RUN pip install greenlet --only-binary :all:
 RUN pip install -r requirements.txt
 RUN pip install psycopg2
 RUN pip install six
 RUN pip install email_validator
-COPY app ./
-
-# Copy frontend build into backend
-COPY --from=frontend react-app/build app/static
 
 # Define environment variables
 ENV REACT_APP_BASE_URL=https://reacthook-548f4de40617.herokuapp.com/
@@ -32,4 +32,4 @@ ENV SQLALCHEMY_ECHO=True
 EXPOSE 5000
 
 # Command to start the Flask app
-CMD ["gunicorn", "-b", "0.0.0.0:5000", "app.__init__:app"]
+CMD ["gunicorn", "-b", "0.0.0.0:5000", "app:app"]
