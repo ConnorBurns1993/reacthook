@@ -2,6 +2,8 @@
 FROM node:18 AS frontend
 WORKDIR /app/react-app
 COPY react-app/package.json react-app/package-lock.json ./
+# Fix for Webpack OpenSSL issue
+ENV NODE_OPTIONS="--openssl-legacy-provider"
 RUN npm install
 COPY react-app ./
 RUN npm run build
