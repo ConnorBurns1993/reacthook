@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, session, redirect
+from flask import Flask, render_template, request, session, redirect, send_from_directory
 from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
@@ -16,7 +16,7 @@ from .seeds import seed_commands
 
 from .config import Config
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../react-app/build', static_url_path='')
 
 # Setup login manager
 login = LoginManager(app)
@@ -70,7 +70,13 @@ def inject_csrf_token(response):
     return response
 
 
-@app.route('/', defaults={'path': ''})
+@app.route('/')
+def serve():
+    return send_from_directory(app.static_folder, 'index.html')
+
+if __name__ == "__main__":
+    app.run()
+
 @app.route('/<path:path>')
 def react_root(path):
     if path == 'favicon.ico':
