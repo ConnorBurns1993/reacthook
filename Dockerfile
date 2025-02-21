@@ -19,7 +19,7 @@ COPY app ./
 COPY --from=frontend /app/react-app/build /app/static
 
 # Define environment variables
-ENV FLASK_APP=app.py
+ENV FLASK_APP=app
 ENV FLASK_RUN_HOST=0.0.0.0
 ENV FLASK_ENV=production
 
@@ -27,4 +27,4 @@ ENV FLASK_ENV=production
 EXPOSE 5000
 
 # Command to start the Flask app
-CMD ["gunicorn", "-b", "0.0.0.0:5000", "app:app"]
+CMD ["gunicorn", "-b", "0.0.0.0:5000", "app:app", "--chdir", "app"]
