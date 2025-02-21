@@ -11,7 +11,7 @@ RUN npm run build
 # Backend build stage
 FROM python:3.10 AS backend
 WORKDIR /app
-COPY app/requirements.txt ./
+COPY requirements.txt ./
 RUN pip install -r requirements.txt
 COPY app ./
 
