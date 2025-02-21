@@ -5,7 +5,7 @@ COPY react-app/package.json react-app/package-lock.json ./
 # Fix for Webpack OpenSSL issue
 ENV NODE_OPTIONS="--openssl-legacy-provider"
 RUN npm install
-COPY react-app ./
+COPY /react-app ./
 RUN npm run build
 
 # Backend build stage
@@ -14,7 +14,7 @@ WORKDIR /var/www
 
 COPY . .
 # Copy frontend build into backend
-COPY --from=frontend react-app/build app/static
+COPY --from=frontend /react-app/build app/static
 
 RUN pip install greenlet --only-binary :all:
 RUN pip install -r requirements.txt
