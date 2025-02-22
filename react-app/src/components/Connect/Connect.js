@@ -10,7 +10,7 @@ const Connect = () => {
       <img
         className="connect-image"
         alt="connect"
-        src="https://i.imgur.com/m43AMd6.jpg"
+        src="https://i.imgur.com/1WlnVrp.jpeg"
       />
       <p>
         I enjoy building quality applications and I am learning more about
